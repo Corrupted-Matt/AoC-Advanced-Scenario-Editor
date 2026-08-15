@@ -93,6 +93,9 @@ namespace AoC_Advanced_Scenario_Editor
             this.label8 = new System.Windows.Forms.Label();
             this.CityPreview = new System.Windows.Forms.PictureBox();
             this.CitiesTable = new System.Windows.Forms.DataGridView();
+            this.cityX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlliancesTab = new System.Windows.Forms.TabPage();
             this.IsUnion = new System.Windows.Forms.CheckBox();
             this.AlliancePreview = new System.Windows.Forms.PictureBox();
@@ -167,9 +170,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.ExportAsScenario = new System.Windows.Forms.RadioButton();
             this.ExportAsSave = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.cityX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabSelect.SuspendLayout();
             this.LoadTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).BeginInit();
@@ -1111,6 +1111,32 @@ namespace AoC_Advanced_Scenario_Editor
             this.CitiesTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.CitiesTable_RowEnter);
             this.CitiesTable.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.CitiesTable_RowsRemoved);
             // 
+            // cityX
+            // 
+            this.cityX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cityX.FillWeight = 20F;
+            this.cityX.HeaderText = "X";
+            this.cityX.MinimumWidth = 30;
+            this.cityX.Name = "cityX";
+            this.cityX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // cityY
+            // 
+            this.cityY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cityY.FillWeight = 20F;
+            this.cityY.HeaderText = "Y";
+            this.cityY.MinimumWidth = 30;
+            this.cityY.Name = "cityY";
+            this.cityY.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // CityName
+            // 
+            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CityName.HeaderText = "Name";
+            this.CityName.MinimumWidth = 100;
+            this.CityName.Name = "CityName";
+            this.CityName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // AlliancesTab
             // 
             this.AlliancesTab.Controls.Add(this.IsUnion);
@@ -1845,7 +1871,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(37, 17);
             this.label17.TabIndex = 1;
-            this.label17.Text = "0.1.0";
+            this.label17.Text = "0.1.1";
             // 
             // label16
             // 
@@ -2051,32 +2077,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.label26.Size = new System.Drawing.Size(201, 26);
             this.label26.TabIndex = 37;
             this.label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
-            // 
-            // cityX
-            // 
-            this.cityX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cityX.FillWeight = 20F;
-            this.cityX.HeaderText = "X";
-            this.cityX.MinimumWidth = 30;
-            this.cityX.Name = "cityX";
-            this.cityX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // cityY
-            // 
-            this.cityY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cityY.FillWeight = 20F;
-            this.cityY.HeaderText = "Y";
-            this.cityY.MinimumWidth = 30;
-            this.cityY.Name = "cityY";
-            this.cityY.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // CityName
-            // 
-            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CityName.HeaderText = "Name";
-            this.CityName.MinimumWidth = 100;
-            this.CityName.Name = "CityName";
-            this.CityName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // App
             // 
