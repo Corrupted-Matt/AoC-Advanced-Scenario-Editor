@@ -187,6 +187,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             LoadingFinished = true;
             TabSelect.Enabled = true;
+            ExportImage.Enabled = true;
             LoadScenario.Text = "Reload scenario";
             LoadScenario.ForeColor = System.Drawing.Color.Black;            
         }
@@ -615,6 +616,13 @@ namespace AoC_Advanced_Scenario_Editor
 
             if (x < 0) return;
 
+            if(ModifierKeys == Keys.Control)
+            {
+                CitiesTable.CurrentRow.SetValues(x, y);
+                CityNameOrPosModified(sender, new DataGridViewCellEventArgs(0, CitiesTable.CurrentRow.Index));
+                return;
+            }
+
             if(ModifierKeys == Keys.Shift)
             {
                 foreach (var c in origin["cities"].AsArray())
@@ -768,7 +776,7 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void PasteCityNames_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("This will overwrite all ctiy names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (MessageBox.Show("This will overwrite all city names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
             int i = 0;
@@ -780,6 +788,27 @@ namespace AoC_Advanced_Scenario_Editor
                 i++;
                 if (i == CitiesTable.Rows.Count) break;
             }
+        }
+
+        private void ImportCities_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("This will overwrite all cities with ones from selected scenario, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                return;
+
+            OpenFileDialog ScenarioSelectDialog = new()
+            {
+                Filter = "AoC Scenario Files|*.aoc"
+            };
+            if (Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) != "")
+                ScenarioSelectDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low\\JoySparkGames\\Ages of Conflict\\Custom Scenarios";
+
+            if (ScenarioSelectDialog.ShowDialog() == DialogResult.OK)
+            {
+                JsonNode CityDonor = JsonNode.Parse(File.ReadAllText(ScenarioSelectDialog.FileName));
+                origin["cities"].ReplaceWith(CityDonor["cities"].DeepClone());
+                UpdateCities(origin);
+            }
+
         }
 
         #endregion
@@ -1719,6 +1748,8 @@ namespace AoC_Advanced_Scenario_Editor
 
             if(origin["alliances"].AsArray().Count == AlliancesTable.Rows.Count)
                 origin["alliances"].AsArray().RemoveAt(AlliancesTable.Rows.Count - 1);
+
+            if (WarsTable.RowCount <= 1) return;
 
             while ((string)WarsTable.Rows[WarsTable.Rows.Count - 1].Cells[0].Value == "")
             {
