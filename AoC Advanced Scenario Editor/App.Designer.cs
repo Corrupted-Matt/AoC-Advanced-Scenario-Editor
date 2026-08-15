@@ -61,6 +61,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.ScenarioBrowse = new System.Windows.Forms.Button();
             this.ScenarioInput = new System.Windows.Forms.TextBox();
             this.NationsTab = new System.Windows.Forms.TabPage();
+            this.PasteNationNames = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.CapitalSelect = new System.Windows.Forms.ComboBox();
             this.SetBonusToAll = new System.Windows.Forms.Button();
@@ -79,7 +80,11 @@ namespace AoC_Advanced_Scenario_Editor
             this.label6 = new System.Windows.Forms.Label();
             this.NationPreview = new System.Windows.Forms.PictureBox();
             this.NationsTable = new System.Windows.Forms.DataGridView();
+            this.NationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NationColor = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CitiesTab = new System.Windows.Forms.TabPage();
+            this.RemoveCore = new System.Windows.Forms.Button();
             this.PasteCityNames = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.SetCoreToSelf = new System.Windows.Forms.Button();
@@ -88,15 +93,16 @@ namespace AoC_Advanced_Scenario_Editor
             this.label8 = new System.Windows.Forms.Label();
             this.CityPreview = new System.Windows.Forms.PictureBox();
             this.CitiesTable = new System.Windows.Forms.DataGridView();
-            this.cityX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlliancesTab = new System.Windows.Forms.TabPage();
             this.IsUnion = new System.Windows.Forms.CheckBox();
             this.AlliancePreview = new System.Windows.Forms.PictureBox();
             this.Unity = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.AllianceNationSelect = new System.Windows.Forms.DataGridView();
+            this.AllianceNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AllianceNations = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AllianceSelect = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.AllianceLoyalty = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.AlliancesTable = new System.Windows.Forms.DataGridView();
             this.AllianceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AllianceMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -110,7 +116,13 @@ namespace AoC_Advanced_Scenario_Editor
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.PuppetsOverview = new System.Windows.Forms.DataGridView();
+            this.PuppetMasterID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PuppetMastersList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PuppetsList = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PuppetsTable = new System.Windows.Forms.DataGridView();
+            this.PuppetNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PuppetNationList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PuppetMasterSelect = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.WarsTab = new System.Windows.Forms.TabPage();
             this.label15 = new System.Windows.Forms.Label();
             this.ToDeath = new System.Windows.Forms.Button();
@@ -155,19 +167,9 @@ namespace AoC_Advanced_Scenario_Editor
             this.ExportAsScenario = new System.Windows.Forms.RadioButton();
             this.ExportAsSave = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.PuppetNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetNationList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetMasterSelect = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AllianceNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllianceNations = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllianceSelect = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AllianceLoyalty = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.NationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationColor = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PuppetMasterID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetMastersList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetsList = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cityY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabSelect.SuspendLayout();
             this.LoadTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).BeginInit();
@@ -627,6 +629,7 @@ namespace AoC_Advanced_Scenario_Editor
             // 
             // NationsTab
             // 
+            this.NationsTab.Controls.Add(this.PasteNationNames);
             this.NationsTab.Controls.Add(this.label7);
             this.NationsTab.Controls.Add(this.CapitalSelect);
             this.NationsTab.Controls.Add(this.SetBonusToAll);
@@ -652,6 +655,17 @@ namespace AoC_Advanced_Scenario_Editor
             this.NationsTab.TabIndex = 1;
             this.NationsTab.Text = "Nations";
             this.NationsTab.UseVisualStyleBackColor = true;
+            // 
+            // PasteNationNames
+            // 
+            this.PasteNationNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PasteNationNames.Location = new System.Drawing.Point(3, 379);
+            this.PasteNationNames.Name = "PasteNationNames";
+            this.PasteNationNames.Size = new System.Drawing.Size(190, 25);
+            this.PasteNationNames.TabIndex = 21;
+            this.PasteNationNames.Text = "Paste names from clipboard";
+            this.PasteNationNames.UseVisualStyleBackColor = true;
+            this.PasteNationNames.Click += new System.EventHandler(this.PasteNationNames_Click);
             // 
             // label7
             // 
@@ -739,6 +753,7 @@ namespace AoC_Advanced_Scenario_Editor
             // FlagPreview
             // 
             this.FlagPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.FlagPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.FlagPreview.Location = new System.Drawing.Point(729, 308);
             this.FlagPreview.Name = "FlagPreview";
             this.FlagPreview.Size = new System.Drawing.Size(144, 96);
@@ -926,16 +941,43 @@ namespace AoC_Advanced_Scenario_Editor
             this.NationsTable.MultiSelect = false;
             this.NationsTable.Name = "NationsTable";
             this.NationsTable.RowHeadersVisible = false;
-            this.NationsTable.Size = new System.Drawing.Size(375, 401);
+            this.NationsTable.Size = new System.Drawing.Size(375, 370);
             this.NationsTable.TabIndex = 0;
             this.NationsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChangeNationColor);
             this.NationsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.NationNameModified);
             this.NationsTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
             this.NationsTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.NationsTable_RowEnter);
             // 
+            // NationID
+            // 
+            this.NationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NationID.FillWeight = 20F;
+            this.NationID.HeaderText = "ID";
+            this.NationID.MinimumWidth = 30;
+            this.NationID.Name = "NationID";
+            this.NationID.ReadOnly = true;
+            // 
+            // NationName
+            // 
+            this.NationName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NationName.HeaderText = "Name";
+            this.NationName.MinimumWidth = 100;
+            this.NationName.Name = "NationName";
+            // 
+            // NationColor
+            // 
+            this.NationColor.FillWeight = 50F;
+            this.NationColor.HeaderText = "Color";
+            this.NationColor.MinimumWidth = 80;
+            this.NationColor.Name = "NationColor";
+            this.NationColor.ReadOnly = true;
+            this.NationColor.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.NationColor.Width = 80;
+            // 
             // CitiesTab
             // 
             this.CitiesTab.AllowDrop = true;
+            this.CitiesTab.Controls.Add(this.RemoveCore);
             this.CitiesTab.Controls.Add(this.PasteCityNames);
             this.CitiesTab.Controls.Add(this.label9);
             this.CitiesTab.Controls.Add(this.SetCoreToSelf);
@@ -950,6 +992,17 @@ namespace AoC_Advanced_Scenario_Editor
             this.CitiesTab.TabIndex = 2;
             this.CitiesTab.Text = "Cities";
             this.CitiesTab.UseVisualStyleBackColor = true;
+            // 
+            // RemoveCore
+            // 
+            this.RemoveCore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveCore.Location = new System.Drawing.Point(495, 290);
+            this.RemoveCore.Name = "RemoveCore";
+            this.RemoveCore.Size = new System.Drawing.Size(100, 30);
+            this.RemoveCore.TabIndex = 13;
+            this.RemoveCore.Text = "Remove core";
+            this.RemoveCore.UseVisualStyleBackColor = true;
+            this.RemoveCore.Click += new System.EventHandler(this.RemoveCore_Click);
             // 
             // PasteCityNames
             // 
@@ -968,7 +1021,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(390, 330);
+            this.label9.Location = new System.Drawing.Point(387, 323);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(234, 26);
             this.label9.TabIndex = 11;
@@ -980,7 +1033,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.SetCoreToSelf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.SetCoreToSelf.Location = new System.Drawing.Point(390, 290);
             this.SetCoreToSelf.Name = "SetCoreToSelf";
-            this.SetCoreToSelf.Size = new System.Drawing.Size(100, 35);
+            this.SetCoreToSelf.Size = new System.Drawing.Size(100, 30);
             this.SetCoreToSelf.TabIndex = 7;
             this.SetCoreToSelf.Text = "Set as core";
             this.SetCoreToSelf.UseVisualStyleBackColor = true;
@@ -1008,9 +1061,9 @@ namespace AoC_Advanced_Scenario_Editor
             "No one"});
             this.CityRightfulOwner.Location = new System.Drawing.Point(390, 260);
             this.CityRightfulOwner.Name = "CityRightfulOwner";
-            this.CityRightfulOwner.Size = new System.Drawing.Size(160, 25);
+            this.CityRightfulOwner.Size = new System.Drawing.Size(205, 25);
             this.CityRightfulOwner.TabIndex = 5;
-            this.CityRightfulOwner.SelectionChangeCommitted += new System.EventHandler(this.CityDetailsModified);
+            this.CityRightfulOwner.SelectedIndexChanged += new System.EventHandler(this.CityDetailsModified);
             // 
             // label8
             // 
@@ -1056,34 +1109,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.CitiesTable.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CitiesTable_Sorted);
             this.CitiesTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
             this.CitiesTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.CitiesTable_RowEnter);
-            this.CitiesTable.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.CitiesTable_RowsAdded);
             this.CitiesTable.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.CitiesTable_RowsRemoved);
-            // 
-            // cityX
-            // 
-            this.cityX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cityX.FillWeight = 30F;
-            this.cityX.HeaderText = "X";
-            this.cityX.MinimumWidth = 35;
-            this.cityX.Name = "cityX";
-            this.cityX.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // cityY
-            // 
-            this.cityY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cityY.FillWeight = 30F;
-            this.cityY.HeaderText = "Y";
-            this.cityY.MinimumWidth = 35;
-            this.cityY.Name = "cityY";
-            this.cityY.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // CityName
-            // 
-            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CityName.HeaderText = "Name";
-            this.CityName.MinimumWidth = 235;
-            this.CityName.Name = "CityName";
-            this.CityName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // AlliancesTab
             // 
@@ -1170,6 +1196,47 @@ namespace AoC_Advanced_Scenario_Editor
             this.AllianceNationSelect.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllianceModified);
             this.AllianceNationSelect.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
             // 
+            // AllianceNationID
+            // 
+            this.AllianceNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AllianceNationID.FillWeight = 20F;
+            this.AllianceNationID.HeaderText = "ID";
+            this.AllianceNationID.MinimumWidth = 30;
+            this.AllianceNationID.Name = "AllianceNationID";
+            this.AllianceNationID.ReadOnly = true;
+            // 
+            // AllianceNations
+            // 
+            this.AllianceNations.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AllianceNations.FillWeight = 70F;
+            this.AllianceNations.HeaderText = "Nation";
+            this.AllianceNations.MinimumWidth = 50;
+            this.AllianceNations.Name = "AllianceNations";
+            this.AllianceNations.ReadOnly = true;
+            this.AllianceNations.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // AllianceSelect
+            // 
+            this.AllianceSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AllianceSelect.HeaderText = "Alliance";
+            this.AllianceSelect.MinimumWidth = 50;
+            this.AllianceSelect.Name = "AllianceSelect";
+            this.AllianceSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.AllianceSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // AllianceLoyalty
+            // 
+            this.AllianceLoyalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.AllianceLoyalty.FillWeight = 50F;
+            this.AllianceLoyalty.HeaderText = "Loyalty";
+            this.AllianceLoyalty.Items.AddRange(new object[] {
+            "High",
+            "Medium",
+            "Low"});
+            this.AllianceLoyalty.MinimumWidth = 20;
+            this.AllianceLoyalty.Name = "AllianceLoyalty";
+            this.AllianceLoyalty.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // AlliancesTable
             // 
             this.AlliancesTable.AllowUserToResizeRows = false;
@@ -1190,7 +1257,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.AlliancesTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllianceModified);
             this.AlliancesTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
             this.AlliancesTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.AlliancesTable_RowEnter);
-            this.AlliancesTable.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.AlliancesTable_RowsAdded);
             this.AlliancesTable.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.AlliancesTable_RowsRemoved);
             // 
             // AllianceName
@@ -1336,6 +1402,33 @@ namespace AoC_Advanced_Scenario_Editor
             this.PuppetsOverview.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
             this.PuppetsOverview.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.PuppetsTable_RowEnter);
             // 
+            // PuppetMasterID
+            // 
+            this.PuppetMasterID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PuppetMasterID.FillWeight = 5F;
+            this.PuppetMasterID.HeaderText = "ID";
+            this.PuppetMasterID.MinimumWidth = 30;
+            this.PuppetMasterID.Name = "PuppetMasterID";
+            this.PuppetMasterID.ReadOnly = true;
+            // 
+            // PuppetMastersList
+            // 
+            this.PuppetMastersList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PuppetMastersList.FillWeight = 30F;
+            this.PuppetMastersList.HeaderText = "Nation";
+            this.PuppetMastersList.MinimumWidth = 100;
+            this.PuppetMastersList.Name = "PuppetMastersList";
+            this.PuppetMastersList.ReadOnly = true;
+            // 
+            // PuppetsList
+            // 
+            this.PuppetsList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PuppetsList.HeaderText = "Puppets";
+            this.PuppetsList.MinimumWidth = 200;
+            this.PuppetsList.Name = "PuppetsList";
+            this.PuppetsList.ReadOnly = true;
+            this.PuppetsList.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
             // PuppetsTable
             // 
             this.PuppetsTable.AllowUserToAddRows = false;
@@ -1359,6 +1452,33 @@ namespace AoC_Advanced_Scenario_Editor
             this.PuppetsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.PuppetMasterModified);
             this.PuppetsTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
             this.PuppetsTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.PuppetsTable_RowEnter);
+            // 
+            // PuppetNationID
+            // 
+            this.PuppetNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PuppetNationID.FillWeight = 20F;
+            this.PuppetNationID.HeaderText = "ID";
+            this.PuppetNationID.MinimumWidth = 30;
+            this.PuppetNationID.Name = "PuppetNationID";
+            this.PuppetNationID.ReadOnly = true;
+            // 
+            // PuppetNationList
+            // 
+            this.PuppetNationList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PuppetNationList.HeaderText = "Nation";
+            this.PuppetNationList.MinimumWidth = 100;
+            this.PuppetNationList.Name = "PuppetNationList";
+            this.PuppetNationList.ReadOnly = true;
+            this.PuppetNationList.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // PuppetMasterSelect
+            // 
+            this.PuppetMasterSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PuppetMasterSelect.HeaderText = "Master";
+            this.PuppetMasterSelect.MinimumWidth = 100;
+            this.PuppetMasterSelect.Name = "PuppetMasterSelect";
+            this.PuppetMasterSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PuppetMasterSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // WarsTab
             // 
@@ -1685,7 +1805,7 @@ namespace AoC_Advanced_Scenario_Editor
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label18);
@@ -1738,7 +1858,8 @@ namespace AoC_Advanced_Scenario_Editor
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.FlagEditorLink);
@@ -1931,126 +2052,31 @@ namespace AoC_Advanced_Scenario_Editor
             this.label26.TabIndex = 37;
             this.label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
             // 
-            // PuppetNationID
+            // cityX
             // 
-            this.PuppetNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetNationID.FillWeight = 20F;
-            this.PuppetNationID.HeaderText = "ID";
-            this.PuppetNationID.MinimumWidth = 30;
-            this.PuppetNationID.Name = "PuppetNationID";
-            this.PuppetNationID.ReadOnly = true;
+            this.cityX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cityX.FillWeight = 20F;
+            this.cityX.HeaderText = "X";
+            this.cityX.MinimumWidth = 30;
+            this.cityX.Name = "cityX";
+            this.cityX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // PuppetNationList
+            // cityY
             // 
-            this.PuppetNationList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetNationList.HeaderText = "Nation";
-            this.PuppetNationList.MinimumWidth = 100;
-            this.PuppetNationList.Name = "PuppetNationList";
-            this.PuppetNationList.ReadOnly = true;
-            this.PuppetNationList.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.cityY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cityY.FillWeight = 20F;
+            this.cityY.HeaderText = "Y";
+            this.cityY.MinimumWidth = 30;
+            this.cityY.Name = "cityY";
+            this.cityY.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // PuppetMasterSelect
+            // CityName
             // 
-            this.PuppetMasterSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetMasterSelect.HeaderText = "Master";
-            this.PuppetMasterSelect.MinimumWidth = 100;
-            this.PuppetMasterSelect.Name = "PuppetMasterSelect";
-            this.PuppetMasterSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PuppetMasterSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // AllianceNationID
-            // 
-            this.AllianceNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceNationID.FillWeight = 20F;
-            this.AllianceNationID.HeaderText = "ID";
-            this.AllianceNationID.MinimumWidth = 30;
-            this.AllianceNationID.Name = "AllianceNationID";
-            this.AllianceNationID.ReadOnly = true;
-            // 
-            // AllianceNations
-            // 
-            this.AllianceNations.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceNations.FillWeight = 70F;
-            this.AllianceNations.HeaderText = "Nation";
-            this.AllianceNations.MinimumWidth = 50;
-            this.AllianceNations.Name = "AllianceNations";
-            this.AllianceNations.ReadOnly = true;
-            this.AllianceNations.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // AllianceSelect
-            // 
-            this.AllianceSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceSelect.HeaderText = "Alliance";
-            this.AllianceSelect.MinimumWidth = 50;
-            this.AllianceSelect.Name = "AllianceSelect";
-            this.AllianceSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllianceSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // AllianceLoyalty
-            // 
-            this.AllianceLoyalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceLoyalty.FillWeight = 50F;
-            this.AllianceLoyalty.HeaderText = "Loyalty";
-            this.AllianceLoyalty.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
-            this.AllianceLoyalty.MinimumWidth = 20;
-            this.AllianceLoyalty.Name = "AllianceLoyalty";
-            this.AllianceLoyalty.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // NationID
-            // 
-            this.NationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NationID.FillWeight = 20F;
-            this.NationID.HeaderText = "ID";
-            this.NationID.MinimumWidth = 30;
-            this.NationID.Name = "NationID";
-            this.NationID.ReadOnly = true;
-            // 
-            // NationName
-            // 
-            this.NationName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NationName.HeaderText = "Name";
-            this.NationName.MinimumWidth = 100;
-            this.NationName.Name = "NationName";
-            // 
-            // NationColor
-            // 
-            this.NationColor.FillWeight = 50F;
-            this.NationColor.HeaderText = "Color";
-            this.NationColor.MinimumWidth = 80;
-            this.NationColor.Name = "NationColor";
-            this.NationColor.ReadOnly = true;
-            this.NationColor.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NationColor.Width = 80;
-            // 
-            // PuppetMasterID
-            // 
-            this.PuppetMasterID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetMasterID.FillWeight = 5F;
-            this.PuppetMasterID.HeaderText = "ID";
-            this.PuppetMasterID.MinimumWidth = 30;
-            this.PuppetMasterID.Name = "PuppetMasterID";
-            this.PuppetMasterID.ReadOnly = true;
-            // 
-            // PuppetMastersList
-            // 
-            this.PuppetMastersList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetMastersList.FillWeight = 30F;
-            this.PuppetMastersList.HeaderText = "Nation";
-            this.PuppetMastersList.MinimumWidth = 100;
-            this.PuppetMastersList.Name = "PuppetMastersList";
-            this.PuppetMastersList.ReadOnly = true;
-            // 
-            // PuppetsList
-            // 
-            this.PuppetsList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetsList.HeaderText = "Puppets";
-            this.PuppetsList.MinimumWidth = 200;
-            this.PuppetsList.Name = "PuppetsList";
-            this.PuppetsList.ReadOnly = true;
-            this.PuppetsList.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CityName.HeaderText = "Name";
+            this.CityName.MinimumWidth = 100;
+            this.CityName.Name = "CityName";
+            this.CityName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // App
             // 
@@ -2069,6 +2095,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.Controls.Add(this.NameSelection);
             this.Controls.Add(this.TabSelect);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "App";
@@ -2234,9 +2261,6 @@ namespace AoC_Advanced_Scenario_Editor
         private NumericUpDown WarEndDay;
         private ComboBox WarEndMonth;
         private NumericUpDown StartingDay;
-        private DataGridViewTextBoxColumn CityX;
-        private DataGridViewTextBoxColumn CityY;
-        private DataGridViewTextBoxColumn CityName;
         private Button SetBonusToAll;
         private NumericUpDown SetBonus;
         private DataGridViewTextBoxColumn AllianceName;
@@ -2248,8 +2272,6 @@ namespace AoC_Advanced_Scenario_Editor
         private Label label15;
         private ComboBox CapitalSelect;
         private Label label7;
-        private DataGridViewTextBoxColumn cityX;
-        private DataGridViewTextBoxColumn cityY;
         private DataGridViewTextBoxColumn WarNationID;
         private DataGridViewTextBoxColumn Nation;
         private DataGridViewComboBoxColumn Involvement;
@@ -2269,6 +2291,11 @@ namespace AoC_Advanced_Scenario_Editor
         private DataGridViewTextBoxColumn PuppetMasterID;
         private DataGridViewTextBoxColumn PuppetMastersList;
         private DataGridViewTextBoxColumn PuppetsList;
+        private Button PasteNationNames;
+        private Button RemoveCore;
+        private DataGridViewTextBoxColumn cityX;
+        private DataGridViewTextBoxColumn cityY;
+        private DataGridViewTextBoxColumn CityName;
     }
 }
 

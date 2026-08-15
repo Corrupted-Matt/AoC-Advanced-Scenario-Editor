@@ -61,9 +61,6 @@ namespace AoC_Advanced_Scenario_Editor
 
             if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low\\JoySparkGames\\Ages of Conflict"))
                 DestinationInput.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low\\JoySparkGames\\Ages of Conflict\\Custom Scenarios";
-
-            //this exists only to save clicks when debugging REMOVE BEFORE RELEASING OR YOU'LL DOXX YOURSELF YOU BUFFOON
-            ScenarioInput.Text = "C:\\Users\\mateu\\AppData\\LocalLow\\JoySparkGames\\Ages of Conflict\\Saves\\World Map 2026\\Save.aoc";
         }
 
         #region Universal
@@ -84,12 +81,26 @@ namespace AoC_Advanced_Scenario_Editor
                 return;
             }
 
+            if(origin == null)
+            {
+                SystemSounds.Hand.Play();
+                MessageBox.Show("Please load a scenario first");
+                return;
+            }
+
             if(Directory.Exists(destination + $"\\{name}"))
+            {
+                SystemSounds.Hand.Play();
                 if (MessageBox.Show("A save/scenario with this name already exists, do you wish to overwrite it?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                     return;
-
+                else
+                    Directory.Delete(destination + $"\\{name}", true);
+            }
+                   
             GenerateButton.Enabled = false;
             GenerateButton.Text = "Please\nwait";
+
+            RemoveObsoleteObjects();
 
             Directory.CreateDirectory(destination + $"\\{name}");
             if (File.Exists(Directory.GetParent(ScenarioInput.Text) + "\\flags.png"))
@@ -372,7 +383,7 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void FlagPreview_Click(object sender, EventArgs e)
         {
-            if (!LoadingFinished)
+            if (!LoadingFinished || flags == null)
                 return;
 
             using var picker = new FlagSelect(flags);
@@ -440,6 +451,8 @@ namespace AoC_Advanced_Scenario_Editor
             {
                 nation["pos"]["x"] = int.Parse(CapitalSelect.SelectedItem.ToString().Split(['[', '|', ']'])[1]);
                 nation["pos"]["y"] = int.Parse(CapitalSelect.SelectedItem.ToString().Split(['[', '|', ']'])[2]);
+                nation["originalPos"]["x"] = int.Parse(CapitalSelect.SelectedItem.ToString().Split(['[', '|', ']'])[1]);
+                nation["originalPos"]["y"] = int.Parse(CapitalSelect.SelectedItem.ToString().Split(['[', '|', ']'])[2]);
 
                 DrawGlobalMaps(origin);
                 NationPreview.Image = DrawZoomedMap(origin, (int)nation["pos"]["x"], (int)nation["pos"]["y"]);
@@ -480,6 +493,22 @@ namespace AoC_Advanced_Scenario_Editor
                     nation["combatEfficiency"] = 2 * (6 - SetCE.Value);
         }
 
+        private void PasteNationNames_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("This will overwrite all nation names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                return;
+
+            int i = 0;
+            string[] names = Clipboard.GetText().Split('\n');
+            foreach (string n in names)
+            {
+                NationsTable.Rows[i].Cells[1].Value = n;
+                origin["cities"].AsArray()[i]["name"] = n;
+                i++;
+                if (i == NationsTable.Rows.Count) break;
+            }
+        }
+
         #endregion
 
         #region Cities Tab
@@ -500,24 +529,23 @@ namespace AoC_Advanced_Scenario_Editor
             if (!LoadingFinished)
                 return;
 
-            if (e.RowIndex == CitiesTable.RowCount - 1)
-            {
-                CityPreview.Image = null;
-                CityRightfulOwner.SelectedIndex = 0;
-                CityRevoltChance.Value = 0;
-                return;
-            }
-
             LoadingFinished = false;
-            JsonNode city = origin["cities"].AsArray()[e.RowIndex];
 
-            if (city == null)
+            if (CitiesTable.Rows[e.RowIndex].IsNewRow && origin["cities"].AsArray().Count <= e.RowIndex)
             {
-                CityPreview.Image = null;
-                CityRightfulOwner.SelectedIndex = 0;
-                CityRevoltChance.Value = 0;
-                return;
+                var NewCity = new JsonObject
+                {
+                    ["x"] = 0,
+                    ["y"] = 0,
+                    ["n"] = "",
+                    ["r"] = 0,
+                    ["rp"] = 0
+                };
+                origin["cities"].AsArray().Add(NewCity);
+                CitiesTable.Rows[e.RowIndex].SetValues(0, 0, "");
             }
+
+            JsonNode city = origin["cities"].AsArray()[e.RowIndex];
 
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
             CityRightfulOwner.SelectedIndex = (int)city["r"];
@@ -628,6 +656,8 @@ namespace AoC_Advanced_Scenario_Editor
                 {
                     n["pos"]["x"] = int.Parse(CitiesTable.CurrentRow.Cells[0].Value.ToString());
                     n["pos"]["y"] = int.Parse(CitiesTable.CurrentRow.Cells[1].Value.ToString());
+                    n["originalPos"]["x"] = int.Parse(CitiesTable.CurrentRow.Cells[0].Value.ToString());
+                    n["originalPos"]["y"] = int.Parse(CitiesTable.CurrentRow.Cells[1].Value.ToString());
                 }
             }
             
@@ -655,25 +685,6 @@ namespace AoC_Advanced_Scenario_Editor
 
             DrawGlobalMaps(origin);
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
-        }
-
-        private void CitiesTable_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if(!LoadingFinished) 
-                return;
-
-            var NewCity = new JsonObject
-            {
-                ["x"] = 0,
-                ["y"] = 0,
-                ["n"] = "",
-                ["r"] = 0,
-                ["rp"] = 0
-            };
-            origin["cities"].AsArray().Add(NewCity);
-            CitiesTable.CurrentRow.Cells[0].Value = 0;
-            CitiesTable.CurrentRow.Cells[1].Value = 0;
-            CitiesTable.CurrentRow.Cells[2].Value = "";
         }
 
         private void CitiesTable_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -715,6 +726,44 @@ namespace AoC_Advanced_Scenario_Editor
                     city["r"] = n;
                     break;
             }
+
+            DrawGlobalMaps(origin);
+            CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
+        }
+
+        private void RemoveCore_Click(object sender, EventArgs e)
+        {
+            if (!LoadingFinished)
+                return;
+
+            JsonNode city = origin["cities"].AsArray()[CitiesTable.CurrentRow.Index];
+            int n = OwnerRaw[(int)origin["width"] * (int)city["y"] + (int)city["x"]];
+            CityRightfulOwner.SelectedIndex = 0;
+
+            switch (ModifierKeys)
+            {
+                case Keys.Shift:
+                    foreach (var c in origin["cities"].AsArray())
+                    {
+                        if (n == OwnerRaw[(int)origin["width"] * (int)c["y"] + (int)c["x"]])
+                            c["r"] = 0;
+                    }
+                    break;
+
+                case Keys.Control:
+                    foreach (var c in origin["cities"].AsArray())
+                    {
+                        c["r"] = 0;
+                    }
+                    break;
+
+                default:
+                    city["r"] = 0;
+                    break;
+            }
+
+            DrawGlobalMaps(origin);
+            CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
         }
 
         private void PasteCityNames_Click(object sender, EventArgs e)
@@ -787,18 +836,30 @@ namespace AoC_Advanced_Scenario_Editor
                 return;
 
             LoadingFinished = false;
-            if (e.RowIndex == AlliancesTable.RowCount - 1)
+
+            if (AlliancesTable.Rows[e.RowIndex].IsNewRow && origin["alliances"].AsArray().Count <= e.RowIndex)
             {
-                Unity.Value = 0;
-                IsUnion.Checked = false;
-                LoadingFinished = true;
-                return;
+                var NewAlliance = new JsonObject
+                {
+                    ["name"] = "",
+                    ["color"] = new JsonObject { ["r"] = (float)0.0, ["g"] = (float)0.0, ["b"] = (float)0.0, ["a"] = (float)1.0 },
+                    ["ids"] = new JsonArray(),
+                    ["inUnion"] = false,
+                    ["unity"] = (decimal)15.0,
+                    ["ne"] = false,
+                    ["ce"] = false
+                };
+                origin["alliances"].AsArray().Add(NewAlliance);
+                AllianceSelect.Items.Add("");
+                AlliancesTable.Rows[e.RowIndex].SetValues("","", "#000000");
+                AlliancesTable.Rows[e.RowIndex].Cells[2].Style.BackColor = Color.Black;
             }
 
             JsonNode alliance = origin["alliances"].AsArray()[e.RowIndex];
             
             Unity.Value = (decimal)alliance["unity"];
             IsUnion.Checked = (bool)alliance["inUnion"];
+
             LoadingFinished = true;
         }
 
@@ -889,7 +950,7 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void ChangeAllianceColor(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 2 || e.RowIndex == AlliancesTable.RowCount)
+            if (e.ColumnIndex != 2 || e.RowIndex == AlliancesTable.RowCount - 1)
                 return;
 
             JsonNode alliance = origin["alliances"].AsArray()[e.RowIndex];
@@ -905,29 +966,6 @@ namespace AoC_Advanced_Scenario_Editor
                 AlliancesTable.Rows[e.RowIndex].Cells[2].Style.BackColor = ColorPicker.Color;
                 DrawGlobalMaps(origin);
             }
-        }
-
-        private void AlliancesTable_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if (!LoadingFinished)
-                return;
-
-            var NewAlliance = new JsonObject
-            {
-                ["name"] = "",
-                ["color"] = new JsonObject { ["r"] = (float)0.0, ["g"] = (float)0.0, ["b"] = (float)0.0, ["a"] = (float)1.0 },
-                ["ids"] = new JsonArray(),
-                ["inUnion"] = false,
-                ["unity"] = (decimal)15.0,
-                ["ne"] = false,
-                ["ce"] = false
-            };
-            origin["alliances"].AsArray().Add(NewAlliance);
-            AllianceSelect.Items.Add("");
-            AlliancesTable.CurrentRow.Cells[0].Value = "";
-            AlliancesTable.CurrentRow.Cells[1].Value = "";
-            AlliancesTable.CurrentRow.Cells[2].Value = "#000000";
-            AlliancesTable.CurrentRow.Cells[2].Style.BackColor = Color.Black;
         }
 
         private void AlliancesTable_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -1115,15 +1153,25 @@ namespace AoC_Advanced_Scenario_Editor
             WarsTable.Rows.Clear();
             foreach (var w in Scenario["wars"].AsArray())
             {
-                foreach (var a in w["attackers"].AsArray())
+                foreach (var a in w["attackersLeft"].AsArray())
                 {
                     attackers += $"{Scenario["nations"].AsArray()[(int)a - 1]["name"]}, ";
                 }
+                foreach (var a in w["attackers"].AsArray())
+                {
+                    if (attackers.Contains((string)Scenario["nations"].AsArray()[(int)a - 1]["name"])) continue;
+                    attackers += $"{Scenario["nations"].AsArray()[(int)a - 1]["name"]}*, ";
+                }
                 attackers = attackers.Trim([' ', ',']);
 
-                foreach (var d in w["defenders"].AsArray())
+                foreach (var d in w["defendersLeft"].AsArray())
                 {
                     defenders += $"{Scenario["nations"].AsArray()[(int)d - 1]["name"]}, ";
+                }
+                foreach (var d in w["defenders"].AsArray())
+                {
+                    if (defenders.Contains((string)Scenario["nations"].AsArray()[(int)d - 1]["name"])) continue;
+                    defenders += $"{Scenario["nations"].AsArray()[(int)d - 1]["name"]}*, ";
                 }
                 defenders = defenders.Trim([' ', ',']);
 
@@ -1240,6 +1288,14 @@ namespace AoC_Advanced_Scenario_Editor
                 return;
             }
 
+            if (GetAocTime(end) - GetAocTime(start) < 0)
+            {
+                end = start;
+                WarEndYear.Value = end.Year;
+                WarEndMonth.SelectedIndex = end.Month - 1;
+                WarEndDay.Value = end.Day;
+            }
+                
             war["startTime"] = GetAocTime(start);
             war["targetLength"] = GetAocTime(end) - GetAocTime(start);
         }
@@ -1324,7 +1380,7 @@ namespace AoC_Advanced_Scenario_Editor
         {
             Process.Start(new ProcessStartInfo
             {
-                FileName = "https://github.com/Corrupted-Matt/AoC-Image-to-Scenario-Converter?tab=readme-ov-file#readme",
+                FileName = "https://github.com/Corrupted-Matt/AoC-Advanced-Scenario-Editor/tree/master#aoc-advanced-scenario-editor",
                 UseShellExecute = true
             });
         }
@@ -1654,6 +1710,21 @@ namespace AoC_Advanced_Scenario_Editor
         private void DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             //fuck you, I decide what's an error
+        }
+
+        private void RemoveObsoleteObjects()
+        {
+            if(origin["cities"].AsArray().Count == CitiesTable.Rows.Count)
+                origin["cities"].AsArray().RemoveAt(CitiesTable.Rows.Count - 1);
+
+            if(origin["alliances"].AsArray().Count == AlliancesTable.Rows.Count)
+                origin["alliances"].AsArray().RemoveAt(AlliancesTable.Rows.Count - 1);
+
+            while ((string)WarsTable.Rows[WarsTable.Rows.Count - 1].Cells[0].Value == "")
+            {
+                origin["wars"].AsArray().RemoveAt(WarsTable.Rows.Count - 1);
+                WarsTable.Rows.RemoveAt(WarsTable.Rows.Count - 1);
+            }  
         }
 
         #endregion
