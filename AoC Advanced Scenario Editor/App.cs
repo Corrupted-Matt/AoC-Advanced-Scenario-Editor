@@ -354,8 +354,8 @@ namespace AoC_Advanced_Scenario_Editor
             SetGold.Value = (int)n["storedBns"];
             SetBonus.Value = (int)n["customBns"];
             SetCE.Value = 6 - (decimal)n["combatEfficiency"] * (decimal)0.5;
-            SetSyear.Value = (decimal)n["startYear"];
-            SetEyear.Value = (decimal)n["endYear"];
+            SetSyear.Value = GetDate((float)n["startYear"]).Year;
+            SetEyear.Value = GetDate((float)n["endYear"]).Year;
             DisableAI.Checked = (bool)n["aiDisabled"];
             ceLock.Checked = (bool)n["ceLock"];
             SetFlagID.Value = (int)n["flagId"];
@@ -463,8 +463,8 @@ namespace AoC_Advanced_Scenario_Editor
             nation["storedBns"] = (int)SetGold.Value;
             nation["customBns"] = (int)SetBonus.Value;
             nation["combatEfficiency"] = 2 * (6 - SetCE.Value);
-            nation["startYear"] = SetSyear.Value;
-            nation["endYear"] = SetEyear.Value;
+            nation["startYear"] = GetAocTime(new DateTime((int)SetSyear.Value,1,1));
+            nation["endYear"] = GetAocTime(new DateTime((int)SetEyear.Value, 1, 1));
             nation["aiDisabled"] = DisableAI.Checked;
             nation["ceLock"] = ceLock.Checked;
             nation["flagId"] = (int)SetFlagID.Value;
