@@ -4,8 +4,7 @@ This is an external save and scenario editor for Ages of Conflict, allowing you 
 The program is currently **only available on Windows**, and will remain that way for the foreseeable future.
 
 ## How to use:
-1. download the latest release from the [releases page](https://github.com/Corrupted-Matt/AoC-Advanced-Scenario-Editor/releases)
-2. extract and run the program
+1. download the latest release from the [releases page](https://github.com/Corrupted-Matt/AoC-Advanced-Scenario-Editor/releases) and run the program
 3. select the save/scenario you want to edit in the top left and the timescale you typically use then click load
 4. navigate to other tabs and make all the edits you want
 5. select name and destination for the modified copy of your save/scenario and click export
