@@ -1,10 +1,10 @@
-# AoC Advanced Scenario Editor
-This is an external scenario editor for Ages of Conflict, allowing you to edit the game's save and scenario files beyond what the in game editor allows with no JSON knowledge required. Below is a guide (or more like a list of tips) to all of the editor's functions. If you have any issues or think you've found a bug, feel free to reach out to me @corruptedmatt on Discord
+# AoC Advanced Save & Scenario Editor [ASSE]
+This is an external save and scenario editor for Ages of Conflict, allowing you to edit the game's save and scenario files beyond what the in game editor allows with no JSON knowledge required. Below is a guide to all of the editor's functions. (or more like a list of tips) If you have any issues or think you've found a bug, feel free to reach out to me @corruptedmatt on Discord
 
 The program is currently **only available on Windows**, and will remain that way for the foreseeable future.
 
 ## How to use:
-1. download the latest release from the releases page (shown above the contributors list)
+1. download the latest release from the [releases page](https://github.com/Corrupted-Matt/AoC-Advanced-Scenario-Editor/releases)
 2. extract and run the program
 3. select the save/scenario you want to edit in the top left and the timescale you typically use then click load
 4. navigate to other tabs and make all the edits you want
@@ -18,18 +18,18 @@ If the provided name and destination would overwrite and existing file, you'll g
 You can also quickly run the game from here if you own it on Steam, pretty neat huh?
 
 ## Load Tab
-Aside from the loading selection, here lives all the stuff that apples to the scenario as a whole. Here you can see some basic stats, change the current and starting dates as well as preview and export various global maps. 
+Aside from the loading selection, here lives all the stuff that applies to the scenario as a whole. Here you can see some basic stats, change the current and starting dates as well as preview and export various global maps. 
 
 Set your desired start date first before doing any edits to dates in other tabs, as all of them are defined in relation to the starting date.
 
-Provided map export options are cross-compatible with my Image to Scenario Converter, you can find a link to it in the info tab or on my profile here. When cities are unchecked the map you see will be exported verbatim as you see it, otherwise the city map will be exported for use with my converter's separate city map option. When city map is exported and the selected map is De Jure, then capitals of dead countries will be marked as capitals to be used with the occupations option in the converter. If you want only the alive nations' capitals to be marked select any other map when exporting cities.
+Provided map export options are cross-compatible with my [Image to Scenario Converter](https://github.com/Corrupted-Matt/AoC-Image-to-Scenario-Converter/releases). When cities are unchecked the map you see will be exported verbatim as you see it, otherwise the city map will be exported for use with I2SC's separate city map option. When city map is exported and the selected map is De Jure, then capitals of dead countries will be marked as capitals to be used with the occupations option in the converter. If you want only the alive nations' capitals to be marked select any other map when exporting cities.
 
 ## Nations Tab
 Look, I know it looks overwhelming, but that's not even all the stuff about a country that can be modified.
 
 The table on the left lists all countries, you can edit their names and colors as well as sort them by id or name. Selecting a nation on this list will show a preview of the area surrounding its capital and allow you to edit its details. You can also click on the preview map to select a country.
 
-By popular demand, you can paste a list of names from clipboard by using the button in the bottom left. They will be pasted in order they are in your clipboard into the table as it is currently sorted. The expected format is that all the names are separated by line breaks, but copying from a spreadsheet should work too. This is mostly for scenarios generated with my converter though, I really don't know why you'd use this otherwise.
+By popular demand, you can paste a list of names from clipboard by using the button in the bottom left. They will be pasted in order they are in your clipboard into the table as it is currently sorted. The expected format is that all the names are separated by line breaks, but copying from a spreadsheet should work too. This is mostly for scenarios generated with I2SC though, I really don't know why you'd use this otherwise.
 
 Capital select lists all the cities in the country along with their coordinates. Flag can be selected by typing in the flag id or clicking the flag preview in the bottom right corner, assuming a `flags.png` file exists in the save/scenario folder. (you can also put one in there yourself)
 
@@ -57,12 +57,12 @@ Just like in the previous two tabs, you can select both nation and the alliance 
 
 Another two tables, the one on the left allows you to set the master of any nation (yes, that means puppets of puppets are possible) from the dropdown in the last column, just like all dropdowns you can quickly find the entry you're looking for by typing first few letters. The table on the right is simply an overview of all puppet masters and what they control, there's nothing to edit here.
 
-If the selected nation (in either of the tables) is a puppet or a master, the corresponding variables will become available for editing. The dropdowns in loyalty and autonomy show what will be displayed in game, you can also quickly jump between different tiers by changing them instead of typing numbers.
+If the selected nation (in either of the tables) is a puppet or a master, the corresponding variables will become available for editing. The dropdowns next to loyalty and autonomy show what will be displayed in game, you can also quickly jump between different tiers by changing them instead of typing numbers.
 
 ## Wars Tab
 
 Table on the right displays all wars, because this table is for display only, buttons have been provided to add and remove entries. You might also notice a third button there, with it you can merge two or more wars into one. This is mostly useful when you've preset wars in some versions of the game that didn't group them together.
 
-When you select a war, you can add and remove participants through the table on the right, there are two additional stances that warrant further explanation: former attacker and former defender will be displayed in the wars list but won't be taking part in the war. In the vanilla game this status is only used by countries that were conquered during the war.
+When you select a war, you can add and remove participants through the table on the right, there are two additional stances that warrant further explanation: former attacker and former defender will be displayed in the wars list but won't be taking part in the war. In the vanilla game this status is only used by countries that were conquered during the war. Using these might have averse effects on post-war puppeting, since that game system is rather funky.
 
 In the bottom left you can set the start and end dates of the war, the to death button is just here to burst your bubble by showing you they aren't real. If a war is set to end before scenario's current date, peace will be made immediately after loading the save/scenario.
