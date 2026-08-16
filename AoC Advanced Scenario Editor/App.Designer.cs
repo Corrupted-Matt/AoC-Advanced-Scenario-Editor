@@ -61,6 +61,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.ScenarioBrowse = new System.Windows.Forms.Button();
             this.ScenarioInput = new System.Windows.Forms.TextBox();
             this.NationsTab = new System.Windows.Forms.TabPage();
+            this.label30 = new System.Windows.Forms.Label();
             this.PasteNationNames = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.CapitalSelect = new System.Windows.Forms.ComboBox();
@@ -84,6 +85,9 @@ namespace AoC_Advanced_Scenario_Editor
             this.NationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NationColor = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CitiesTab = new System.Windows.Forms.TabPage();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.ImportCities = new System.Windows.Forms.Button();
             this.RemoveCore = new System.Windows.Forms.Button();
             this.PasteCityNames = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -97,6 +101,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.cityY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AlliancesTab = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
             this.IsUnion = new System.Windows.Forms.CheckBox();
             this.AlliancePreview = new System.Windows.Forms.PictureBox();
             this.Unity = new System.Windows.Forms.NumericUpDown();
@@ -170,11 +175,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.ExportAsScenario = new System.Windows.Forms.RadioButton();
             this.ExportAsSave = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.ImportCities = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
             this.TabSelect.SuspendLayout();
             this.LoadTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).BeginInit();
@@ -662,6 +662,18 @@ namespace AoC_Advanced_Scenario_Editor
             this.NationsTab.Text = "Nations";
             this.NationsTab.UseVisualStyleBackColor = true;
             // 
+            // label30
+            // 
+            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label30.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label30.Location = new System.Drawing.Point(656, 237);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(215, 13);
+            this.label30.TabIndex = 37;
+            this.label30.Text = "You can also select a country on the map";
+            // 
             // PasteNationNames
             // 
             this.PasteNationNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1002,6 +1014,40 @@ namespace AoC_Advanced_Scenario_Editor
             this.CitiesTab.Text = "Cities";
             this.CitiesTab.UseVisualStyleBackColor = true;
             // 
+            // label29
+            // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label29.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label29.Location = new System.Drawing.Point(626, 237);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(242, 39);
+            this.label29.TabIndex = 36;
+            this.label29.Text = "You can also select a city from the map above\r\nHolding Shift will bypass aim assi" +
+    "st\r\nHolding Ctrl will instead move the current city";
+            // 
+            // label28
+            // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(390, 245);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(114, 17);
+            this.label28.TabIndex = 15;
+            this.label28.Text = "Revolt chance (%):";
+            // 
+            // ImportCities
+            // 
+            this.ImportCities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ImportCities.Location = new System.Drawing.Point(209, 379);
+            this.ImportCities.Name = "ImportCities";
+            this.ImportCities.Size = new System.Drawing.Size(169, 25);
+            this.ImportCities.TabIndex = 14;
+            this.ImportCities.Text = "Import cities";
+            this.ImportCities.UseVisualStyleBackColor = true;
+            this.ImportCities.Click += new System.EventHandler(this.ImportCities_Click);
+            // 
             // RemoveCore
             // 
             this.RemoveCore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1161,6 +1207,18 @@ namespace AoC_Advanced_Scenario_Editor
             this.AlliancesTab.TabIndex = 3;
             this.AlliancesTab.Text = "Alliances";
             this.AlliancesTab.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label27.Location = new System.Drawing.Point(689, 191);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(179, 26);
+            this.label27.TabIndex = 35;
+            this.label27.Text = "You can also select a country and \r\nthe alliance it\'s in from the map";
             // 
             // IsUnion
             // 
@@ -1881,7 +1939,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(37, 17);
             this.label17.TabIndex = 1;
-            this.label17.Text = "0.2.0";
+            this.label17.Text = "0.2.1";
             // 
             // label16
             // 
@@ -2087,63 +2145,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.label26.Size = new System.Drawing.Size(201, 26);
             this.label26.TabIndex = 37;
             this.label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
-            // 
-            // ImportCities
-            // 
-            this.ImportCities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ImportCities.Location = new System.Drawing.Point(209, 379);
-            this.ImportCities.Name = "ImportCities";
-            this.ImportCities.Size = new System.Drawing.Size(169, 25);
-            this.ImportCities.TabIndex = 14;
-            this.ImportCities.Text = "Import cities";
-            this.ImportCities.UseVisualStyleBackColor = true;
-            this.ImportCities.Click += new System.EventHandler(this.ImportCities_Click);
-            // 
-            // label27
-            // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label27.Location = new System.Drawing.Point(689, 191);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(179, 26);
-            this.label27.TabIndex = 35;
-            this.label27.Text = "You can also select a country and \r\nthe alliance it\'s in from the map";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(390, 245);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(114, 17);
-            this.label28.TabIndex = 15;
-            this.label28.Text = "Revolt chance (%):";
-            // 
-            // label29
-            // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label29.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label29.Location = new System.Drawing.Point(626, 237);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(242, 39);
-            this.label29.TabIndex = 36;
-            this.label29.Text = "You can also select a city from the map above\r\nHolding Shift will bypass aim assi" +
-    "st\r\nHolding Ctrl will instead move the current city";
-            // 
-            // label30
-            // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label30.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label30.Location = new System.Drawing.Point(656, 237);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(215, 13);
-            this.label30.TabIndex = 37;
-            this.label30.Text = "You can also select a country on the map";
             // 
             // App
             // 

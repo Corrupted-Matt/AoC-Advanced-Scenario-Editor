@@ -161,8 +161,12 @@ namespace AoC_Advanced_Scenario_Editor
         public void LoadScenario_Click(object sender, EventArgs e)
         { 
             if(LoadingFinished)
-                if(MessageBox.Show("Reloading will discard all of your changes, are you sure you want to reload?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
-                    return;               
+            {
+                SystemSounds.Hand.Play();
+                if (MessageBox.Show("Reloading will discard all of your changes, are you sure you want to reload?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                    return;
+            }
+                               
 
             if (!File.Exists(ScenarioInput.Text))
             {
@@ -496,6 +500,7 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void PasteNationNames_Click(object sender, EventArgs e)
         {
+            SystemSounds.Hand.Play();
             if (MessageBox.Show("This will overwrite all nation names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
@@ -551,6 +556,9 @@ namespace AoC_Advanced_Scenario_Editor
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
             CityRightfulOwner.SelectedIndex = (int)city["r"];
             CityRevoltChance.Value = (int)city["rp"];
+
+            if (CityRightfulOwner.SelectedIndex == 0) CityRightfulOwner.BackColor = Color.LightYellow;
+            else CityRightfulOwner.BackColor = Color.White;
 
             LoadingFinished = true;
         }
@@ -776,6 +784,7 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void PasteCityNames_Click(object sender, EventArgs e)
         {
+            SystemSounds.Hand.Play();
             if (MessageBox.Show("This will overwrite all city names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
@@ -792,7 +801,8 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void ImportCities_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("This will overwrite all cities with ones from selected scenario, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            SystemSounds.Hand.Play();
+            if (MessageBox.Show("This will add all cities from chosen scenario that don't overwrite cities in the current scenario, omitting their rightful owners, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
             OpenFileDialog ScenarioSelectDialog = new()
@@ -805,8 +815,20 @@ namespace AoC_Advanced_Scenario_Editor
             if (ScenarioSelectDialog.ShowDialog() == DialogResult.OK)
             {
                 JsonNode CityDonor = JsonNode.Parse(File.ReadAllText(ScenarioSelectDialog.FileName));
-                origin["cities"].ReplaceWith(CityDonor["cities"].DeepClone());
-                UpdateCities(origin);
+                
+                foreach(var c in CityDonor["cities"].AsArray())
+                {
+                    if (!(origin["cities"].AsArray().FirstOrDefault(x => x["x"].GetValue<int>() == (int)c["x"]) != default &&
+                        origin["cities"].AsArray().FirstOrDefault(y => y["y"].GetValue<int>() == (int)c["y"]) != default))
+                    {
+                        c["r"] = 0;
+                        origin["cities"].AsArray().Add(c.DeepClone());
+                        CitiesTable.Rows.Add((int)c["x"], (int)c["y"], (string)c["n"]);
+                    }
+                }
+
+                DrawGlobalMaps(origin);
+                CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
             }
 
         }
