@@ -509,7 +509,7 @@ namespace AoC_Advanced_Scenario_Editor
             foreach (string n in names)
             {
                 NationsTable.Rows[i].Cells[1].Value = n;
-                origin["cities"].AsArray()[i]["name"] = n;
+                origin["nations"].AsArray()[(int)NationsTable.Rows[i].Cells[0].Value - 1]["name"] = n;
                 i++;
                 if (i == NationsTable.Rows.Count) break;
             }
@@ -793,7 +793,7 @@ namespace AoC_Advanced_Scenario_Editor
             foreach (string n in names)
             {
                 CitiesTable.Rows[i].Cells[2].Value = n;
-                origin["cities"].AsArray()[i]["name"] = n;
+                origin["cities"].AsArray()[i]["n"] = n;
                 i++;
                 if (i == CitiesTable.Rows.Count) break;
             }
@@ -831,6 +831,11 @@ namespace AoC_Advanced_Scenario_Editor
                 CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
             }
 
+        }
+
+        private void ShowGrid_CheckedChanged(object sender, EventArgs e)
+        {
+            CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
         }
 
         #endregion
@@ -1683,6 +1688,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             Bitmap minimap = maps[1].Clone(new Rectangle(minX, minY, maxX - minX, maxY - minY), 0);
             Bitmap cities = maps[3].Clone(new Rectangle(minX, minY, maxX - minX, maxY - minY), 0);
+            
 
             for (int x = 0; x < minimap.Width; x++)
             {
@@ -1703,12 +1709,27 @@ namespace AoC_Advanced_Scenario_Editor
             }
 
             Bitmap minimapUpscaled = new(minimap.Width * 4, minimap.Height * 4);
+            Bitmap grid = new(minimap.Width * 4, minimap.Height * 4);
+
+            if(ShowGrid.Checked && TabSelect.SelectedIndex == 2)
+            for (int x = 0; x < grid.Width; x++)
+            {
+                for (int y = 0; y < grid.Height; y++)
+                {
+                    if (x % 4 == 1 || y % 4 == 1)
+                        grid.SetPixel(x, y, Color.FromArgb(50, Color.Black));
+                    //if (x % 20 == 1 || y % 20 == 1)
+                    //    grid.SetPixel(x, y, Color.FromArgb(150, Color.Black));
+                }
+            }
+
             using (Graphics g = Graphics.FromImage(minimapUpscaled))
             {
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
                 g.DrawImage(minimap, 0, 0, minimap.Width * 4, minimap.Height * 4);
+                g.DrawImage(grid, 0, 0);
             }
-
+                 
             return minimapUpscaled;
         }
 

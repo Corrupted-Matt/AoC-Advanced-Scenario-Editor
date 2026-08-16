@@ -175,6 +175,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.ExportAsScenario = new System.Windows.Forms.RadioButton();
             this.ExportAsSave = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
+            this.ShowGrid = new System.Windows.Forms.CheckBox();
             this.TabSelect.SuspendLayout();
             this.LoadTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).BeginInit();
@@ -995,6 +996,7 @@ namespace AoC_Advanced_Scenario_Editor
             // CitiesTab
             // 
             this.CitiesTab.AllowDrop = true;
+            this.CitiesTab.Controls.Add(this.ShowGrid);
             this.CitiesTab.Controls.Add(this.label29);
             this.CitiesTab.Controls.Add(this.label28);
             this.CitiesTab.Controls.Add(this.ImportCities);
@@ -1020,7 +1022,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label29.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label29.Location = new System.Drawing.Point(626, 237);
+            this.label29.Location = new System.Drawing.Point(627, 264);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(242, 39);
             this.label29.TabIndex = 36;
@@ -1939,7 +1941,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(37, 17);
             this.label17.TabIndex = 1;
-            this.label17.Text = "0.2.1";
+            this.label17.Text = "0.2.2";
             // 
             // label16
             // 
@@ -2145,6 +2147,18 @@ namespace AoC_Advanced_Scenario_Editor
             this.label26.Size = new System.Drawing.Size(201, 26);
             this.label26.TabIndex = 37;
             this.label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
+            // 
+            // ShowGrid
+            // 
+            this.ShowGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowGrid.AutoSize = true;
+            this.ShowGrid.Location = new System.Drawing.Point(630, 240);
+            this.ShowGrid.Name = "ShowGrid";
+            this.ShowGrid.Size = new System.Drawing.Size(86, 21);
+            this.ShowGrid.TabIndex = 37;
+            this.ShowGrid.Text = "Show grid";
+            this.ShowGrid.UseVisualStyleBackColor = true;
+            this.ShowGrid.CheckedChanged += new System.EventHandler(this.ShowGrid_CheckedChanged);
             // 
             // App
             // 
@@ -2369,6 +2383,7 @@ namespace AoC_Advanced_Scenario_Editor
         private Label label27;
         private Label label29;
         private Label label30;
+        private CheckBox ShowGrid;
     }
 }
 
