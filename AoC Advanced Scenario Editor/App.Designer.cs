@@ -85,6 +85,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.NationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NationColor = new System.Windows.Forms.DataGridViewButtonColumn();
             this.CitiesTab = new System.Windows.Forms.TabPage();
+            this.ShowGrid = new System.Windows.Forms.CheckBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.ImportCities = new System.Windows.Forms.Button();
@@ -175,7 +176,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.ExportAsScenario = new System.Windows.Forms.RadioButton();
             this.ExportAsSave = new System.Windows.Forms.RadioButton();
             this.label26 = new System.Windows.Forms.Label();
-            this.ShowGrid = new System.Windows.Forms.CheckBox();
             this.TabSelect.SuspendLayout();
             this.LoadTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).BeginInit();
@@ -943,6 +943,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.NationPreview.TabIndex = 1;
             this.NationPreview.TabStop = false;
             this.NationPreview.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NationPreview_MouseClick);
+            this.NationPreview.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.MapZoomChanged);
             // 
             // NationsTable
             // 
@@ -1015,6 +1016,18 @@ namespace AoC_Advanced_Scenario_Editor
             this.CitiesTab.TabIndex = 2;
             this.CitiesTab.Text = "Cities";
             this.CitiesTab.UseVisualStyleBackColor = true;
+            // 
+            // ShowGrid
+            // 
+            this.ShowGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ShowGrid.AutoSize = true;
+            this.ShowGrid.Location = new System.Drawing.Point(630, 240);
+            this.ShowGrid.Name = "ShowGrid";
+            this.ShowGrid.Size = new System.Drawing.Size(86, 21);
+            this.ShowGrid.TabIndex = 37;
+            this.ShowGrid.Text = "Show grid";
+            this.ShowGrid.UseVisualStyleBackColor = true;
+            this.ShowGrid.CheckedChanged += new System.EventHandler(this.ShowGrid_CheckedChanged);
             // 
             // label29
             // 
@@ -1144,6 +1157,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.CityPreview.TabIndex = 3;
             this.CityPreview.TabStop = false;
             this.CityPreview.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CityPreview_MouseClick);
+            this.CityPreview.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.MapZoomChanged);
             // 
             // CitiesTable
             // 
@@ -1941,7 +1955,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(37, 17);
             this.label17.TabIndex = 1;
-            this.label17.Text = "0.2.2";
+            this.label17.Text = "0.2.3";
             // 
             // label16
             // 
@@ -2147,18 +2161,6 @@ namespace AoC_Advanced_Scenario_Editor
             this.label26.Size = new System.Drawing.Size(201, 26);
             this.label26.TabIndex = 37;
             this.label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
-            // 
-            // ShowGrid
-            // 
-            this.ShowGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShowGrid.AutoSize = true;
-            this.ShowGrid.Location = new System.Drawing.Point(630, 240);
-            this.ShowGrid.Name = "ShowGrid";
-            this.ShowGrid.Size = new System.Drawing.Size(86, 21);
-            this.ShowGrid.TabIndex = 37;
-            this.ShowGrid.Text = "Show grid";
-            this.ShowGrid.UseVisualStyleBackColor = true;
-            this.ShowGrid.CheckedChanged += new System.EventHandler(this.ShowGrid_CheckedChanged);
             // 
             // App
             // 
