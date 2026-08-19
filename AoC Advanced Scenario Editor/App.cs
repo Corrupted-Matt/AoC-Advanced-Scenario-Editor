@@ -26,7 +26,7 @@ namespace AoC_Advanced_Scenario_Editor
     {
         JsonNode origin;
         bool LoadingFinished = false;
-        int ZoomLevel = 2;
+        int ZoomLevel = 4;
         readonly Point[] reticle = new Point[8];
         Bitmap flags;
         Bitmap[] maps;
@@ -141,8 +141,9 @@ namespace AoC_Advanced_Scenario_Editor
         {
             if (!LoadingFinished) return;
 
-            if (e.Delta > 0 && ZoomLevel < 4) ZoomLevel *= 2;
-            if (e.Delta < 0 && ZoomLevel > 1) ZoomLevel /= 2;
+            if (e.Delta > 0 && ZoomLevel < 16) ZoomLevel *= 2;
+            else if (e.Delta < 0 && ZoomLevel > 1) ZoomLevel /= 2;
+            else return;
 
             if (TabSelect.SelectedIndex == 1)
             {
@@ -1703,8 +1704,8 @@ namespace AoC_Advanced_Scenario_Editor
         private Bitmap DrawZoomedMap(JsonNode Scenario, int CenterX, int CenterY)
         {
             int w = (int)Scenario["width"], h = (int)Scenario["height"];
-            int minX = Math.Max(0, CenterX - 120 / ZoomLevel), minY = Math.Max(0, h - 1 - CenterY - 60 / ZoomLevel);
-            int maxX = Math.Min(w, CenterX + 120 / ZoomLevel), maxY = Math.Min(h, h - 1 - CenterY + 60 / ZoomLevel);
+            int minX = Math.Max(0, CenterX - 480 / ZoomLevel), minY = Math.Max(0, h - 1 - CenterY - 240 / ZoomLevel);
+            int maxX = Math.Min(w, CenterX + 480 / ZoomLevel), maxY = Math.Min(h, h - 1 - CenterY + 240 / ZoomLevel);
 
             Bitmap minimap = maps[1].Clone(new Rectangle(minX, minY, maxX - minX, maxY - minY), 0);
             Bitmap cities = maps[3].Clone(new Rectangle(minX, minY, maxX - minX, maxY - minY), 0);
@@ -1728,35 +1729,38 @@ namespace AoC_Advanced_Scenario_Editor
                 catch {}
             }
 
-            Bitmap minimapUpscaled = new(minimap.Width * 4 * ZoomLevel, minimap.Height * 4 * ZoomLevel);
-            Bitmap grid = new(minimap.Width * 4 * ZoomLevel, minimap.Height * 4 * ZoomLevel);
+            Bitmap minimapUpscaled = new(minimap.Width * ZoomLevel, minimap.Height * ZoomLevel);
+            Bitmap grid = new(minimap.Width * ZoomLevel, minimap.Height * ZoomLevel);
 
             if (ShowGrid.Checked && TabSelect.SelectedIndex == 2)
                 using (Graphics g = Graphics.FromImage(grid))
-            {
-                for (int x = 2 * ZoomLevel; x < grid.Width; x += 4 * ZoomLevel) 
                 {
-                    g.DrawLine(new(Color.FromArgb(50, Color.Black)), x, 0, x, grid.Height - 1);
-                }
-                for (int y = 2 * ZoomLevel; y < grid.Height; y += 4 * ZoomLevel) 
-                {
-                    g.DrawLine(new(Color.FromArgb(50, Color.Black)), 0, y, grid.Width - 1, y);
-                }
+                    if(ZoomLevel >= 8)
+                    {
+                        for (int x = ZoomLevel / 2; x < grid.Width; x += ZoomLevel)
+                        {
+                            g.DrawLine(new(Color.FromArgb(50, Color.Black)), x, 0, x, grid.Height - 1);
+                        }
+                        for (int y = ZoomLevel / 2; y < grid.Height; y += ZoomLevel)
+                        {
+                            g.DrawLine(new(Color.FromArgb(50, Color.Black)), 0, y, grid.Width - 1, y);
+                        }
+                    }
 
-                for (int x = (2 + (4 - minX % 5) * 4) * ZoomLevel; x < grid.Width; x += 20 * ZoomLevel) 
-                {
-                    g.DrawLine(new(Color.FromArgb(150, Color.Black)), x, 0, x, grid.Height - 1);
+                    for (int x = (4 - minX) % 5 * ZoomLevel + ZoomLevel / 2; x < grid.Width; x += 5 * ZoomLevel) 
+                    {
+                        g.DrawLine(new(Color.FromArgb(150, Color.Black)), x, 0, x, grid.Height - 1);
+                    }
+                    for (int y = (h - 1 - minY) % 5 * ZoomLevel + ZoomLevel / 2; y < grid.Height; y += 5 * ZoomLevel)
+                    {
+                        g.DrawLine(new(Color.FromArgb(150, Color.Black)), 0, y, grid.Width - 1, y);
+                    }
                 }
-                for (int y = (2 + (2 - minY % 5) * 4) * ZoomLevel; y < grid.Height; y += 20 * ZoomLevel)
-                {
-                    g.DrawLine(new(Color.FromArgb(150, Color.Black)), 0, y, grid.Width - 1, y);
-                }
-            }
            
             using (Graphics g = Graphics.FromImage(minimapUpscaled))
             {
                 g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-                g.DrawImage(minimap, 0, 0, minimap.Width * 4 * ZoomLevel, minimap.Height * 4 * ZoomLevel);
+                g.DrawImage(minimap, 0, 0, minimap.Width * ZoomLevel, minimap.Height * ZoomLevel);
                 g.DrawImageUnscaled(grid, 0, 0);
             }
                  
@@ -1782,8 +1786,8 @@ namespace AoC_Advanced_Scenario_Editor
 
             if (Table != AlliancesTable)
             {
-                minX = Math.Max(0, CenterX - 120 / ZoomLevel); minY = Math.Max(0, h - 1 - CenterY - 60 / ZoomLevel);
-                maxX = Math.Min(w, CenterX + 120 / ZoomLevel); maxY = Math.Min(h, h - 1 - CenterY + 60 / ZoomLevel);
+                minX = Math.Max(0, CenterX - 480 / ZoomLevel); minY = Math.Max(0, h - 1 - CenterY - 240 / ZoomLevel);
+                maxX = Math.Min(w, CenterX + 480 / ZoomLevel); maxY = Math.Min(h, h - 1 - CenterY + 240 / ZoomLevel);
 
                 scale = Math.Min(Box.ClientSize.Width / (float)(maxX - minX), Box.ClientSize.Height / (float)(maxY - minY));
                 Xoffset = (Box.ClientSize.Width - (maxX - minX) * scale) / 2; Yoffset = (Box.ClientSize.Height - (maxY - minY) * scale) / 2;
