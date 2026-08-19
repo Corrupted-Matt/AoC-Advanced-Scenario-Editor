@@ -1955,7 +1955,7 @@ namespace AoC_Advanced_Scenario_Editor
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(37, 17);
             this.label17.TabIndex = 1;
-            this.label17.Text = "0.2.3";
+            this.label17.Text = "0.2.4";
             // 
             // label16
             // 
