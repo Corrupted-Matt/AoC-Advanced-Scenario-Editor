@@ -134,7 +134,13 @@ namespace AoC_Advanced_Scenario_Editor
 
         private void ExportTypeChanged(object sender, EventArgs e)
         {
+            if (ModifierKeys != Keys.Shift || !Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low\\JoySparkGames\\Ages of Conflict"))
+                return;
 
+            if (ExportAsScenario.Checked)
+                DestinationInput.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low\\JoySparkGames\\Ages of Conflict\\Custom Scenarios";
+            else
+                DestinationInput.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "Low\\JoySparkGames\\Ages of Conflict\\Saves";
         }
 
         private void MapZoomChanged(object sender, MouseEventArgs e)
@@ -208,7 +214,13 @@ namespace AoC_Advanced_Scenario_Editor
             if (File.Exists(Directory.GetParent(ScenarioInput.Text) + "\\flags.png"))
                 flags = (Bitmap)Bitmap.FromFile(Directory.GetParent(ScenarioInput.Text) + "\\flags.png");
 
-            PopulateForm(origin);
+            try { PopulateForm(origin); }
+            catch(NullReferenceException) 
+            {
+                SystemSounds.Hand.Play();
+                MessageBox.Show("Save/scenario component missing.\nThis usually happens when opening a file made in older versions of the game, try saving in the newest version");
+            }
+            
 
             LoadingFinished = true;
             TabSelect.Enabled = true;
@@ -1533,12 +1545,12 @@ namespace AoC_Advanced_Scenario_Editor
                 OwnerRaw = []; OwnerAmounts = []; OwnerValues = [];
                 OccupationsRaw = []; OccupationsAmounts = []; OccupationsValues = [];
 
-                TerrainAmounts = (List<int>)JsonSerializer.Deserialize(Scenario["terrain2"]["amounts"], typeof(List<int>));
-                TerrainValues = (List<int>)JsonSerializer.Deserialize(Scenario["terrain2"]["values"], typeof(List<int>));
-                OwnerAmounts = (List<int>)JsonSerializer.Deserialize(Scenario["owner2"]["amounts"], typeof(List<int>));
-                OwnerValues = (List<int>)JsonSerializer.Deserialize(Scenario["owner2"]["values"], typeof(List<int>));
-                OccupationsAmounts = (List<int>)JsonSerializer.Deserialize(Scenario["occupations"]["amounts"], typeof(List<int>));
-                OccupationsValues = (List<int>)JsonSerializer.Deserialize(Scenario["occupations"]["values"], typeof(List<int>));
+                TerrainAmounts = JsonSerializer.Deserialize<List<int>>(Scenario["terrain2"]["amounts"]);
+                TerrainValues = JsonSerializer.Deserialize<List<int>>(Scenario["terrain2"]["values"]);
+                OwnerAmounts = JsonSerializer.Deserialize<List<int>>(Scenario["owner2"]["amounts"]);
+                OwnerValues = JsonSerializer.Deserialize<List<int>>(Scenario["owner2"]["values"]);
+                OccupationsAmounts = JsonSerializer.Deserialize<List<int>>(Scenario["occupations"]["amounts"]);
+                OccupationsValues = JsonSerializer.Deserialize<List<int>>(Scenario["occupations"]["values"]);
                                 
                 foreach (int a in TerrainAmounts)
                 {
@@ -1770,7 +1782,7 @@ namespace AoC_Advanced_Scenario_Editor
         private Point GetMapClickPos(DataGridView Table, PictureBox Box, int ClickX, int ClickY)
         {
             int w = (int)origin["width"], h = (int)origin["height"];
-            int x, y, CenterX, CenterY, minX, maxX, minY, maxY;
+            int x, y, CenterX = 0, CenterY = 0, minX, maxX, minY, maxY;
             float Xoffset, Yoffset, scale;
 
             if (Table == NationsTable)
@@ -1778,7 +1790,8 @@ namespace AoC_Advanced_Scenario_Editor
                 CenterX = (int)origin["nations"][Table.CurrentRow.Index]["pos"]["x"];
                 CenterY = (int)origin["nations"][Table.CurrentRow.Index]["pos"]["y"];
             }
-            else
+
+            if (Table == CitiesTable)
             {
                 CenterX = (int)origin["cities"][Table.CurrentRow.Index]["x"];
                 CenterY = (int)origin["cities"][Table.CurrentRow.Index]["y"];

@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
   <Project Path="AoC Advanced Scenario Editor/AoC Advanced Scenario Editor.csproj" Id="2417d3e0-93b2-4e1b-9b72-50bf4e1d0a37" />
 </Solution>

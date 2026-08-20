@@ -32,2211 +32,1936 @@ namespace AoC_Advanced_Scenario_Editor
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
-            this.TabSelect = new System.Windows.Forms.TabControl();
-            this.LoadTab = new System.Windows.Forms.TabPage();
-            this.StartingDay = new System.Windows.Forms.NumericUpDown();
-            this.ExportImgInfo = new System.Windows.Forms.Label();
-            this.ShowCities = new System.Windows.Forms.CheckBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.ExportImage = new System.Windows.Forms.Button();
-            this.MainMapSelect = new System.Windows.Forms.ComboBox();
-            this.DayScale = new System.Windows.Forms.RadioButton();
-            this.MonthScale = new System.Windows.Forms.RadioButton();
-            this.label14 = new System.Windows.Forms.Label();
-            this.HomePreview = new System.Windows.Forms.PictureBox();
-            this.ScenarioStatsLabel = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.CurrentYear = new System.Windows.Forms.NumericUpDown();
-            this.CurrentDay = new System.Windows.Forms.NumericUpDown();
-            this.CurrentMonth = new System.Windows.Forms.ComboBox();
-            this.StartingYear = new System.Windows.Forms.NumericUpDown();
-            this.StartingMonth = new System.Windows.Forms.ComboBox();
-            this.ScenarioSizeLabel = new System.Windows.Forms.Label();
-            this.GameVerLabel = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.LoadScenario = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ScenarioBrowse = new System.Windows.Forms.Button();
-            this.ScenarioInput = new System.Windows.Forms.TextBox();
-            this.NationsTab = new System.Windows.Forms.TabPage();
-            this.label30 = new System.Windows.Forms.Label();
-            this.PasteNationNames = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CapitalSelect = new System.Windows.Forms.ComboBox();
-            this.SetBonusToAll = new System.Windows.Forms.Button();
-            this.SetBonus = new System.Windows.Forms.NumericUpDown();
-            this.label21 = new System.Windows.Forms.Label();
-            this.SetFlagID = new System.Windows.Forms.NumericUpDown();
-            this.FlagPreview = new System.Windows.Forms.PictureBox();
-            this.SetCEToAll = new System.Windows.Forms.Button();
-            this.SetGoldToAll = new System.Windows.Forms.Button();
-            this.ceLock = new System.Windows.Forms.CheckBox();
-            this.DisableAI = new System.Windows.Forms.CheckBox();
-            this.SetEyear = new System.Windows.Forms.NumericUpDown();
-            this.SetSyear = new System.Windows.Forms.NumericUpDown();
-            this.SetCE = new System.Windows.Forms.NumericUpDown();
-            this.SetGold = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NationPreview = new System.Windows.Forms.PictureBox();
-            this.NationsTable = new System.Windows.Forms.DataGridView();
-            this.NationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NationColor = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.CitiesTab = new System.Windows.Forms.TabPage();
-            this.ShowGrid = new System.Windows.Forms.CheckBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.ImportCities = new System.Windows.Forms.Button();
-            this.RemoveCore = new System.Windows.Forms.Button();
-            this.PasteCityNames = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.SetCoreToSelf = new System.Windows.Forms.Button();
-            this.CityRevoltChance = new System.Windows.Forms.NumericUpDown();
-            this.CityRightfulOwner = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.CityPreview = new System.Windows.Forms.PictureBox();
-            this.CitiesTable = new System.Windows.Forms.DataGridView();
-            this.cityX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AlliancesTab = new System.Windows.Forms.TabPage();
-            this.label27 = new System.Windows.Forms.Label();
-            this.IsUnion = new System.Windows.Forms.CheckBox();
-            this.AlliancePreview = new System.Windows.Forms.PictureBox();
-            this.Unity = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.AllianceNationSelect = new System.Windows.Forms.DataGridView();
-            this.AllianceNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllianceNations = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllianceSelect = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AllianceLoyalty = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.AlliancesTable = new System.Windows.Forms.DataGridView();
-            this.AllianceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllianceMembers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AllianceColor = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.PuppetsTab = new System.Windows.Forms.TabPage();
-            this.PuppetLoyaltyDesc = new System.Windows.Forms.ComboBox();
-            this.PuppetAutonomyDesc = new System.Windows.Forms.ComboBox();
-            this.PuppetLoyalty = new System.Windows.Forms.NumericUpDown();
-            this.PuppetAutonomy = new System.Windows.Forms.NumericUpDown();
-            this.PuppetIntegration = new System.Windows.Forms.NumericUpDown();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.PuppetsOverview = new System.Windows.Forms.DataGridView();
-            this.PuppetMasterID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetMastersList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetsList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetsTable = new System.Windows.Forms.DataGridView();
-            this.PuppetNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetNationList = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PuppetMasterSelect = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.WarsTab = new System.Windows.Forms.TabPage();
-            this.label15 = new System.Windows.Forms.Label();
-            this.ToDeath = new System.Windows.Forms.Button();
-            this.MergeWars = new System.Windows.Forms.Button();
-            this.WarEndYear = new System.Windows.Forms.NumericUpDown();
-            this.WarEndDay = new System.Windows.Forms.NumericUpDown();
-            this.WarEndMonth = new System.Windows.Forms.ComboBox();
-            this.RemoveWar = new System.Windows.Forms.Button();
-            this.AddWar = new System.Windows.Forms.Button();
-            this.WarStartYear = new System.Windows.Forms.NumericUpDown();
-            this.WarStartDay = new System.Windows.Forms.NumericUpDown();
-            this.WarStartMonth = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.WarNationSelect = new System.Windows.Forms.DataGridView();
-            this.WarNationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Involvement = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.WarsTable = new System.Windows.Forms.DataGridView();
-            this.Attackers = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Defenders = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InfoTab = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.FlagEditorLink = new System.Windows.Forms.LinkLabel();
-            this.ConverterLink = new System.Windows.Forms.LinkLabel();
-            this.DiscordLink = new System.Windows.Forms.LinkLabel();
-            this.ReadmeLink = new System.Windows.Forms.LinkLabel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.DestinationInput = new System.Windows.Forms.TextBox();
-            this.NameSelection = new System.Windows.Forms.TextBox();
-            this.DestinationBrowse = new System.Windows.Forms.Button();
-            this.RunGameButton = new System.Windows.Forms.Button();
-            this.GenerateButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ColorPicker = new System.Windows.Forms.ColorDialog();
-            this.ExportAsScenario = new System.Windows.Forms.RadioButton();
-            this.ExportAsSave = new System.Windows.Forms.RadioButton();
-            this.label26 = new System.Windows.Forms.Label();
-            this.TabSelect.SuspendLayout();
-            this.LoadTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HomePreview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CurrentYear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CurrentDay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StartingYear)).BeginInit();
-            this.NationsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SetBonus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetFlagID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FlagPreview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetEyear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetSyear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetCE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetGold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NationPreview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NationsTable)).BeginInit();
-            this.CitiesTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CityRevoltChance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CityPreview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CitiesTable)).BeginInit();
-            this.AlliancesTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AlliancePreview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Unity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AllianceNationSelect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AlliancesTable)).BeginInit();
-            this.PuppetsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetLoyalty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetAutonomy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetIntegration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetsOverview)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetsTable)).BeginInit();
-            this.WarsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WarEndYear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarEndDay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarStartYear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarStartDay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarNationSelect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarsTable)).BeginInit();
-            this.InfoTab.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.SuspendLayout();
+            TabSelect = new TabControl();
+            LoadTab = new TabPage();
+            StartingDay = new NumericUpDown();
+            ExportImgInfo = new Label();
+            ShowCities = new CheckBox();
+            label23 = new Label();
+            ExportImage = new Button();
+            MainMapSelect = new ComboBox();
+            DayScale = new RadioButton();
+            MonthScale = new RadioButton();
+            label14 = new Label();
+            HomePreview = new PictureBox();
+            ScenarioStatsLabel = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            CurrentYear = new NumericUpDown();
+            CurrentDay = new NumericUpDown();
+            CurrentMonth = new ComboBox();
+            StartingYear = new NumericUpDown();
+            StartingMonth = new ComboBox();
+            ScenarioSizeLabel = new Label();
+            GameVerLabel = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            LoadScenario = new Button();
+            label3 = new Label();
+            ScenarioBrowse = new Button();
+            ScenarioInput = new TextBox();
+            NationsTab = new TabPage();
+            label30 = new Label();
+            PasteNationNames = new Button();
+            label7 = new Label();
+            CapitalSelect = new ComboBox();
+            SetBonusToAll = new Button();
+            SetBonus = new NumericUpDown();
+            label21 = new Label();
+            SetFlagID = new NumericUpDown();
+            FlagPreview = new PictureBox();
+            SetCEToAll = new Button();
+            SetGoldToAll = new Button();
+            ceLock = new CheckBox();
+            DisableAI = new CheckBox();
+            SetEyear = new NumericUpDown();
+            SetSyear = new NumericUpDown();
+            SetCE = new NumericUpDown();
+            SetGold = new NumericUpDown();
+            label6 = new Label();
+            NationPreview = new PictureBox();
+            NationsTable = new DataGridView();
+            NationID = new DataGridViewTextBoxColumn();
+            NationName = new DataGridViewTextBoxColumn();
+            NationColor = new DataGridViewButtonColumn();
+            CitiesTab = new TabPage();
+            ShowGrid = new CheckBox();
+            label29 = new Label();
+            label28 = new Label();
+            ImportCities = new Button();
+            RemoveCore = new Button();
+            PasteCityNames = new Button();
+            label9 = new Label();
+            SetCoreToSelf = new Button();
+            CityRevoltChance = new NumericUpDown();
+            CityRightfulOwner = new ComboBox();
+            label8 = new Label();
+            CityPreview = new PictureBox();
+            CitiesTable = new DataGridView();
+            cityX = new DataGridViewTextBoxColumn();
+            cityY = new DataGridViewTextBoxColumn();
+            CityName = new DataGridViewTextBoxColumn();
+            AlliancesTab = new TabPage();
+            label27 = new Label();
+            IsUnion = new CheckBox();
+            AlliancePreview = new PictureBox();
+            Unity = new NumericUpDown();
+            label10 = new Label();
+            AllianceNationSelect = new DataGridView();
+            AllianceNationID = new DataGridViewTextBoxColumn();
+            AllianceNations = new DataGridViewTextBoxColumn();
+            AllianceSelect = new DataGridViewComboBoxColumn();
+            AllianceLoyalty = new DataGridViewComboBoxColumn();
+            AlliancesTable = new DataGridView();
+            AllianceName = new DataGridViewTextBoxColumn();
+            AllianceMembers = new DataGridViewTextBoxColumn();
+            AllianceColor = new DataGridViewButtonColumn();
+            PuppetsTab = new TabPage();
+            PuppetLoyaltyDesc = new ComboBox();
+            PuppetAutonomyDesc = new ComboBox();
+            PuppetLoyalty = new NumericUpDown();
+            PuppetAutonomy = new NumericUpDown();
+            PuppetIntegration = new NumericUpDown();
+            label25 = new Label();
+            label24 = new Label();
+            PuppetsOverview = new DataGridView();
+            PuppetMasterID = new DataGridViewTextBoxColumn();
+            PuppetMastersList = new DataGridViewTextBoxColumn();
+            PuppetsList = new DataGridViewTextBoxColumn();
+            PuppetsTable = new DataGridView();
+            PuppetNationID = new DataGridViewTextBoxColumn();
+            PuppetNationList = new DataGridViewTextBoxColumn();
+            PuppetMasterSelect = new DataGridViewComboBoxColumn();
+            WarsTab = new TabPage();
+            label15 = new Label();
+            ToDeath = new Button();
+            MergeWars = new Button();
+            WarEndYear = new NumericUpDown();
+            WarEndDay = new NumericUpDown();
+            WarEndMonth = new ComboBox();
+            RemoveWar = new Button();
+            AddWar = new Button();
+            WarStartYear = new NumericUpDown();
+            WarStartDay = new NumericUpDown();
+            WarStartMonth = new ComboBox();
+            label11 = new Label();
+            WarNationSelect = new DataGridView();
+            WarNationID = new DataGridViewTextBoxColumn();
+            Nation = new DataGridViewTextBoxColumn();
+            Involvement = new DataGridViewComboBoxColumn();
+            WarsTable = new DataGridView();
+            Attackers = new DataGridViewTextBoxColumn();
+            Defenders = new DataGridViewTextBoxColumn();
+            InfoTab = new TabPage();
+            groupBox2 = new GroupBox();
+            label19 = new Label();
+            label18 = new Label();
+            label17 = new Label();
+            label16 = new Label();
+            groupBox1 = new GroupBox();
+            label22 = new Label();
+            FlagEditorLink = new LinkLabel();
+            ConverterLink = new LinkLabel();
+            DiscordLink = new LinkLabel();
+            ReadmeLink = new LinkLabel();
+            label20 = new Label();
+            DestinationInput = new TextBox();
+            NameSelection = new TextBox();
+            DestinationBrowse = new Button();
+            RunGameButton = new Button();
+            GenerateButton = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            ColorPicker = new ColorDialog();
+            ExportAsScenario = new RadioButton();
+            ExportAsSave = new RadioButton();
+            label26 = new Label();
+            TabSelect.SuspendLayout();
+            LoadTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)StartingDay).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)HomePreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CurrentYear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CurrentDay).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)StartingYear).BeginInit();
+            NationsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)SetBonus).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SetFlagID).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FlagPreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SetEyear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SetSyear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SetCE).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)SetGold).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NationPreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NationsTable).BeginInit();
+            CitiesTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)CityRevoltChance).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CityPreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CitiesTable).BeginInit();
+            AlliancesTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AlliancePreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Unity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AllianceNationSelect).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AlliancesTable).BeginInit();
+            PuppetsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PuppetLoyalty).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetAutonomy).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetIntegration).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetsOverview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetsTable).BeginInit();
+            WarsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)WarEndYear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WarEndDay).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WarStartYear).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WarStartDay).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WarNationSelect).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)WarsTable).BeginInit();
+            InfoTab.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            SuspendLayout();
             // 
             // TabSelect
             // 
-            this.TabSelect.AllowDrop = true;
-            this.TabSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabSelect.Controls.Add(this.LoadTab);
-            this.TabSelect.Controls.Add(this.NationsTab);
-            this.TabSelect.Controls.Add(this.CitiesTab);
-            this.TabSelect.Controls.Add(this.AlliancesTab);
-            this.TabSelect.Controls.Add(this.PuppetsTab);
-            this.TabSelect.Controls.Add(this.WarsTab);
-            this.TabSelect.Controls.Add(this.InfoTab);
-            this.TabSelect.ItemSize = new System.Drawing.Size(100, 25);
-            this.TabSelect.Location = new System.Drawing.Point(0, 0);
-            this.TabSelect.Margin = new System.Windows.Forms.Padding(0);
-            this.TabSelect.Multiline = true;
-            this.TabSelect.Name = "TabSelect";
-            this.TabSelect.SelectedIndex = 0;
-            this.TabSelect.Size = new System.Drawing.Size(884, 440);
-            this.TabSelect.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.TabSelect.TabIndex = 0;
+            TabSelect.AllowDrop = true;
+            TabSelect.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TabSelect.Controls.Add(LoadTab);
+            TabSelect.Controls.Add(NationsTab);
+            TabSelect.Controls.Add(CitiesTab);
+            TabSelect.Controls.Add(AlliancesTab);
+            TabSelect.Controls.Add(PuppetsTab);
+            TabSelect.Controls.Add(WarsTab);
+            TabSelect.Controls.Add(InfoTab);
+            TabSelect.ItemSize = new Size(100, 25);
+            TabSelect.Location = new Point(0, 0);
+            TabSelect.Margin = new Padding(0);
+            TabSelect.Multiline = true;
+            TabSelect.Name = "TabSelect";
+            TabSelect.SelectedIndex = 0;
+            TabSelect.Size = new Size(884, 440);
+            TabSelect.SizeMode = TabSizeMode.Fixed;
+            TabSelect.TabIndex = 0;
             // 
             // LoadTab
             // 
-            this.LoadTab.Controls.Add(this.StartingDay);
-            this.LoadTab.Controls.Add(this.ExportImgInfo);
-            this.LoadTab.Controls.Add(this.ShowCities);
-            this.LoadTab.Controls.Add(this.label23);
-            this.LoadTab.Controls.Add(this.ExportImage);
-            this.LoadTab.Controls.Add(this.MainMapSelect);
-            this.LoadTab.Controls.Add(this.DayScale);
-            this.LoadTab.Controls.Add(this.MonthScale);
-            this.LoadTab.Controls.Add(this.label14);
-            this.LoadTab.Controls.Add(this.HomePreview);
-            this.LoadTab.Controls.Add(this.ScenarioStatsLabel);
-            this.LoadTab.Controls.Add(this.label13);
-            this.LoadTab.Controls.Add(this.label12);
-            this.LoadTab.Controls.Add(this.CurrentYear);
-            this.LoadTab.Controls.Add(this.CurrentDay);
-            this.LoadTab.Controls.Add(this.CurrentMonth);
-            this.LoadTab.Controls.Add(this.StartingYear);
-            this.LoadTab.Controls.Add(this.StartingMonth);
-            this.LoadTab.Controls.Add(this.ScenarioSizeLabel);
-            this.LoadTab.Controls.Add(this.GameVerLabel);
-            this.LoadTab.Controls.Add(this.label5);
-            this.LoadTab.Controls.Add(this.label4);
-            this.LoadTab.Controls.Add(this.LoadScenario);
-            this.LoadTab.Controls.Add(this.label3);
-            this.LoadTab.Controls.Add(this.ScenarioBrowse);
-            this.LoadTab.Controls.Add(this.ScenarioInput);
-            this.LoadTab.Location = new System.Drawing.Point(4, 29);
-            this.LoadTab.Name = "LoadTab";
-            this.LoadTab.Padding = new System.Windows.Forms.Padding(3);
-            this.LoadTab.Size = new System.Drawing.Size(876, 407);
-            this.LoadTab.TabIndex = 0;
-            this.LoadTab.Text = "Load";
-            this.LoadTab.UseVisualStyleBackColor = true;
+            LoadTab.Controls.Add(StartingDay);
+            LoadTab.Controls.Add(ExportImgInfo);
+            LoadTab.Controls.Add(ShowCities);
+            LoadTab.Controls.Add(label23);
+            LoadTab.Controls.Add(ExportImage);
+            LoadTab.Controls.Add(MainMapSelect);
+            LoadTab.Controls.Add(DayScale);
+            LoadTab.Controls.Add(MonthScale);
+            LoadTab.Controls.Add(label14);
+            LoadTab.Controls.Add(HomePreview);
+            LoadTab.Controls.Add(ScenarioStatsLabel);
+            LoadTab.Controls.Add(label13);
+            LoadTab.Controls.Add(label12);
+            LoadTab.Controls.Add(CurrentYear);
+            LoadTab.Controls.Add(CurrentDay);
+            LoadTab.Controls.Add(CurrentMonth);
+            LoadTab.Controls.Add(StartingYear);
+            LoadTab.Controls.Add(StartingMonth);
+            LoadTab.Controls.Add(ScenarioSizeLabel);
+            LoadTab.Controls.Add(GameVerLabel);
+            LoadTab.Controls.Add(label5);
+            LoadTab.Controls.Add(label4);
+            LoadTab.Controls.Add(LoadScenario);
+            LoadTab.Controls.Add(label3);
+            LoadTab.Controls.Add(ScenarioBrowse);
+            LoadTab.Controls.Add(ScenarioInput);
+            LoadTab.Location = new Point(4, 29);
+            LoadTab.Name = "LoadTab";
+            LoadTab.Padding = new Padding(3);
+            LoadTab.Size = new Size(876, 407);
+            LoadTab.TabIndex = 0;
+            LoadTab.Text = "Load";
+            LoadTab.UseVisualStyleBackColor = true;
             // 
             // StartingDay
             // 
-            this.StartingDay.Location = new System.Drawing.Point(244, 332);
-            this.StartingDay.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.StartingDay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.StartingDay.Name = "StartingDay";
-            this.StartingDay.Size = new System.Drawing.Size(40, 25);
-            this.StartingDay.TabIndex = 36;
-            this.StartingDay.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.StartingDay.ValueChanged += new System.EventHandler(this.DateChanged);
+            StartingDay.Location = new Point(244, 332);
+            StartingDay.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            StartingDay.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            StartingDay.Name = "StartingDay";
+            StartingDay.Size = new Size(40, 25);
+            StartingDay.TabIndex = 36;
+            StartingDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            StartingDay.ValueChanged += DateChanged;
             // 
             // ExportImgInfo
             // 
-            this.ExportImgInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportImgInfo.AutoSize = true;
-            this.ExportImgInfo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ExportImgInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ExportImgInfo.Location = new System.Drawing.Point(690, 40);
-            this.ExportImgInfo.Name = "ExportImgInfo";
-            this.ExportImgInfo.Size = new System.Drawing.Size(175, 26);
-            this.ExportImgInfo.TabIndex = 35;
-            this.ExportImgInfo.Text = "Will export without cities.\r\nCheck to export cities separately.";
+            ExportImgInfo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ExportImgInfo.AutoSize = true;
+            ExportImgInfo.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            ExportImgInfo.ForeColor = SystemColors.ControlDarkDark;
+            ExportImgInfo.Location = new Point(690, 40);
+            ExportImgInfo.Name = "ExportImgInfo";
+            ExportImgInfo.Size = new Size(175, 26);
+            ExportImgInfo.TabIndex = 35;
+            ExportImgInfo.Text = "Will export without cities.\r\nCheck to export cities separately.";
             // 
             // ShowCities
             // 
-            this.ShowCities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShowCities.AutoSize = true;
-            this.ShowCities.Location = new System.Drawing.Point(592, 43);
-            this.ShowCities.Name = "ShowCities";
-            this.ShowCities.Size = new System.Drawing.Size(91, 21);
-            this.ShowCities.TabIndex = 34;
-            this.ShowCities.Text = "Show cities";
-            this.ShowCities.UseVisualStyleBackColor = true;
-            this.ShowCities.CheckedChanged += new System.EventHandler(this.ShowCities_CheckedChanged);
+            ShowCities.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ShowCities.AutoSize = true;
+            ShowCities.Location = new Point(592, 43);
+            ShowCities.Name = "ShowCities";
+            ShowCities.Size = new Size(91, 21);
+            ShowCities.TabIndex = 34;
+            ShowCities.Text = "Show cities";
+            ShowCities.UseVisualStyleBackColor = true;
+            ShowCities.CheckedChanged += ShowCities_CheckedChanged;
             // 
             // label23
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(589, 13);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(42, 17);
-            this.label23.TabIndex = 33;
-            this.label23.Text = "View: ";
+            label23.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label23.AutoSize = true;
+            label23.Location = new Point(589, 13);
+            label23.Name = "label23";
+            label23.Size = new Size(42, 17);
+            label23.TabIndex = 33;
+            label23.Text = "View: ";
             // 
             // ExportImage
             // 
-            this.ExportImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportImage.Enabled = false;
-            this.ExportImage.Location = new System.Drawing.Point(769, 7);
-            this.ExportImage.Name = "ExportImage";
-            this.ExportImage.Size = new System.Drawing.Size(100, 30);
-            this.ExportImage.TabIndex = 32;
-            this.ExportImage.Text = "Export image";
-            this.ExportImage.UseVisualStyleBackColor = true;
-            this.ExportImage.Click += new System.EventHandler(this.ExportImage_Click);
+            ExportImage.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            ExportImage.Enabled = false;
+            ExportImage.Location = new Point(769, 7);
+            ExportImage.Name = "ExportImage";
+            ExportImage.Size = new Size(100, 30);
+            ExportImage.TabIndex = 32;
+            ExportImage.Text = "Export image";
+            ExportImage.UseVisualStyleBackColor = true;
+            ExportImage.Click += ExportImage_Click;
             // 
             // MainMapSelect
             // 
-            this.MainMapSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MainMapSelect.FormattingEnabled = true;
-            this.MainMapSelect.Items.AddRange(new object[] {
-            "Terrain",
-            "De Facto",
-            "De Jure"});
-            this.MainMapSelect.Location = new System.Drawing.Point(637, 10);
-            this.MainMapSelect.Name = "MainMapSelect";
-            this.MainMapSelect.Size = new System.Drawing.Size(121, 25);
-            this.MainMapSelect.TabIndex = 31;
-            this.MainMapSelect.Text = "Terrain";
-            this.MainMapSelect.SelectedIndexChanged += new System.EventHandler(this.UpdateMainMap);
+            MainMapSelect.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            MainMapSelect.FormattingEnabled = true;
+            MainMapSelect.Items.AddRange(new object[] { "Terrain", "De Facto", "De Jure" });
+            MainMapSelect.Location = new Point(637, 10);
+            MainMapSelect.Name = "MainMapSelect";
+            MainMapSelect.Size = new Size(121, 25);
+            MainMapSelect.TabIndex = 31;
+            MainMapSelect.Text = "Terrain";
+            MainMapSelect.SelectedIndexChanged += UpdateMainMap;
             // 
             // DayScale
             // 
-            this.DayScale.AutoSize = true;
-            this.DayScale.Location = new System.Drawing.Point(14, 121);
-            this.DayScale.Name = "DayScale";
-            this.DayScale.Size = new System.Drawing.Size(54, 21);
-            this.DayScale.TabIndex = 30;
-            this.DayScale.Text = "Days";
-            this.DayScale.UseVisualStyleBackColor = true;
+            DayScale.AutoSize = true;
+            DayScale.Location = new Point(14, 121);
+            DayScale.Name = "DayScale";
+            DayScale.Size = new Size(54, 21);
+            DayScale.TabIndex = 30;
+            DayScale.Text = "Days";
+            DayScale.UseVisualStyleBackColor = true;
             // 
             // MonthScale
             // 
-            this.MonthScale.AutoSize = true;
-            this.MonthScale.Checked = true;
-            this.MonthScale.Location = new System.Drawing.Point(14, 94);
-            this.MonthScale.Name = "MonthScale";
-            this.MonthScale.Size = new System.Drawing.Size(70, 21);
-            this.MonthScale.TabIndex = 29;
-            this.MonthScale.TabStop = true;
-            this.MonthScale.Text = "Months";
-            this.MonthScale.UseVisualStyleBackColor = true;
-            this.MonthScale.CheckedChanged += new System.EventHandler(this.ReloadRequired);
+            MonthScale.AutoSize = true;
+            MonthScale.Checked = true;
+            MonthScale.Location = new Point(14, 94);
+            MonthScale.Name = "MonthScale";
+            MonthScale.Size = new Size(70, 21);
+            MonthScale.TabIndex = 29;
+            MonthScale.TabStop = true;
+            MonthScale.Text = "Months";
+            MonthScale.UseVisualStyleBackColor = true;
+            MonthScale.CheckedChanged += ReloadRequired;
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 70);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(120, 17);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "Intended timescale:";
+            label14.AutoSize = true;
+            label14.Location = new Point(11, 70);
+            label14.Name = "label14";
+            label14.Size = new Size(120, 17);
+            label14.TabIndex = 28;
+            label14.Text = "Intended timescale:";
             // 
             // HomePreview
             // 
-            this.HomePreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.HomePreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.HomePreview.Location = new System.Drawing.Point(385, 70);
-            this.HomePreview.Name = "HomePreview";
-            this.HomePreview.Size = new System.Drawing.Size(485, 331);
-            this.HomePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.HomePreview.TabIndex = 27;
-            this.HomePreview.TabStop = false;
+            HomePreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            HomePreview.BackgroundImageLayout = ImageLayout.Zoom;
+            HomePreview.Location = new Point(385, 70);
+            HomePreview.Name = "HomePreview";
+            HomePreview.Size = new Size(485, 331);
+            HomePreview.SizeMode = PictureBoxSizeMode.Zoom;
+            HomePreview.TabIndex = 27;
+            HomePreview.TabStop = false;
             // 
             // ScenarioStatsLabel
             // 
-            this.ScenarioStatsLabel.AutoSize = true;
-            this.ScenarioStatsLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ScenarioStatsLabel.Location = new System.Drawing.Point(311, 235);
-            this.ScenarioStatsLabel.Name = "ScenarioStatsLabel";
-            this.ScenarioStatsLabel.Size = new System.Drawing.Size(66, 68);
-            this.ScenarioStatsLabel.TabIndex = 26;
-            this.ScenarioStatsLabel.Text = "Unknown\r\nUnknown\r\nUnknown\r\nUnknown";
-            this.ScenarioStatsLabel.Visible = false;
+            ScenarioStatsLabel.AutoSize = true;
+            ScenarioStatsLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            ScenarioStatsLabel.Location = new Point(311, 235);
+            ScenarioStatsLabel.Name = "ScenarioStatsLabel";
+            ScenarioStatsLabel.Size = new Size(66, 68);
+            ScenarioStatsLabel.TabIndex = 26;
+            ScenarioStatsLabel.Text = "Unknown\r\nUnknown\r\nUnknown\r\nUnknown";
+            ScenarioStatsLabel.Visible = false;
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(244, 235);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 68);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "Nations:\r\nCities:\r\nAlliances:\r\nWars:";
+            label13.AutoSize = true;
+            label13.Location = new Point(244, 235);
+            label13.Name = "label13";
+            label13.Size = new Size(61, 68);
+            label13.TabIndex = 25;
+            label13.Text = "Nations:\r\nCities:\r\nAlliances:\r\nWars:";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label12.Location = new System.Drawing.Point(11, 150);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(286, 39);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "This will be used to convert dates \r\nto and from AoC\'s relative time format.\r\nCha" +
-    "nging this setting requires reloading the scenario.";
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label12.ForeColor = SystemColors.ControlDarkDark;
+            label12.Location = new Point(11, 150);
+            label12.Name = "label12";
+            label12.Size = new Size(286, 39);
+            label12.TabIndex = 24;
+            label12.Text = "This will be used to convert dates \r\nto and from AoC's relative time format.\r\nChanging this setting requires reloading the scenario.";
             // 
             // CurrentYear
             // 
-            this.CurrentYear.Location = new System.Drawing.Point(290, 367);
-            this.CurrentYear.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.CurrentYear.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CurrentYear.Name = "CurrentYear";
-            this.CurrentYear.Size = new System.Drawing.Size(85, 25);
-            this.CurrentYear.TabIndex = 22;
-            this.CurrentYear.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CurrentYear.ValueChanged += new System.EventHandler(this.DateChanged);
+            CurrentYear.Location = new Point(290, 367);
+            CurrentYear.Maximum = new decimal(new int[] { 20000, 0, 0, 0 });
+            CurrentYear.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            CurrentYear.Name = "CurrentYear";
+            CurrentYear.Size = new Size(85, 25);
+            CurrentYear.TabIndex = 22;
+            CurrentYear.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            CurrentYear.ValueChanged += DateChanged;
             // 
             // CurrentDay
             // 
-            this.CurrentDay.Location = new System.Drawing.Point(244, 367);
-            this.CurrentDay.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.CurrentDay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CurrentDay.Name = "CurrentDay";
-            this.CurrentDay.Size = new System.Drawing.Size(40, 25);
-            this.CurrentDay.TabIndex = 21;
-            this.CurrentDay.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CurrentDay.ValueChanged += new System.EventHandler(this.DateChanged);
+            CurrentDay.Location = new Point(244, 367);
+            CurrentDay.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            CurrentDay.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            CurrentDay.Name = "CurrentDay";
+            CurrentDay.Size = new Size(40, 25);
+            CurrentDay.TabIndex = 21;
+            CurrentDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            CurrentDay.ValueChanged += DateChanged;
             // 
             // CurrentMonth
             // 
-            this.CurrentMonth.FormattingEnabled = true;
-            this.CurrentMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.CurrentMonth.Location = new System.Drawing.Point(118, 367);
-            this.CurrentMonth.Name = "CurrentMonth";
-            this.CurrentMonth.Size = new System.Drawing.Size(120, 25);
-            this.CurrentMonth.TabIndex = 20;
-            this.CurrentMonth.SelectedIndexChanged += new System.EventHandler(this.DateChanged);
+            CurrentMonth.FormattingEnabled = true;
+            CurrentMonth.Items.AddRange(new object[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" });
+            CurrentMonth.Location = new Point(118, 367);
+            CurrentMonth.Name = "CurrentMonth";
+            CurrentMonth.Size = new Size(120, 25);
+            CurrentMonth.TabIndex = 20;
+            CurrentMonth.SelectedIndexChanged += DateChanged;
             // 
             // StartingYear
             // 
-            this.StartingYear.Location = new System.Drawing.Point(290, 332);
-            this.StartingYear.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.StartingYear.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.StartingYear.Name = "StartingYear";
-            this.StartingYear.Size = new System.Drawing.Size(85, 25);
-            this.StartingYear.TabIndex = 19;
-            this.StartingYear.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.StartingYear.ValueChanged += new System.EventHandler(this.DateChanged);
+            StartingYear.Location = new Point(290, 332);
+            StartingYear.Maximum = new decimal(new int[] { 20000, 0, 0, 0 });
+            StartingYear.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            StartingYear.Name = "StartingYear";
+            StartingYear.Size = new Size(85, 25);
+            StartingYear.TabIndex = 19;
+            StartingYear.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            StartingYear.ValueChanged += DateChanged;
             // 
             // StartingMonth
             // 
-            this.StartingMonth.FormattingEnabled = true;
-            this.StartingMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.StartingMonth.Location = new System.Drawing.Point(118, 332);
-            this.StartingMonth.Name = "StartingMonth";
-            this.StartingMonth.Size = new System.Drawing.Size(120, 25);
-            this.StartingMonth.TabIndex = 17;
-            this.StartingMonth.SelectedIndexChanged += new System.EventHandler(this.DateChanged);
+            StartingMonth.FormattingEnabled = true;
+            StartingMonth.Items.AddRange(new object[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" });
+            StartingMonth.Location = new Point(118, 332);
+            StartingMonth.Name = "StartingMonth";
+            StartingMonth.Size = new Size(120, 25);
+            StartingMonth.TabIndex = 17;
+            StartingMonth.SelectedIndexChanged += DateChanged;
             // 
             // ScenarioSizeLabel
             // 
-            this.ScenarioSizeLabel.AutoSize = true;
-            this.ScenarioSizeLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ScenarioSizeLabel.Location = new System.Drawing.Point(115, 268);
-            this.ScenarioSizeLabel.Name = "ScenarioSizeLabel";
-            this.ScenarioSizeLabel.Size = new System.Drawing.Size(66, 34);
-            this.ScenarioSizeLabel.TabIndex = 16;
-            this.ScenarioSizeLabel.Text = "Unknown\r\nUnknown";
-            this.ScenarioSizeLabel.Visible = false;
+            ScenarioSizeLabel.AutoSize = true;
+            ScenarioSizeLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            ScenarioSizeLabel.Location = new Point(115, 268);
+            ScenarioSizeLabel.Name = "ScenarioSizeLabel";
+            ScenarioSizeLabel.Size = new Size(66, 34);
+            ScenarioSizeLabel.TabIndex = 16;
+            ScenarioSizeLabel.Text = "Unknown\r\nUnknown";
+            ScenarioSizeLabel.Visible = false;
             // 
             // GameVerLabel
             // 
-            this.GameVerLabel.AutoSize = true;
-            this.GameVerLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GameVerLabel.Location = new System.Drawing.Point(115, 235);
-            this.GameVerLabel.Name = "GameVerLabel";
-            this.GameVerLabel.Size = new System.Drawing.Size(66, 17);
-            this.GameVerLabel.TabIndex = 15;
-            this.GameVerLabel.Text = "Unknown";
-            this.GameVerLabel.Visible = false;
+            GameVerLabel.AutoSize = true;
+            GameVerLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            GameVerLabel.Location = new Point(115, 235);
+            GameVerLabel.Name = "GameVerLabel";
+            GameVerLabel.Size = new Size(66, 17);
+            GameVerLabel.TabIndex = 15;
+            GameVerLabel.Text = "Unknown";
+            GameVerLabel.Visible = false;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 235);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 153);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Game version:\r\n\r\nWidth:\r\nHeight:\r\n\r\n\r\nStarting date:\r\n\r\nCurrent date:\r\n";
+            label5.AutoSize = true;
+            label5.Location = new Point(11, 235);
+            label5.Name = "label5";
+            label5.Size = new Size(91, 153);
+            label5.TabIndex = 14;
+            label5.Text = "Game version:\r\n\r\nWidth:\r\nHeight:\r\n\r\n\r\nStarting date:\r\n\r\nCurrent date:\r\n";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(8, 210);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 17);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Scenario info";
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label4.Location = new Point(8, 210);
+            label4.Name = "label4";
+            label4.Size = new Size(89, 17);
+            label4.TabIndex = 13;
+            label4.Text = "Scenario info";
             // 
             // LoadScenario
             // 
-            this.LoadScenario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.LoadScenario.ForeColor = System.Drawing.Color.Black;
-            this.LoadScenario.Location = new System.Drawing.Point(244, 70);
-            this.LoadScenario.Name = "LoadScenario";
-            this.LoadScenario.Size = new System.Drawing.Size(130, 30);
-            this.LoadScenario.TabIndex = 10;
-            this.LoadScenario.Text = "Load scenario";
-            this.LoadScenario.UseVisualStyleBackColor = true;
-            this.LoadScenario.Click += new System.EventHandler(this.LoadScenario_Click);
+            LoadScenario.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            LoadScenario.ForeColor = Color.Black;
+            LoadScenario.Location = new Point(244, 70);
+            LoadScenario.Name = "LoadScenario";
+            LoadScenario.Size = new Size(130, 30);
+            LoadScenario.TabIndex = 10;
+            LoadScenario.Text = "Load scenario";
+            LoadScenario.UseVisualStyleBackColor = true;
+            LoadScenario.Click += LoadScenario_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(141, 17);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Select scenario to load";
+            label3.AutoSize = true;
+            label3.Location = new Point(11, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(141, 17);
+            label3.TabIndex = 12;
+            label3.Text = "Select scenario to load";
             // 
             // ScenarioBrowse
             // 
-            this.ScenarioBrowse.Location = new System.Drawing.Point(418, 32);
-            this.ScenarioBrowse.Name = "ScenarioBrowse";
-            this.ScenarioBrowse.Size = new System.Drawing.Size(88, 30);
-            this.ScenarioBrowse.TabIndex = 11;
-            this.ScenarioBrowse.Text = "Browse";
-            this.ScenarioBrowse.UseVisualStyleBackColor = true;
-            this.ScenarioBrowse.Click += new System.EventHandler(this.ScenarioBrowse_Click);
+            ScenarioBrowse.Location = new Point(418, 32);
+            ScenarioBrowse.Name = "ScenarioBrowse";
+            ScenarioBrowse.Size = new Size(88, 30);
+            ScenarioBrowse.TabIndex = 11;
+            ScenarioBrowse.Text = "Browse";
+            ScenarioBrowse.UseVisualStyleBackColor = true;
+            ScenarioBrowse.Click += ScenarioBrowse_Click;
             // 
             // ScenarioInput
             // 
-            this.ScenarioInput.Location = new System.Drawing.Point(11, 35);
-            this.ScenarioInput.Name = "ScenarioInput";
-            this.ScenarioInput.Size = new System.Drawing.Size(401, 25);
-            this.ScenarioInput.TabIndex = 10;
-            this.ScenarioInput.TextChanged += new System.EventHandler(this.ReloadRequired);
+            ScenarioInput.Location = new Point(11, 35);
+            ScenarioInput.Name = "ScenarioInput";
+            ScenarioInput.Size = new Size(401, 25);
+            ScenarioInput.TabIndex = 10;
+            ScenarioInput.TextChanged += ReloadRequired;
             // 
             // NationsTab
             // 
-            this.NationsTab.Controls.Add(this.label30);
-            this.NationsTab.Controls.Add(this.PasteNationNames);
-            this.NationsTab.Controls.Add(this.label7);
-            this.NationsTab.Controls.Add(this.CapitalSelect);
-            this.NationsTab.Controls.Add(this.SetBonusToAll);
-            this.NationsTab.Controls.Add(this.SetBonus);
-            this.NationsTab.Controls.Add(this.label21);
-            this.NationsTab.Controls.Add(this.SetFlagID);
-            this.NationsTab.Controls.Add(this.FlagPreview);
-            this.NationsTab.Controls.Add(this.SetCEToAll);
-            this.NationsTab.Controls.Add(this.SetGoldToAll);
-            this.NationsTab.Controls.Add(this.ceLock);
-            this.NationsTab.Controls.Add(this.DisableAI);
-            this.NationsTab.Controls.Add(this.SetEyear);
-            this.NationsTab.Controls.Add(this.SetSyear);
-            this.NationsTab.Controls.Add(this.SetCE);
-            this.NationsTab.Controls.Add(this.SetGold);
-            this.NationsTab.Controls.Add(this.label6);
-            this.NationsTab.Controls.Add(this.NationPreview);
-            this.NationsTab.Controls.Add(this.NationsTable);
-            this.NationsTab.Location = new System.Drawing.Point(4, 29);
-            this.NationsTab.Name = "NationsTab";
-            this.NationsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.NationsTab.Size = new System.Drawing.Size(876, 407);
-            this.NationsTab.TabIndex = 1;
-            this.NationsTab.Text = "Nations";
-            this.NationsTab.UseVisualStyleBackColor = true;
+            NationsTab.Controls.Add(label30);
+            NationsTab.Controls.Add(PasteNationNames);
+            NationsTab.Controls.Add(label7);
+            NationsTab.Controls.Add(CapitalSelect);
+            NationsTab.Controls.Add(SetBonusToAll);
+            NationsTab.Controls.Add(SetBonus);
+            NationsTab.Controls.Add(label21);
+            NationsTab.Controls.Add(SetFlagID);
+            NationsTab.Controls.Add(FlagPreview);
+            NationsTab.Controls.Add(SetCEToAll);
+            NationsTab.Controls.Add(SetGoldToAll);
+            NationsTab.Controls.Add(ceLock);
+            NationsTab.Controls.Add(DisableAI);
+            NationsTab.Controls.Add(SetEyear);
+            NationsTab.Controls.Add(SetSyear);
+            NationsTab.Controls.Add(SetCE);
+            NationsTab.Controls.Add(SetGold);
+            NationsTab.Controls.Add(label6);
+            NationsTab.Controls.Add(NationPreview);
+            NationsTab.Controls.Add(NationsTable);
+            NationsTab.Location = new Point(4, 29);
+            NationsTab.Name = "NationsTab";
+            NationsTab.Padding = new Padding(3);
+            NationsTab.Size = new Size(876, 407);
+            NationsTab.TabIndex = 1;
+            NationsTab.Text = "Nations";
+            NationsTab.UseVisualStyleBackColor = true;
             // 
             // label30
             // 
-            this.label30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label30.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label30.Location = new System.Drawing.Point(656, 237);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(215, 13);
-            this.label30.TabIndex = 37;
-            this.label30.Text = "You can also select a country on the map";
+            label30.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label30.AutoSize = true;
+            label30.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label30.ForeColor = SystemColors.ControlDarkDark;
+            label30.Location = new Point(656, 237);
+            label30.Name = "label30";
+            label30.Size = new Size(215, 13);
+            label30.TabIndex = 37;
+            label30.Text = "You can also select a country on the map";
             // 
             // PasteNationNames
             // 
-            this.PasteNationNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PasteNationNames.Location = new System.Drawing.Point(3, 379);
-            this.PasteNationNames.Name = "PasteNationNames";
-            this.PasteNationNames.Size = new System.Drawing.Size(200, 25);
-            this.PasteNationNames.TabIndex = 21;
-            this.PasteNationNames.Text = "Paste names from clipboard";
-            this.PasteNationNames.UseVisualStyleBackColor = true;
-            this.PasteNationNames.Click += new System.EventHandler(this.PasteNationNames_Click);
+            PasteNationNames.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PasteNationNames.Location = new Point(3, 379);
+            PasteNationNames.Name = "PasteNationNames";
+            PasteNationNames.Size = new Size(200, 25);
+            PasteNationNames.TabIndex = 21;
+            PasteNationNames.Text = "Paste names from clipboard";
+            PasteNationNames.UseVisualStyleBackColor = true;
+            PasteNationNames.Click += PasteNationNames_Click;
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label7.Location = new System.Drawing.Point(665, 275);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 26);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Ctrl + click to apply\r\nto all nations";
+            label7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label7.ForeColor = SystemColors.ControlDarkDark;
+            label7.Location = new Point(665, 275);
+            label7.Name = "label7";
+            label7.Size = new Size(106, 26);
+            label7.TabIndex = 20;
+            label7.Text = "Ctrl + click to apply\r\nto all nations";
             // 
             // CapitalSelect
             // 
-            this.CapitalSelect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CapitalSelect.FormattingEnabled = true;
-            this.CapitalSelect.Location = new System.Drawing.Point(445, 240);
-            this.CapitalSelect.Name = "CapitalSelect";
-            this.CapitalSelect.Size = new System.Drawing.Size(205, 25);
-            this.CapitalSelect.TabIndex = 19;
-            this.CapitalSelect.SelectedIndexChanged += new System.EventHandler(this.NationDetailsModified);
+            CapitalSelect.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CapitalSelect.FormattingEnabled = true;
+            CapitalSelect.Location = new Point(445, 240);
+            CapitalSelect.Name = "CapitalSelect";
+            CapitalSelect.Size = new Size(205, 25);
+            CapitalSelect.TabIndex = 19;
+            CapitalSelect.SelectedIndexChanged += NationDetailsModified;
             // 
             // SetBonusToAll
             // 
-            this.SetBonusToAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetBonusToAll.Location = new System.Drawing.Point(610, 341);
-            this.SetBonusToAll.Name = "SetBonusToAll";
-            this.SetBonusToAll.Size = new System.Drawing.Size(90, 25);
-            this.SetBonusToAll.TabIndex = 18;
-            this.SetBonusToAll.Text = "Apply to all";
-            this.SetBonusToAll.UseVisualStyleBackColor = true;
-            this.SetBonusToAll.Click += new System.EventHandler(this.SetToAll_Click);
+            SetBonusToAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetBonusToAll.Location = new Point(610, 341);
+            SetBonusToAll.Name = "SetBonusToAll";
+            SetBonusToAll.Size = new Size(90, 25);
+            SetBonusToAll.TabIndex = 18;
+            SetBonusToAll.Text = "Apply to all";
+            SetBonusToAll.UseVisualStyleBackColor = true;
+            SetBonusToAll.Click += SetToAll_Click;
             // 
             // SetBonus
             // 
-            this.SetBonus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetBonus.Location = new System.Drawing.Point(510, 341);
-            this.SetBonus.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.SetBonus.Minimum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            -2147483648});
-            this.SetBonus.Name = "SetBonus";
-            this.SetBonus.Size = new System.Drawing.Size(90, 25);
-            this.SetBonus.TabIndex = 17;
-            this.SetBonus.ThousandsSeparator = true;
-            this.SetBonus.ValueChanged += new System.EventHandler(this.NationDetailsModified);
+            SetBonus.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetBonus.Location = new Point(510, 341);
+            SetBonus.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
+            SetBonus.Minimum = new decimal(new int[] { 1000000000, 0, 0, int.MinValue });
+            SetBonus.Name = "SetBonus";
+            SetBonus.Size = new Size(90, 25);
+            SetBonus.TabIndex = 17;
+            SetBonus.ThousandsSeparator = true;
+            SetBonus.ValueChanged += NationDetailsModified;
             // 
             // label21
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(813, 257);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 17);
-            this.label21.TabIndex = 16;
-            this.label21.Text = "Flag ID";
+            label21.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label21.AutoSize = true;
+            label21.Location = new Point(813, 257);
+            label21.Name = "label21";
+            label21.Size = new Size(48, 17);
+            label21.TabIndex = 16;
+            label21.Text = "Flag ID";
             // 
             // SetFlagID
             // 
-            this.SetFlagID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SetFlagID.Location = new System.Drawing.Point(806, 277);
-            this.SetFlagID.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.SetFlagID.Name = "SetFlagID";
-            this.SetFlagID.Size = new System.Drawing.Size(64, 25);
-            this.SetFlagID.TabIndex = 15;
-            this.SetFlagID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SetFlagID.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.SetFlagID.ValueChanged += new System.EventHandler(this.NationDetailsModified);
+            SetFlagID.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            SetFlagID.Location = new Point(806, 277);
+            SetFlagID.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            SetFlagID.Name = "SetFlagID";
+            SetFlagID.Size = new Size(64, 25);
+            SetFlagID.TabIndex = 15;
+            SetFlagID.TextAlign = HorizontalAlignment.Center;
+            SetFlagID.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            SetFlagID.ValueChanged += NationDetailsModified;
             // 
             // FlagPreview
             // 
-            this.FlagPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.FlagPreview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.FlagPreview.Location = new System.Drawing.Point(729, 308);
-            this.FlagPreview.Name = "FlagPreview";
-            this.FlagPreview.Size = new System.Drawing.Size(144, 96);
-            this.FlagPreview.TabIndex = 14;
-            this.FlagPreview.TabStop = false;
-            this.FlagPreview.Click += new System.EventHandler(this.FlagPreview_Click);
+            FlagPreview.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            FlagPreview.BackColor = Color.FromArgb(224, 224, 224);
+            FlagPreview.Location = new Point(729, 308);
+            FlagPreview.Name = "FlagPreview";
+            FlagPreview.Size = new Size(144, 96);
+            FlagPreview.TabIndex = 14;
+            FlagPreview.TabStop = false;
+            FlagPreview.Click += FlagPreview_Click;
             // 
             // SetCEToAll
             // 
-            this.SetCEToAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetCEToAll.Location = new System.Drawing.Point(610, 374);
-            this.SetCEToAll.Name = "SetCEToAll";
-            this.SetCEToAll.Size = new System.Drawing.Size(90, 25);
-            this.SetCEToAll.TabIndex = 12;
-            this.SetCEToAll.Text = "Apply to all";
-            this.SetCEToAll.UseVisualStyleBackColor = true;
-            this.SetCEToAll.Click += new System.EventHandler(this.SetToAll_Click);
+            SetCEToAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetCEToAll.Location = new Point(610, 374);
+            SetCEToAll.Name = "SetCEToAll";
+            SetCEToAll.Size = new Size(90, 25);
+            SetCEToAll.TabIndex = 12;
+            SetCEToAll.Text = "Apply to all";
+            SetCEToAll.UseVisualStyleBackColor = true;
+            SetCEToAll.Click += SetToAll_Click;
             // 
             // SetGoldToAll
             // 
-            this.SetGoldToAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetGoldToAll.Location = new System.Drawing.Point(610, 308);
-            this.SetGoldToAll.Name = "SetGoldToAll";
-            this.SetGoldToAll.Size = new System.Drawing.Size(90, 25);
-            this.SetGoldToAll.TabIndex = 11;
-            this.SetGoldToAll.Text = "Apply to all";
-            this.SetGoldToAll.UseVisualStyleBackColor = true;
-            this.SetGoldToAll.Click += new System.EventHandler(this.SetToAll_Click);
+            SetGoldToAll.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetGoldToAll.Location = new Point(610, 308);
+            SetGoldToAll.Name = "SetGoldToAll";
+            SetGoldToAll.Size = new Size(90, 25);
+            SetGoldToAll.TabIndex = 11;
+            SetGoldToAll.Text = "Apply to all";
+            SetGoldToAll.UseVisualStyleBackColor = true;
+            SetGoldToAll.Click += SetToAll_Click;
             // 
             // ceLock
             // 
-            this.ceLock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ceLock.AutoSize = true;
-            this.ceLock.Location = new System.Drawing.Point(734, 255);
-            this.ceLock.Name = "ceLock";
-            this.ceLock.Size = new System.Drawing.Size(72, 21);
-            this.ceLock.TabIndex = 9;
-            this.ceLock.Text = "CE Lock";
-            this.ceLock.UseVisualStyleBackColor = true;
-            this.ceLock.CheckedChanged += new System.EventHandler(this.NationDetailsModified);
+            ceLock.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ceLock.AutoSize = true;
+            ceLock.Location = new Point(734, 255);
+            ceLock.Name = "ceLock";
+            ceLock.Size = new Size(72, 21);
+            ceLock.TabIndex = 9;
+            ceLock.Text = "CE Lock";
+            ceLock.UseVisualStyleBackColor = true;
+            ceLock.CheckedChanged += NationDetailsModified;
             // 
             // DisableAI
             // 
-            this.DisableAI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DisableAI.AutoSize = true;
-            this.DisableAI.Location = new System.Drawing.Point(668, 255);
-            this.DisableAI.Name = "DisableAI";
-            this.DisableAI.Size = new System.Drawing.Size(60, 21);
-            this.DisableAI.TabIndex = 8;
-            this.DisableAI.Text = "No AI";
-            this.DisableAI.UseVisualStyleBackColor = true;
-            this.DisableAI.CheckedChanged += new System.EventHandler(this.NationDetailsModified);
+            DisableAI.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            DisableAI.AutoSize = true;
+            DisableAI.Location = new Point(668, 255);
+            DisableAI.Name = "DisableAI";
+            DisableAI.Size = new Size(60, 21);
+            DisableAI.TabIndex = 8;
+            DisableAI.Text = "No AI";
+            DisableAI.UseVisualStyleBackColor = true;
+            DisableAI.CheckedChanged += NationDetailsModified;
             // 
             // SetEyear
             // 
-            this.SetEyear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetEyear.Location = new System.Drawing.Point(560, 275);
-            this.SetEyear.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.SetEyear.Minimum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            -2147483648});
-            this.SetEyear.Name = "SetEyear";
-            this.SetEyear.Size = new System.Drawing.Size(90, 25);
-            this.SetEyear.TabIndex = 6;
-            this.SetEyear.ValueChanged += new System.EventHandler(this.NationDetailsModified);
+            SetEyear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetEyear.Location = new Point(560, 275);
+            SetEyear.Maximum = new decimal(new int[] { 20000, 0, 0, 0 });
+            SetEyear.Minimum = new decimal(new int[] { 20000, 0, 0, int.MinValue });
+            SetEyear.Name = "SetEyear";
+            SetEyear.Size = new Size(90, 25);
+            SetEyear.TabIndex = 6;
+            SetEyear.ValueChanged += NationDetailsModified;
             // 
             // SetSyear
             // 
-            this.SetSyear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetSyear.Location = new System.Drawing.Point(445, 275);
-            this.SetSyear.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.SetSyear.Minimum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            -2147483648});
-            this.SetSyear.Name = "SetSyear";
-            this.SetSyear.Size = new System.Drawing.Size(90, 25);
-            this.SetSyear.TabIndex = 5;
-            this.SetSyear.ValueChanged += new System.EventHandler(this.NationDetailsModified);
+            SetSyear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetSyear.Location = new Point(445, 275);
+            SetSyear.Maximum = new decimal(new int[] { 20000, 0, 0, 0 });
+            SetSyear.Minimum = new decimal(new int[] { 20000, 0, 0, int.MinValue });
+            SetSyear.Name = "SetSyear";
+            SetSyear.Size = new Size(90, 25);
+            SetSyear.TabIndex = 5;
+            SetSyear.ValueChanged += NationDetailsModified;
             // 
             // SetCE
             // 
-            this.SetCE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetCE.DecimalPlaces = 1;
-            this.SetCE.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.SetCE.Location = new System.Drawing.Point(509, 374);
-            this.SetCE.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.SetCE.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            65536});
-            this.SetCE.Name = "SetCE";
-            this.SetCE.Size = new System.Drawing.Size(90, 25);
-            this.SetCE.TabIndex = 4;
-            this.SetCE.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.SetCE.ValueChanged += new System.EventHandler(this.NationDetailsModified);
+            SetCE.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetCE.DecimalPlaces = 1;
+            SetCE.Increment = new decimal(new int[] { 5, 0, 0, 65536 });
+            SetCE.Location = new Point(509, 374);
+            SetCE.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
+            SetCE.Minimum = new decimal(new int[] { 5, 0, 0, 65536 });
+            SetCE.Name = "SetCE";
+            SetCE.Size = new Size(90, 25);
+            SetCE.TabIndex = 4;
+            SetCE.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            SetCE.ValueChanged += NationDetailsModified;
             // 
             // SetGold
             // 
-            this.SetGold.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetGold.Increment = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.SetGold.Location = new System.Drawing.Point(510, 308);
-            this.SetGold.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.SetGold.Minimum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            -2147483648});
-            this.SetGold.Name = "SetGold";
-            this.SetGold.Size = new System.Drawing.Size(90, 25);
-            this.SetGold.TabIndex = 3;
-            this.SetGold.ThousandsSeparator = true;
-            this.SetGold.ValueChanged += new System.EventHandler(this.NationDetailsModified);
+            SetGold.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetGold.Increment = new decimal(new int[] { 100, 0, 0, 0 });
+            SetGold.Location = new Point(510, 308);
+            SetGold.Maximum = new decimal(new int[] { 1000000000, 0, 0, 0 });
+            SetGold.Minimum = new decimal(new int[] { 1000000000, 0, 0, int.MinValue });
+            SetGold.Name = "SetGold";
+            SetGold.Size = new Size(90, 25);
+            SetGold.TabIndex = 3;
+            SetGold.ThousandsSeparator = true;
+            SetGold.ValueChanged += NationDetailsModified;
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(385, 242);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(170, 153);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Capital:\r\n\r\nActive:                              -\r\n\r\nGold:\r\n\r\nEconomy Bonus:\r\n\r\n" +
-    "Combat Efficiency: ";
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label6.AutoSize = true;
+            label6.Location = new Point(385, 242);
+            label6.Name = "label6";
+            label6.Size = new Size(170, 153);
+            label6.TabIndex = 2;
+            label6.Text = "Capital:\r\n\r\nActive:                              -\r\n\r\nGold:\r\n\r\nEconomy Bonus:\r\n\r\nCombat Efficiency: ";
             // 
             // NationPreview
             // 
-            this.NationPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NationPreview.BackColor = System.Drawing.Color.Transparent;
-            this.NationPreview.Location = new System.Drawing.Point(384, 3);
-            this.NationPreview.Name = "NationPreview";
-            this.NationPreview.Size = new System.Drawing.Size(489, 231);
-            this.NationPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.NationPreview.TabIndex = 1;
-            this.NationPreview.TabStop = false;
-            this.NationPreview.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NationPreview_MouseClick);
-            this.NationPreview.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.MapZoomChanged);
+            NationPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            NationPreview.BackColor = Color.Transparent;
+            NationPreview.Location = new Point(384, 3);
+            NationPreview.Name = "NationPreview";
+            NationPreview.Size = new Size(489, 231);
+            NationPreview.SizeMode = PictureBoxSizeMode.Zoom;
+            NationPreview.TabIndex = 1;
+            NationPreview.TabStop = false;
+            NationPreview.MouseClick += NationPreview_MouseClick;
+            NationPreview.MouseWheel += MapZoomChanged;
             // 
             // NationsTable
             // 
-            this.NationsTable.AllowUserToAddRows = false;
-            this.NationsTable.AllowUserToDeleteRows = false;
-            this.NationsTable.AllowUserToResizeRows = false;
-            this.NationsTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.NationsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NationsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NationID,
-            this.NationName,
-            this.NationColor});
-            this.NationsTable.Location = new System.Drawing.Point(3, 3);
-            this.NationsTable.MultiSelect = false;
-            this.NationsTable.Name = "NationsTable";
-            this.NationsTable.RowHeadersVisible = false;
-            this.NationsTable.Size = new System.Drawing.Size(375, 370);
-            this.NationsTable.TabIndex = 0;
-            this.NationsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChangeNationColor);
-            this.NationsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.NationNameModified);
-            this.NationsTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
-            this.NationsTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.NationsTable_RowEnter);
+            NationsTable.AllowUserToAddRows = false;
+            NationsTable.AllowUserToDeleteRows = false;
+            NationsTable.AllowUserToResizeRows = false;
+            NationsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            NationsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            NationsTable.Columns.AddRange(new DataGridViewColumn[] { NationID, NationName, NationColor });
+            NationsTable.Location = new Point(3, 3);
+            NationsTable.MultiSelect = false;
+            NationsTable.Name = "NationsTable";
+            NationsTable.RowHeadersVisible = false;
+            NationsTable.Size = new Size(375, 370);
+            NationsTable.TabIndex = 0;
+            NationsTable.CellContentClick += ChangeNationColor;
+            NationsTable.CellEndEdit += NationNameModified;
+            NationsTable.DataError += DataError;
+            NationsTable.RowEnter += NationsTable_RowEnter;
             // 
             // NationID
             // 
-            this.NationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NationID.FillWeight = 20F;
-            this.NationID.HeaderText = "ID";
-            this.NationID.MinimumWidth = 30;
-            this.NationID.Name = "NationID";
-            this.NationID.ReadOnly = true;
+            NationID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NationID.FillWeight = 20F;
+            NationID.HeaderText = "ID";
+            NationID.MinimumWidth = 30;
+            NationID.Name = "NationID";
+            NationID.ReadOnly = true;
             // 
             // NationName
             // 
-            this.NationName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NationName.HeaderText = "Name";
-            this.NationName.MinimumWidth = 100;
-            this.NationName.Name = "NationName";
+            NationName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            NationName.HeaderText = "Name";
+            NationName.MinimumWidth = 100;
+            NationName.Name = "NationName";
             // 
             // NationColor
             // 
-            this.NationColor.FillWeight = 50F;
-            this.NationColor.HeaderText = "Color";
-            this.NationColor.MinimumWidth = 80;
-            this.NationColor.Name = "NationColor";
-            this.NationColor.ReadOnly = true;
-            this.NationColor.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.NationColor.Width = 80;
+            NationColor.FillWeight = 50F;
+            NationColor.HeaderText = "Color";
+            NationColor.MinimumWidth = 80;
+            NationColor.Name = "NationColor";
+            NationColor.ReadOnly = true;
+            NationColor.Resizable = DataGridViewTriState.False;
+            NationColor.Width = 80;
             // 
             // CitiesTab
             // 
-            this.CitiesTab.AllowDrop = true;
-            this.CitiesTab.Controls.Add(this.ShowGrid);
-            this.CitiesTab.Controls.Add(this.label29);
-            this.CitiesTab.Controls.Add(this.label28);
-            this.CitiesTab.Controls.Add(this.ImportCities);
-            this.CitiesTab.Controls.Add(this.RemoveCore);
-            this.CitiesTab.Controls.Add(this.PasteCityNames);
-            this.CitiesTab.Controls.Add(this.label9);
-            this.CitiesTab.Controls.Add(this.SetCoreToSelf);
-            this.CitiesTab.Controls.Add(this.CityRevoltChance);
-            this.CitiesTab.Controls.Add(this.CityRightfulOwner);
-            this.CitiesTab.Controls.Add(this.label8);
-            this.CitiesTab.Controls.Add(this.CityPreview);
-            this.CitiesTab.Controls.Add(this.CitiesTable);
-            this.CitiesTab.Location = new System.Drawing.Point(4, 29);
-            this.CitiesTab.Name = "CitiesTab";
-            this.CitiesTab.Size = new System.Drawing.Size(876, 407);
-            this.CitiesTab.TabIndex = 2;
-            this.CitiesTab.Text = "Cities";
-            this.CitiesTab.UseVisualStyleBackColor = true;
+            CitiesTab.AllowDrop = true;
+            CitiesTab.Controls.Add(ShowGrid);
+            CitiesTab.Controls.Add(label29);
+            CitiesTab.Controls.Add(label28);
+            CitiesTab.Controls.Add(ImportCities);
+            CitiesTab.Controls.Add(RemoveCore);
+            CitiesTab.Controls.Add(PasteCityNames);
+            CitiesTab.Controls.Add(label9);
+            CitiesTab.Controls.Add(SetCoreToSelf);
+            CitiesTab.Controls.Add(CityRevoltChance);
+            CitiesTab.Controls.Add(CityRightfulOwner);
+            CitiesTab.Controls.Add(label8);
+            CitiesTab.Controls.Add(CityPreview);
+            CitiesTab.Controls.Add(CitiesTable);
+            CitiesTab.Location = new Point(4, 29);
+            CitiesTab.Name = "CitiesTab";
+            CitiesTab.Size = new Size(876, 407);
+            CitiesTab.TabIndex = 2;
+            CitiesTab.Text = "Cities";
+            CitiesTab.UseVisualStyleBackColor = true;
             // 
             // ShowGrid
             // 
-            this.ShowGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ShowGrid.AutoSize = true;
-            this.ShowGrid.Location = new System.Drawing.Point(630, 240);
-            this.ShowGrid.Name = "ShowGrid";
-            this.ShowGrid.Size = new System.Drawing.Size(86, 21);
-            this.ShowGrid.TabIndex = 37;
-            this.ShowGrid.Text = "Show grid";
-            this.ShowGrid.UseVisualStyleBackColor = true;
-            this.ShowGrid.CheckedChanged += new System.EventHandler(this.ShowGrid_CheckedChanged);
+            ShowGrid.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            ShowGrid.AutoSize = true;
+            ShowGrid.Location = new Point(630, 240);
+            ShowGrid.Name = "ShowGrid";
+            ShowGrid.Size = new Size(86, 21);
+            ShowGrid.TabIndex = 37;
+            ShowGrid.Text = "Show grid";
+            ShowGrid.UseVisualStyleBackColor = true;
+            ShowGrid.CheckedChanged += ShowGrid_CheckedChanged;
             // 
             // label29
             // 
-            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label29.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label29.Location = new System.Drawing.Point(627, 264);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(242, 39);
-            this.label29.TabIndex = 36;
-            this.label29.Text = "You can also select a city from the map above\r\nHolding Shift will bypass aim assi" +
-    "st\r\nHolding Ctrl will instead move the current city";
+            label29.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label29.AutoSize = true;
+            label29.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label29.ForeColor = SystemColors.ControlDarkDark;
+            label29.Location = new Point(627, 264);
+            label29.Name = "label29";
+            label29.Size = new Size(242, 39);
+            label29.TabIndex = 36;
+            label29.Text = "You can also select a city from the map above\r\nHolding Shift will bypass aim assist\r\nHolding Ctrl will instead move the current city";
             // 
             // label28
             // 
-            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(390, 245);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(114, 17);
-            this.label28.TabIndex = 15;
-            this.label28.Text = "Revolt chance (%):";
+            label28.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label28.AutoSize = true;
+            label28.Location = new Point(390, 245);
+            label28.Name = "label28";
+            label28.Size = new Size(114, 17);
+            label28.TabIndex = 15;
+            label28.Text = "Revolt chance (%):";
             // 
             // ImportCities
             // 
-            this.ImportCities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ImportCities.Location = new System.Drawing.Point(209, 379);
-            this.ImportCities.Name = "ImportCities";
-            this.ImportCities.Size = new System.Drawing.Size(169, 25);
-            this.ImportCities.TabIndex = 14;
-            this.ImportCities.Text = "Import cities";
-            this.ImportCities.UseVisualStyleBackColor = true;
-            this.ImportCities.Click += new System.EventHandler(this.ImportCities_Click);
+            ImportCities.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ImportCities.Location = new Point(209, 379);
+            ImportCities.Name = "ImportCities";
+            ImportCities.Size = new Size(169, 25);
+            ImportCities.TabIndex = 14;
+            ImportCities.Text = "Import cities";
+            ImportCities.UseVisualStyleBackColor = true;
+            ImportCities.Click += ImportCities_Click;
             // 
             // RemoveCore
             // 
-            this.RemoveCore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RemoveCore.Location = new System.Drawing.Point(495, 325);
-            this.RemoveCore.Name = "RemoveCore";
-            this.RemoveCore.Size = new System.Drawing.Size(100, 30);
-            this.RemoveCore.TabIndex = 13;
-            this.RemoveCore.Text = "Remove core";
-            this.RemoveCore.UseVisualStyleBackColor = true;
-            this.RemoveCore.Click += new System.EventHandler(this.RemoveCore_Click);
+            RemoveCore.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RemoveCore.Location = new Point(495, 325);
+            RemoveCore.Name = "RemoveCore";
+            RemoveCore.Size = new Size(100, 30);
+            RemoveCore.TabIndex = 13;
+            RemoveCore.Text = "Remove core";
+            RemoveCore.UseVisualStyleBackColor = true;
+            RemoveCore.Click += RemoveCore_Click;
             // 
             // PasteCityNames
             // 
-            this.PasteCityNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PasteCityNames.Location = new System.Drawing.Point(3, 379);
-            this.PasteCityNames.Name = "PasteCityNames";
-            this.PasteCityNames.Size = new System.Drawing.Size(200, 25);
-            this.PasteCityNames.TabIndex = 12;
-            this.PasteCityNames.Text = "Paste names from clipboard";
-            this.PasteCityNames.UseVisualStyleBackColor = true;
-            this.PasteCityNames.Click += new System.EventHandler(this.PasteCityNames_Click);
+            PasteCityNames.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PasteCityNames.Location = new Point(3, 379);
+            PasteCityNames.Name = "PasteCityNames";
+            PasteCityNames.Size = new Size(200, 25);
+            PasteCityNames.TabIndex = 12;
+            PasteCityNames.Text = "Paste names from clipboard";
+            PasteCityNames.UseVisualStyleBackColor = true;
+            PasteCityNames.Click += PasteCityNames_Click;
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label9.Location = new System.Drawing.Point(387, 358);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(234, 26);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Shift + click to apply to all cities in a country\r\nCtrl + click to apply to all c" +
-    "ities on the map";
+            label9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label9.ForeColor = SystemColors.ControlDarkDark;
+            label9.Location = new Point(387, 358);
+            label9.Name = "label9";
+            label9.Size = new Size(234, 26);
+            label9.TabIndex = 11;
+            label9.Text = "Shift + click to apply to all cities in a country\r\nCtrl + click to apply to all cities on the map";
             // 
             // SetCoreToSelf
             // 
-            this.SetCoreToSelf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SetCoreToSelf.Location = new System.Drawing.Point(390, 325);
-            this.SetCoreToSelf.Name = "SetCoreToSelf";
-            this.SetCoreToSelf.Size = new System.Drawing.Size(100, 30);
-            this.SetCoreToSelf.TabIndex = 7;
-            this.SetCoreToSelf.Text = "Set as core";
-            this.SetCoreToSelf.UseVisualStyleBackColor = true;
-            this.SetCoreToSelf.Click += new System.EventHandler(this.SetCoreToSelf_Click);
+            SetCoreToSelf.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            SetCoreToSelf.Location = new Point(390, 325);
+            SetCoreToSelf.Name = "SetCoreToSelf";
+            SetCoreToSelf.Size = new Size(100, 30);
+            SetCoreToSelf.TabIndex = 7;
+            SetCoreToSelf.Text = "Set as core";
+            SetCoreToSelf.UseVisualStyleBackColor = true;
+            SetCoreToSelf.Click += SetCoreToSelf_Click;
             // 
             // CityRevoltChance
             // 
-            this.CityRevoltChance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CityRevoltChance.Location = new System.Drawing.Point(520, 243);
-            this.CityRevoltChance.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.CityRevoltChance.Name = "CityRevoltChance";
-            this.CityRevoltChance.Size = new System.Drawing.Size(60, 25);
-            this.CityRevoltChance.TabIndex = 6;
-            this.CityRevoltChance.ValueChanged += new System.EventHandler(this.CityDetailsModified);
+            CityRevoltChance.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CityRevoltChance.Location = new Point(520, 243);
+            CityRevoltChance.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            CityRevoltChance.Name = "CityRevoltChance";
+            CityRevoltChance.Size = new Size(60, 25);
+            CityRevoltChance.TabIndex = 6;
+            CityRevoltChance.ValueChanged += CityDetailsModified;
             // 
             // CityRightfulOwner
             // 
-            this.CityRightfulOwner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CityRightfulOwner.FormattingEnabled = true;
-            this.CityRightfulOwner.Items.AddRange(new object[] {
-            "No one"});
-            this.CityRightfulOwner.Location = new System.Drawing.Point(390, 295);
-            this.CityRightfulOwner.Name = "CityRightfulOwner";
-            this.CityRightfulOwner.Size = new System.Drawing.Size(205, 25);
-            this.CityRightfulOwner.TabIndex = 5;
-            this.CityRightfulOwner.SelectedIndexChanged += new System.EventHandler(this.CityDetailsModified);
+            CityRightfulOwner.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            CityRightfulOwner.FormattingEnabled = true;
+            CityRightfulOwner.Items.AddRange(new object[] { "No one" });
+            CityRightfulOwner.Location = new Point(390, 295);
+            CityRightfulOwner.Name = "CityRightfulOwner";
+            CityRightfulOwner.Size = new Size(205, 25);
+            CityRightfulOwner.TabIndex = 5;
+            CityRightfulOwner.SelectedIndexChanged += CityDetailsModified;
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(390, 275);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 17);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Rightful owner:\r\n";
+            label8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label8.AutoSize = true;
+            label8.Location = new Point(390, 275);
+            label8.Name = "label8";
+            label8.Size = new Size(95, 17);
+            label8.TabIndex = 4;
+            label8.Text = "Rightful owner:\r\n";
             // 
             // CityPreview
             // 
-            this.CityPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.CityPreview.Location = new System.Drawing.Point(384, 3);
-            this.CityPreview.Name = "CityPreview";
-            this.CityPreview.Size = new System.Drawing.Size(489, 231);
-            this.CityPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CityPreview.TabIndex = 3;
-            this.CityPreview.TabStop = false;
-            this.CityPreview.MouseClick += new System.Windows.Forms.MouseEventHandler(this.CityPreview_MouseClick);
-            this.CityPreview.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.MapZoomChanged);
+            CityPreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            CityPreview.Location = new Point(384, 3);
+            CityPreview.Name = "CityPreview";
+            CityPreview.Size = new Size(489, 231);
+            CityPreview.SizeMode = PictureBoxSizeMode.Zoom;
+            CityPreview.TabIndex = 3;
+            CityPreview.TabStop = false;
+            CityPreview.MouseClick += CityPreview_MouseClick;
+            CityPreview.MouseWheel += MapZoomChanged;
             // 
             // CitiesTable
             // 
-            this.CitiesTable.AllowDrop = true;
-            this.CitiesTable.AllowUserToResizeRows = false;
-            this.CitiesTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.CitiesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CitiesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cityX,
-            this.cityY,
-            this.CityName});
-            this.CitiesTable.Location = new System.Drawing.Point(3, 3);
-            this.CitiesTable.MultiSelect = false;
-            this.CitiesTable.Name = "CitiesTable";
-            this.CitiesTable.RowHeadersWidth = 20;
-            this.CitiesTable.Size = new System.Drawing.Size(375, 370);
-            this.CitiesTable.TabIndex = 2;
-            this.CitiesTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.CityNameOrPosModified);
-            this.CitiesTable.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CitiesTable_Sorted);
-            this.CitiesTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
-            this.CitiesTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.CitiesTable_RowEnter);
-            this.CitiesTable.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.CitiesTable_RowsRemoved);
+            CitiesTable.AllowDrop = true;
+            CitiesTable.AllowUserToResizeRows = false;
+            CitiesTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            CitiesTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CitiesTable.Columns.AddRange(new DataGridViewColumn[] { cityX, cityY, CityName });
+            CitiesTable.Location = new Point(3, 3);
+            CitiesTable.MultiSelect = false;
+            CitiesTable.Name = "CitiesTable";
+            CitiesTable.RowHeadersWidth = 20;
+            CitiesTable.Size = new Size(375, 370);
+            CitiesTable.TabIndex = 2;
+            CitiesTable.CellEndEdit += CityNameOrPosModified;
+            CitiesTable.ColumnHeaderMouseClick += CitiesTable_Sorted;
+            CitiesTable.DataError += DataError;
+            CitiesTable.RowEnter += CitiesTable_RowEnter;
+            CitiesTable.RowsRemoved += CitiesTable_RowsRemoved;
             // 
             // cityX
             // 
-            this.cityX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cityX.FillWeight = 20F;
-            this.cityX.HeaderText = "X";
-            this.cityX.MinimumWidth = 30;
-            this.cityX.Name = "cityX";
-            this.cityX.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            cityX.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cityX.FillWeight = 20F;
+            cityX.HeaderText = "X";
+            cityX.MinimumWidth = 30;
+            cityX.Name = "cityX";
+            cityX.Resizable = DataGridViewTriState.True;
             // 
             // cityY
             // 
-            this.cityY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cityY.FillWeight = 20F;
-            this.cityY.HeaderText = "Y";
-            this.cityY.MinimumWidth = 30;
-            this.cityY.Name = "cityY";
-            this.cityY.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            cityY.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            cityY.FillWeight = 20F;
+            cityY.HeaderText = "Y";
+            cityY.MinimumWidth = 30;
+            cityY.Name = "cityY";
+            cityY.Resizable = DataGridViewTriState.True;
             // 
             // CityName
             // 
-            this.CityName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CityName.HeaderText = "Name";
-            this.CityName.MinimumWidth = 100;
-            this.CityName.Name = "CityName";
-            this.CityName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            CityName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CityName.HeaderText = "Name";
+            CityName.MinimumWidth = 100;
+            CityName.Name = "CityName";
+            CityName.Resizable = DataGridViewTriState.True;
             // 
             // AlliancesTab
             // 
-            this.AlliancesTab.Controls.Add(this.label27);
-            this.AlliancesTab.Controls.Add(this.IsUnion);
-            this.AlliancesTab.Controls.Add(this.AlliancePreview);
-            this.AlliancesTab.Controls.Add(this.Unity);
-            this.AlliancesTab.Controls.Add(this.label10);
-            this.AlliancesTab.Controls.Add(this.AllianceNationSelect);
-            this.AlliancesTab.Controls.Add(this.AlliancesTable);
-            this.AlliancesTab.Location = new System.Drawing.Point(4, 29);
-            this.AlliancesTab.Name = "AlliancesTab";
-            this.AlliancesTab.Size = new System.Drawing.Size(876, 407);
-            this.AlliancesTab.TabIndex = 3;
-            this.AlliancesTab.Text = "Alliances";
-            this.AlliancesTab.UseVisualStyleBackColor = true;
+            AlliancesTab.Controls.Add(label27);
+            AlliancesTab.Controls.Add(IsUnion);
+            AlliancesTab.Controls.Add(AlliancePreview);
+            AlliancesTab.Controls.Add(Unity);
+            AlliancesTab.Controls.Add(label10);
+            AlliancesTab.Controls.Add(AllianceNationSelect);
+            AlliancesTab.Controls.Add(AlliancesTable);
+            AlliancesTab.Location = new Point(4, 29);
+            AlliancesTab.Name = "AlliancesTab";
+            AlliancesTab.Size = new Size(876, 407);
+            AlliancesTab.TabIndex = 3;
+            AlliancesTab.Text = "Alliances";
+            AlliancesTab.UseVisualStyleBackColor = true;
             // 
             // label27
             // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label27.Location = new System.Drawing.Point(689, 191);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(179, 26);
-            this.label27.TabIndex = 35;
-            this.label27.Text = "You can also select a country and \r\nthe alliance it\'s in from the map";
+            label27.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label27.ForeColor = SystemColors.ControlDarkDark;
+            label27.Location = new Point(689, 191);
+            label27.Name = "label27";
+            label27.Size = new Size(179, 26);
+            label27.TabIndex = 35;
+            label27.Text = "You can also select a country and \r\nthe alliance it's in from the map";
             // 
             // IsUnion
             // 
-            this.IsUnion.AutoSize = true;
-            this.IsUnion.Location = new System.Drawing.Point(505, 187);
-            this.IsUnion.Name = "IsUnion";
-            this.IsUnion.Size = new System.Drawing.Size(72, 21);
-            this.IsUnion.TabIndex = 7;
-            this.IsUnion.Text = "Is union";
-            this.IsUnion.UseVisualStyleBackColor = true;
-            this.IsUnion.CheckedChanged += new System.EventHandler(this.AllianceDetailsModified);
+            IsUnion.AutoSize = true;
+            IsUnion.Location = new Point(505, 187);
+            IsUnion.Name = "IsUnion";
+            IsUnion.Size = new Size(72, 21);
+            IsUnion.TabIndex = 7;
+            IsUnion.Text = "Is union";
+            IsUnion.UseVisualStyleBackColor = true;
+            IsUnion.CheckedChanged += AllianceDetailsModified;
             // 
             // AlliancePreview
             // 
-            this.AlliancePreview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AlliancePreview.Location = new System.Drawing.Point(384, 220);
-            this.AlliancePreview.Name = "AlliancePreview";
-            this.AlliancePreview.Size = new System.Drawing.Size(489, 184);
-            this.AlliancePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.AlliancePreview.TabIndex = 6;
-            this.AlliancePreview.TabStop = false;
-            this.AlliancePreview.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AlliancePreview_MouseClick);
+            AlliancePreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            AlliancePreview.Location = new Point(384, 220);
+            AlliancePreview.Name = "AlliancePreview";
+            AlliancePreview.Size = new Size(489, 184);
+            AlliancePreview.SizeMode = PictureBoxSizeMode.Zoom;
+            AlliancePreview.TabIndex = 6;
+            AlliancePreview.TabStop = false;
+            AlliancePreview.MouseClick += AlliancePreview_MouseClick;
             // 
             // Unity
             // 
-            this.Unity.DecimalPlaces = 1;
-            this.Unity.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.Unity.Location = new System.Drawing.Point(435, 185);
-            this.Unity.Name = "Unity";
-            this.Unity.Size = new System.Drawing.Size(50, 25);
-            this.Unity.TabIndex = 5;
-            this.Unity.ValueChanged += new System.EventHandler(this.AllianceDetailsModified);
+            Unity.DecimalPlaces = 1;
+            Unity.Increment = new decimal(new int[] { 1, 0, 0, 65536 });
+            Unity.Location = new Point(435, 185);
+            Unity.Name = "Unity";
+            Unity.Size = new Size(50, 25);
+            Unity.TabIndex = 5;
+            Unity.ValueChanged += AllianceDetailsModified;
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(390, 188);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(40, 17);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Unity:";
+            label10.AutoSize = true;
+            label10.Location = new Point(390, 188);
+            label10.Name = "label10";
+            label10.Size = new Size(40, 17);
+            label10.TabIndex = 3;
+            label10.Text = "Unity:";
             // 
             // AllianceNationSelect
             // 
-            this.AllianceNationSelect.AllowUserToAddRows = false;
-            this.AllianceNationSelect.AllowUserToDeleteRows = false;
-            this.AllianceNationSelect.AllowUserToResizeColumns = false;
-            this.AllianceNationSelect.AllowUserToResizeRows = false;
-            this.AllianceNationSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.AllianceNationSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AllianceNationSelect.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AllianceNationID,
-            this.AllianceNations,
-            this.AllianceSelect,
-            this.AllianceLoyalty});
-            this.AllianceNationSelect.Location = new System.Drawing.Point(3, 3);
-            this.AllianceNationSelect.MultiSelect = false;
-            this.AllianceNationSelect.Name = "AllianceNationSelect";
-            this.AllianceNationSelect.RowHeadersVisible = false;
-            this.AllianceNationSelect.Size = new System.Drawing.Size(375, 401);
-            this.AllianceNationSelect.TabIndex = 2;
-            this.AllianceNationSelect.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllianceModified);
-            this.AllianceNationSelect.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
+            AllianceNationSelect.AllowUserToAddRows = false;
+            AllianceNationSelect.AllowUserToDeleteRows = false;
+            AllianceNationSelect.AllowUserToResizeColumns = false;
+            AllianceNationSelect.AllowUserToResizeRows = false;
+            AllianceNationSelect.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            AllianceNationSelect.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AllianceNationSelect.Columns.AddRange(new DataGridViewColumn[] { AllianceNationID, AllianceNations, AllianceSelect, AllianceLoyalty });
+            AllianceNationSelect.Location = new Point(3, 3);
+            AllianceNationSelect.MultiSelect = false;
+            AllianceNationSelect.Name = "AllianceNationSelect";
+            AllianceNationSelect.RowHeadersVisible = false;
+            AllianceNationSelect.Size = new Size(375, 401);
+            AllianceNationSelect.TabIndex = 2;
+            AllianceNationSelect.CellEndEdit += AllianceModified;
+            AllianceNationSelect.DataError += DataError;
             // 
             // AllianceNationID
             // 
-            this.AllianceNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceNationID.FillWeight = 20F;
-            this.AllianceNationID.HeaderText = "ID";
-            this.AllianceNationID.MinimumWidth = 30;
-            this.AllianceNationID.Name = "AllianceNationID";
-            this.AllianceNationID.ReadOnly = true;
+            AllianceNationID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceNationID.FillWeight = 20F;
+            AllianceNationID.HeaderText = "ID";
+            AllianceNationID.MinimumWidth = 30;
+            AllianceNationID.Name = "AllianceNationID";
+            AllianceNationID.ReadOnly = true;
             // 
             // AllianceNations
             // 
-            this.AllianceNations.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceNations.FillWeight = 70F;
-            this.AllianceNations.HeaderText = "Nation";
-            this.AllianceNations.MinimumWidth = 50;
-            this.AllianceNations.Name = "AllianceNations";
-            this.AllianceNations.ReadOnly = true;
-            this.AllianceNations.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            AllianceNations.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceNations.FillWeight = 70F;
+            AllianceNations.HeaderText = "Nation";
+            AllianceNations.MinimumWidth = 50;
+            AllianceNations.Name = "AllianceNations";
+            AllianceNations.ReadOnly = true;
+            AllianceNations.Resizable = DataGridViewTriState.True;
             // 
             // AllianceSelect
             // 
-            this.AllianceSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceSelect.HeaderText = "Alliance";
-            this.AllianceSelect.MinimumWidth = 50;
-            this.AllianceSelect.Name = "AllianceSelect";
-            this.AllianceSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllianceSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            AllianceSelect.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceSelect.HeaderText = "Alliance";
+            AllianceSelect.MinimumWidth = 50;
+            AllianceSelect.Name = "AllianceSelect";
+            AllianceSelect.Resizable = DataGridViewTriState.True;
+            AllianceSelect.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // AllianceLoyalty
             // 
-            this.AllianceLoyalty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceLoyalty.FillWeight = 50F;
-            this.AllianceLoyalty.HeaderText = "Loyalty";
-            this.AllianceLoyalty.Items.AddRange(new object[] {
-            "High",
-            "Medium",
-            "Low"});
-            this.AllianceLoyalty.MinimumWidth = 20;
-            this.AllianceLoyalty.Name = "AllianceLoyalty";
-            this.AllianceLoyalty.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            AllianceLoyalty.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceLoyalty.FillWeight = 50F;
+            AllianceLoyalty.HeaderText = "Loyalty";
+            AllianceLoyalty.Items.AddRange(new object[] { "High", "Medium", "Low" });
+            AllianceLoyalty.MinimumWidth = 20;
+            AllianceLoyalty.Name = "AllianceLoyalty";
+            AllianceLoyalty.Resizable = DataGridViewTriState.True;
             // 
             // AlliancesTable
             // 
-            this.AlliancesTable.AllowUserToResizeRows = false;
-            this.AlliancesTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AlliancesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AlliancesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.AllianceName,
-            this.AllianceMembers,
-            this.AllianceColor});
-            this.AlliancesTable.Location = new System.Drawing.Point(384, 3);
-            this.AlliancesTable.MultiSelect = false;
-            this.AlliancesTable.Name = "AlliancesTable";
-            this.AlliancesTable.RowHeadersWidth = 20;
-            this.AlliancesTable.Size = new System.Drawing.Size(489, 175);
-            this.AlliancesTable.TabIndex = 1;
-            this.AlliancesTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ChangeAllianceColor);
-            this.AlliancesTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllianceModified);
-            this.AlliancesTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
-            this.AlliancesTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.AlliancesTable_RowEnter);
-            this.AlliancesTable.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.AlliancesTable_RowsRemoved);
+            AlliancesTable.AllowUserToResizeRows = false;
+            AlliancesTable.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            AlliancesTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            AlliancesTable.Columns.AddRange(new DataGridViewColumn[] { AllianceName, AllianceMembers, AllianceColor });
+            AlliancesTable.Location = new Point(384, 3);
+            AlliancesTable.MultiSelect = false;
+            AlliancesTable.Name = "AlliancesTable";
+            AlliancesTable.RowHeadersWidth = 20;
+            AlliancesTable.Size = new Size(489, 175);
+            AlliancesTable.TabIndex = 1;
+            AlliancesTable.CellContentClick += ChangeAllianceColor;
+            AlliancesTable.CellEndEdit += AllianceModified;
+            AlliancesTable.DataError += DataError;
+            AlliancesTable.RowEnter += AlliancesTable_RowEnter;
+            AlliancesTable.RowsRemoved += AlliancesTable_RowsRemoved;
             // 
             // AllianceName
             // 
-            this.AllianceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceName.HeaderText = "Name";
-            this.AllianceName.MinimumWidth = 100;
-            this.AllianceName.Name = "AllianceName";
-            this.AllianceName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.AllianceName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            AllianceName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceName.HeaderText = "Name";
+            AllianceName.MinimumWidth = 100;
+            AllianceName.Name = "AllianceName";
+            AllianceName.Resizable = DataGridViewTriState.True;
+            AllianceName.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // AllianceMembers
             // 
-            this.AllianceMembers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceMembers.FillWeight = 200F;
-            this.AllianceMembers.HeaderText = "Members";
-            this.AllianceMembers.MinimumWidth = 100;
-            this.AllianceMembers.Name = "AllianceMembers";
-            this.AllianceMembers.ReadOnly = true;
-            this.AllianceMembers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            AllianceMembers.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceMembers.FillWeight = 200F;
+            AllianceMembers.HeaderText = "Members";
+            AllianceMembers.MinimumWidth = 100;
+            AllianceMembers.Name = "AllianceMembers";
+            AllianceMembers.ReadOnly = true;
+            AllianceMembers.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // AllianceColor
             // 
-            this.AllianceColor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.AllianceColor.FillWeight = 50F;
-            this.AllianceColor.HeaderText = "Color";
-            this.AllianceColor.MinimumWidth = 50;
-            this.AllianceColor.Name = "AllianceColor";
-            this.AllianceColor.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            AllianceColor.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            AllianceColor.FillWeight = 50F;
+            AllianceColor.HeaderText = "Color";
+            AllianceColor.MinimumWidth = 50;
+            AllianceColor.Name = "AllianceColor";
+            AllianceColor.Resizable = DataGridViewTriState.True;
             // 
             // PuppetsTab
             // 
-            this.PuppetsTab.Controls.Add(this.PuppetLoyaltyDesc);
-            this.PuppetsTab.Controls.Add(this.PuppetAutonomyDesc);
-            this.PuppetsTab.Controls.Add(this.PuppetLoyalty);
-            this.PuppetsTab.Controls.Add(this.PuppetAutonomy);
-            this.PuppetsTab.Controls.Add(this.PuppetIntegration);
-            this.PuppetsTab.Controls.Add(this.label25);
-            this.PuppetsTab.Controls.Add(this.label24);
-            this.PuppetsTab.Controls.Add(this.PuppetsOverview);
-            this.PuppetsTab.Controls.Add(this.PuppetsTable);
-            this.PuppetsTab.Location = new System.Drawing.Point(4, 29);
-            this.PuppetsTab.Name = "PuppetsTab";
-            this.PuppetsTab.Size = new System.Drawing.Size(876, 407);
-            this.PuppetsTab.TabIndex = 6;
-            this.PuppetsTab.Text = "Puppets";
-            this.PuppetsTab.UseVisualStyleBackColor = true;
+            PuppetsTab.Controls.Add(PuppetLoyaltyDesc);
+            PuppetsTab.Controls.Add(PuppetAutonomyDesc);
+            PuppetsTab.Controls.Add(PuppetLoyalty);
+            PuppetsTab.Controls.Add(PuppetAutonomy);
+            PuppetsTab.Controls.Add(PuppetIntegration);
+            PuppetsTab.Controls.Add(label25);
+            PuppetsTab.Controls.Add(label24);
+            PuppetsTab.Controls.Add(PuppetsOverview);
+            PuppetsTab.Controls.Add(PuppetsTable);
+            PuppetsTab.Location = new Point(4, 29);
+            PuppetsTab.Name = "PuppetsTab";
+            PuppetsTab.Size = new Size(876, 407);
+            PuppetsTab.TabIndex = 6;
+            PuppetsTab.Text = "Puppets";
+            PuppetsTab.UseVisualStyleBackColor = true;
             // 
             // PuppetLoyaltyDesc
             // 
-            this.PuppetLoyaltyDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PuppetLoyaltyDesc.FormattingEnabled = true;
-            this.PuppetLoyaltyDesc.Items.AddRange(new object[] {
-            "Low",
-            "Medium",
-            "High"});
-            this.PuppetLoyaltyDesc.Location = new System.Drawing.Point(525, 365);
-            this.PuppetLoyaltyDesc.Name = "PuppetLoyaltyDesc";
-            this.PuppetLoyaltyDesc.Size = new System.Drawing.Size(120, 25);
-            this.PuppetLoyaltyDesc.TabIndex = 11;
-            this.PuppetLoyaltyDesc.SelectedIndexChanged += new System.EventHandler(this.PuppetDetailsModified);
+            PuppetLoyaltyDesc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PuppetLoyaltyDesc.FormattingEnabled = true;
+            PuppetLoyaltyDesc.Items.AddRange(new object[] { "Low", "Medium", "High" });
+            PuppetLoyaltyDesc.Location = new Point(525, 365);
+            PuppetLoyaltyDesc.Name = "PuppetLoyaltyDesc";
+            PuppetLoyaltyDesc.Size = new Size(120, 25);
+            PuppetLoyaltyDesc.TabIndex = 11;
+            PuppetLoyaltyDesc.SelectedIndexChanged += PuppetDetailsModified;
             // 
             // PuppetAutonomyDesc
             // 
-            this.PuppetAutonomyDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PuppetAutonomyDesc.FormattingEnabled = true;
-            this.PuppetAutonomyDesc.Items.AddRange(new object[] {
-            "Vassal",
-            "Puppet",
-            "Satelite"});
-            this.PuppetAutonomyDesc.Location = new System.Drawing.Point(525, 330);
-            this.PuppetAutonomyDesc.Name = "PuppetAutonomyDesc";
-            this.PuppetAutonomyDesc.Size = new System.Drawing.Size(120, 25);
-            this.PuppetAutonomyDesc.TabIndex = 10;
-            this.PuppetAutonomyDesc.SelectedIndexChanged += new System.EventHandler(this.PuppetDetailsModified);
+            PuppetAutonomyDesc.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PuppetAutonomyDesc.FormattingEnabled = true;
+            PuppetAutonomyDesc.Items.AddRange(new object[] { "Vassal", "Puppet", "Satelite" });
+            PuppetAutonomyDesc.Location = new Point(525, 330);
+            PuppetAutonomyDesc.Name = "PuppetAutonomyDesc";
+            PuppetAutonomyDesc.Size = new Size(120, 25);
+            PuppetAutonomyDesc.TabIndex = 10;
+            PuppetAutonomyDesc.SelectedIndexChanged += PuppetDetailsModified;
             // 
             // PuppetLoyalty
             // 
-            this.PuppetLoyalty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PuppetLoyalty.Location = new System.Drawing.Point(465, 365);
-            this.PuppetLoyalty.Name = "PuppetLoyalty";
-            this.PuppetLoyalty.Size = new System.Drawing.Size(50, 25);
-            this.PuppetLoyalty.TabIndex = 9;
-            this.PuppetLoyalty.ValueChanged += new System.EventHandler(this.PuppetDetailsModified);
+            PuppetLoyalty.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PuppetLoyalty.Location = new Point(465, 365);
+            PuppetLoyalty.Name = "PuppetLoyalty";
+            PuppetLoyalty.Size = new Size(50, 25);
+            PuppetLoyalty.TabIndex = 9;
+            PuppetLoyalty.ValueChanged += PuppetDetailsModified;
             // 
             // PuppetAutonomy
             // 
-            this.PuppetAutonomy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PuppetAutonomy.Location = new System.Drawing.Point(465, 330);
-            this.PuppetAutonomy.Name = "PuppetAutonomy";
-            this.PuppetAutonomy.Size = new System.Drawing.Size(50, 25);
-            this.PuppetAutonomy.TabIndex = 8;
-            this.PuppetAutonomy.ValueChanged += new System.EventHandler(this.PuppetDetailsModified);
+            PuppetAutonomy.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PuppetAutonomy.Location = new Point(465, 330);
+            PuppetAutonomy.Name = "PuppetAutonomy";
+            PuppetAutonomy.Size = new Size(50, 25);
+            PuppetAutonomy.TabIndex = 8;
+            PuppetAutonomy.ValueChanged += PuppetDetailsModified;
             // 
             // PuppetIntegration
             // 
-            this.PuppetIntegration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PuppetIntegration.Location = new System.Drawing.Point(760, 330);
-            this.PuppetIntegration.Name = "PuppetIntegration";
-            this.PuppetIntegration.Size = new System.Drawing.Size(50, 25);
-            this.PuppetIntegration.TabIndex = 7;
-            this.PuppetIntegration.ValueChanged += new System.EventHandler(this.PuppetDetailsModified);
+            PuppetIntegration.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            PuppetIntegration.Location = new Point(760, 330);
+            PuppetIntegration.Name = "PuppetIntegration";
+            PuppetIntegration.Size = new Size(50, 25);
+            PuppetIntegration.TabIndex = 7;
+            PuppetIntegration.ValueChanged += PuppetDetailsModified;
             // 
             // label25
             // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(390, 300);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(101, 102);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "Puppet settings:\r\n\r\nAutonomy:\r\n\r\nLoyalty:\r\n\r\n";
+            label25.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label25.AutoSize = true;
+            label25.Location = new Point(390, 300);
+            label25.Name = "label25";
+            label25.Size = new Size(101, 102);
+            label25.TabIndex = 6;
+            label25.Text = "Puppet settings:\r\n\r\nAutonomy:\r\n\r\nLoyalty:\r\n\r\n";
             // 
             // label24
             // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(680, 300);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(101, 51);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Master settings:\r\n\r\nIntegration:";
+            label24.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label24.AutoSize = true;
+            label24.Location = new Point(680, 300);
+            label24.Name = "label24";
+            label24.Size = new Size(101, 51);
+            label24.TabIndex = 5;
+            label24.Text = "Master settings:\r\n\r\nIntegration:";
             // 
             // PuppetsOverview
             // 
-            this.PuppetsOverview.AllowUserToAddRows = false;
-            this.PuppetsOverview.AllowUserToDeleteRows = false;
-            this.PuppetsOverview.AllowUserToResizeRows = false;
-            this.PuppetsOverview.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PuppetsOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PuppetsOverview.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PuppetMasterID,
-            this.PuppetMastersList,
-            this.PuppetsList});
-            this.PuppetsOverview.Location = new System.Drawing.Point(384, 3);
-            this.PuppetsOverview.MultiSelect = false;
-            this.PuppetsOverview.Name = "PuppetsOverview";
-            this.PuppetsOverview.RowHeadersVisible = false;
-            this.PuppetsOverview.Size = new System.Drawing.Size(489, 290);
-            this.PuppetsOverview.TabIndex = 4;
-            this.PuppetsOverview.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
-            this.PuppetsOverview.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.PuppetsTable_RowEnter);
+            PuppetsOverview.AllowUserToAddRows = false;
+            PuppetsOverview.AllowUserToDeleteRows = false;
+            PuppetsOverview.AllowUserToResizeRows = false;
+            PuppetsOverview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PuppetsOverview.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PuppetsOverview.Columns.AddRange(new DataGridViewColumn[] { PuppetMasterID, PuppetMastersList, PuppetsList });
+            PuppetsOverview.Location = new Point(384, 3);
+            PuppetsOverview.MultiSelect = false;
+            PuppetsOverview.Name = "PuppetsOverview";
+            PuppetsOverview.RowHeadersVisible = false;
+            PuppetsOverview.Size = new Size(489, 290);
+            PuppetsOverview.TabIndex = 4;
+            PuppetsOverview.DataError += DataError;
+            PuppetsOverview.RowEnter += PuppetsTable_RowEnter;
             // 
             // PuppetMasterID
             // 
-            this.PuppetMasterID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetMasterID.FillWeight = 5F;
-            this.PuppetMasterID.HeaderText = "ID";
-            this.PuppetMasterID.MinimumWidth = 30;
-            this.PuppetMasterID.Name = "PuppetMasterID";
-            this.PuppetMasterID.ReadOnly = true;
+            PuppetMasterID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PuppetMasterID.FillWeight = 5F;
+            PuppetMasterID.HeaderText = "ID";
+            PuppetMasterID.MinimumWidth = 30;
+            PuppetMasterID.Name = "PuppetMasterID";
+            PuppetMasterID.ReadOnly = true;
             // 
             // PuppetMastersList
             // 
-            this.PuppetMastersList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetMastersList.FillWeight = 30F;
-            this.PuppetMastersList.HeaderText = "Nation";
-            this.PuppetMastersList.MinimumWidth = 100;
-            this.PuppetMastersList.Name = "PuppetMastersList";
-            this.PuppetMastersList.ReadOnly = true;
+            PuppetMastersList.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PuppetMastersList.FillWeight = 30F;
+            PuppetMastersList.HeaderText = "Nation";
+            PuppetMastersList.MinimumWidth = 100;
+            PuppetMastersList.Name = "PuppetMastersList";
+            PuppetMastersList.ReadOnly = true;
             // 
             // PuppetsList
             // 
-            this.PuppetsList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetsList.HeaderText = "Puppets";
-            this.PuppetsList.MinimumWidth = 200;
-            this.PuppetsList.Name = "PuppetsList";
-            this.PuppetsList.ReadOnly = true;
-            this.PuppetsList.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            PuppetsList.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PuppetsList.HeaderText = "Puppets";
+            PuppetsList.MinimumWidth = 200;
+            PuppetsList.Name = "PuppetsList";
+            PuppetsList.ReadOnly = true;
+            PuppetsList.Resizable = DataGridViewTriState.True;
             // 
             // PuppetsTable
             // 
-            this.PuppetsTable.AllowUserToAddRows = false;
-            this.PuppetsTable.AllowUserToDeleteRows = false;
-            this.PuppetsTable.AllowUserToResizeColumns = false;
-            this.PuppetsTable.AllowUserToResizeRows = false;
-            this.PuppetsTable.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.PuppetsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PuppetsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PuppetNationID,
-            this.PuppetNationList,
-            this.PuppetMasterSelect});
-            this.PuppetsTable.Location = new System.Drawing.Point(3, 3);
-            this.PuppetsTable.MultiSelect = false;
-            this.PuppetsTable.Name = "PuppetsTable";
-            this.PuppetsTable.RowHeadersVisible = false;
-            this.PuppetsTable.ShowRowErrors = false;
-            this.PuppetsTable.Size = new System.Drawing.Size(375, 401);
-            this.PuppetsTable.TabIndex = 3;
-            this.PuppetsTable.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.PuppetMasterModified);
-            this.PuppetsTable.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
-            this.PuppetsTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.PuppetsTable_RowEnter);
+            PuppetsTable.AllowUserToAddRows = false;
+            PuppetsTable.AllowUserToDeleteRows = false;
+            PuppetsTable.AllowUserToResizeColumns = false;
+            PuppetsTable.AllowUserToResizeRows = false;
+            PuppetsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            PuppetsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PuppetsTable.Columns.AddRange(new DataGridViewColumn[] { PuppetNationID, PuppetNationList, PuppetMasterSelect });
+            PuppetsTable.Location = new Point(3, 3);
+            PuppetsTable.MultiSelect = false;
+            PuppetsTable.Name = "PuppetsTable";
+            PuppetsTable.RowHeadersVisible = false;
+            PuppetsTable.ShowRowErrors = false;
+            PuppetsTable.Size = new Size(375, 401);
+            PuppetsTable.TabIndex = 3;
+            PuppetsTable.CellEndEdit += PuppetMasterModified;
+            PuppetsTable.DataError += DataError;
+            PuppetsTable.RowEnter += PuppetsTable_RowEnter;
             // 
             // PuppetNationID
             // 
-            this.PuppetNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetNationID.FillWeight = 20F;
-            this.PuppetNationID.HeaderText = "ID";
-            this.PuppetNationID.MinimumWidth = 30;
-            this.PuppetNationID.Name = "PuppetNationID";
-            this.PuppetNationID.ReadOnly = true;
+            PuppetNationID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PuppetNationID.FillWeight = 20F;
+            PuppetNationID.HeaderText = "ID";
+            PuppetNationID.MinimumWidth = 30;
+            PuppetNationID.Name = "PuppetNationID";
+            PuppetNationID.ReadOnly = true;
             // 
             // PuppetNationList
             // 
-            this.PuppetNationList.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetNationList.HeaderText = "Nation";
-            this.PuppetNationList.MinimumWidth = 100;
-            this.PuppetNationList.Name = "PuppetNationList";
-            this.PuppetNationList.ReadOnly = true;
-            this.PuppetNationList.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            PuppetNationList.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PuppetNationList.HeaderText = "Nation";
+            PuppetNationList.MinimumWidth = 100;
+            PuppetNationList.Name = "PuppetNationList";
+            PuppetNationList.ReadOnly = true;
+            PuppetNationList.Resizable = DataGridViewTriState.True;
             // 
             // PuppetMasterSelect
             // 
-            this.PuppetMasterSelect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PuppetMasterSelect.HeaderText = "Master";
-            this.PuppetMasterSelect.MinimumWidth = 100;
-            this.PuppetMasterSelect.Name = "PuppetMasterSelect";
-            this.PuppetMasterSelect.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PuppetMasterSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            PuppetMasterSelect.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PuppetMasterSelect.HeaderText = "Master";
+            PuppetMasterSelect.MinimumWidth = 100;
+            PuppetMasterSelect.Name = "PuppetMasterSelect";
+            PuppetMasterSelect.Resizable = DataGridViewTriState.True;
+            PuppetMasterSelect.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // WarsTab
             // 
-            this.WarsTab.Controls.Add(this.label15);
-            this.WarsTab.Controls.Add(this.ToDeath);
-            this.WarsTab.Controls.Add(this.MergeWars);
-            this.WarsTab.Controls.Add(this.WarEndYear);
-            this.WarsTab.Controls.Add(this.WarEndDay);
-            this.WarsTab.Controls.Add(this.WarEndMonth);
-            this.WarsTab.Controls.Add(this.RemoveWar);
-            this.WarsTab.Controls.Add(this.AddWar);
-            this.WarsTab.Controls.Add(this.WarStartYear);
-            this.WarsTab.Controls.Add(this.WarStartDay);
-            this.WarsTab.Controls.Add(this.WarStartMonth);
-            this.WarsTab.Controls.Add(this.label11);
-            this.WarsTab.Controls.Add(this.WarNationSelect);
-            this.WarsTab.Controls.Add(this.WarsTable);
-            this.WarsTab.Location = new System.Drawing.Point(4, 29);
-            this.WarsTab.Name = "WarsTab";
-            this.WarsTab.Size = new System.Drawing.Size(876, 407);
-            this.WarsTab.TabIndex = 4;
-            this.WarsTab.Text = "Wars";
-            this.WarsTab.UseVisualStyleBackColor = true;
+            WarsTab.Controls.Add(label15);
+            WarsTab.Controls.Add(ToDeath);
+            WarsTab.Controls.Add(MergeWars);
+            WarsTab.Controls.Add(WarEndYear);
+            WarsTab.Controls.Add(WarEndDay);
+            WarsTab.Controls.Add(WarEndMonth);
+            WarsTab.Controls.Add(RemoveWar);
+            WarsTab.Controls.Add(AddWar);
+            WarsTab.Controls.Add(WarStartYear);
+            WarsTab.Controls.Add(WarStartDay);
+            WarsTab.Controls.Add(WarStartMonth);
+            WarsTab.Controls.Add(label11);
+            WarsTab.Controls.Add(WarNationSelect);
+            WarsTab.Controls.Add(WarsTable);
+            WarsTab.Location = new Point(4, 29);
+            WarsTab.Name = "WarsTab";
+            WarsTab.Size = new Size(876, 407);
+            WarsTab.TabIndex = 4;
+            WarsTab.Text = "Wars";
+            WarsTab.UseVisualStyleBackColor = true;
             // 
             // label15
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label15.Location = new System.Drawing.Point(406, 300);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(108, 13);
-            this.label15.TabIndex = 34;
-            this.label15.Text = "* former participant";
+            label15.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label15.AutoSize = true;
+            label15.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label15.ForeColor = SystemColors.ControlDarkDark;
+            label15.Location = new Point(406, 300);
+            label15.Name = "label15";
+            label15.Size = new Size(108, 13);
+            label15.TabIndex = 34;
+            label15.Text = "* former participant";
             // 
             // ToDeath
             // 
-            this.ToDeath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ToDeath.Location = new System.Drawing.Point(391, 370);
-            this.ToDeath.Name = "ToDeath";
-            this.ToDeath.Size = new System.Drawing.Size(75, 25);
-            this.ToDeath.TabIndex = 33;
-            this.ToDeath.Text = "To death";
-            this.ToDeath.UseVisualStyleBackColor = true;
-            this.ToDeath.Click += new System.EventHandler(this.WarDetailsModified);
+            ToDeath.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ToDeath.Location = new Point(391, 370);
+            ToDeath.Name = "ToDeath";
+            ToDeath.Size = new Size(75, 25);
+            ToDeath.TabIndex = 33;
+            ToDeath.Text = "To death";
+            ToDeath.UseVisualStyleBackColor = true;
+            ToDeath.Click += WarDetailsModified;
             // 
             // MergeWars
             // 
-            this.MergeWars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.MergeWars.Location = new System.Drawing.Point(216, 300);
-            this.MergeWars.Name = "MergeWars";
-            this.MergeWars.Size = new System.Drawing.Size(120, 25);
-            this.MergeWars.TabIndex = 32;
-            this.MergeWars.Text = "Merge selected";
-            this.MergeWars.UseVisualStyleBackColor = true;
-            this.MergeWars.Click += new System.EventHandler(this.MergeWars_Click);
+            MergeWars.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            MergeWars.Location = new Point(216, 300);
+            MergeWars.Name = "MergeWars";
+            MergeWars.Size = new Size(120, 25);
+            MergeWars.TabIndex = 32;
+            MergeWars.Text = "Merge selected";
+            MergeWars.UseVisualStyleBackColor = true;
+            MergeWars.Click += MergeWars_Click;
             // 
             // WarEndYear
             // 
-            this.WarEndYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.WarEndYear.Location = new System.Drawing.Point(300, 370);
-            this.WarEndYear.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.WarEndYear.Minimum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            -2147483648});
-            this.WarEndYear.Name = "WarEndYear";
-            this.WarEndYear.Size = new System.Drawing.Size(85, 25);
-            this.WarEndYear.TabIndex = 31;
-            this.WarEndYear.ValueChanged += new System.EventHandler(this.WarDetailsModified);
+            WarEndYear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            WarEndYear.Location = new Point(300, 370);
+            WarEndYear.Maximum = new decimal(new int[] { 20000, 0, 0, 0 });
+            WarEndYear.Minimum = new decimal(new int[] { 20000, 0, 0, int.MinValue });
+            WarEndYear.Name = "WarEndYear";
+            WarEndYear.Size = new Size(85, 25);
+            WarEndYear.TabIndex = 31;
+            WarEndYear.ValueChanged += WarDetailsModified;
             // 
             // WarEndDay
             // 
-            this.WarEndDay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.WarEndDay.Location = new System.Drawing.Point(254, 370);
-            this.WarEndDay.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.WarEndDay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.WarEndDay.Name = "WarEndDay";
-            this.WarEndDay.Size = new System.Drawing.Size(40, 25);
-            this.WarEndDay.TabIndex = 30;
-            this.WarEndDay.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.WarEndDay.ValueChanged += new System.EventHandler(this.WarDetailsModified);
+            WarEndDay.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            WarEndDay.Location = new Point(254, 370);
+            WarEndDay.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            WarEndDay.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            WarEndDay.Name = "WarEndDay";
+            WarEndDay.Size = new Size(40, 25);
+            WarEndDay.TabIndex = 30;
+            WarEndDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            WarEndDay.ValueChanged += WarDetailsModified;
             // 
             // WarEndMonth
             // 
-            this.WarEndMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.WarEndMonth.FormattingEnabled = true;
-            this.WarEndMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.WarEndMonth.Location = new System.Drawing.Point(128, 370);
-            this.WarEndMonth.Name = "WarEndMonth";
-            this.WarEndMonth.Size = new System.Drawing.Size(120, 25);
-            this.WarEndMonth.TabIndex = 29;
-            this.WarEndMonth.SelectedIndexChanged += new System.EventHandler(this.WarDetailsModified);
+            WarEndMonth.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            WarEndMonth.FormattingEnabled = true;
+            WarEndMonth.Items.AddRange(new object[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" });
+            WarEndMonth.Location = new Point(128, 370);
+            WarEndMonth.Name = "WarEndMonth";
+            WarEndMonth.Size = new Size(120, 25);
+            WarEndMonth.TabIndex = 29;
+            WarEndMonth.SelectedIndexChanged += WarDetailsModified;
             // 
             // RemoveWar
             // 
-            this.RemoveWar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.RemoveWar.Location = new System.Drawing.Point(90, 300);
-            this.RemoveWar.Name = "RemoveWar";
-            this.RemoveWar.Size = new System.Drawing.Size(120, 25);
-            this.RemoveWar.TabIndex = 24;
-            this.RemoveWar.Text = "Remove selected";
-            this.RemoveWar.UseVisualStyleBackColor = true;
-            this.RemoveWar.Click += new System.EventHandler(this.RemoveWar_Click);
+            RemoveWar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            RemoveWar.Location = new Point(90, 300);
+            RemoveWar.Name = "RemoveWar";
+            RemoveWar.Size = new Size(120, 25);
+            RemoveWar.TabIndex = 24;
+            RemoveWar.Text = "Remove selected";
+            RemoveWar.UseVisualStyleBackColor = true;
+            RemoveWar.Click += RemoveWar_Click;
             // 
             // AddWar
             // 
-            this.AddWar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddWar.Location = new System.Drawing.Point(6, 300);
-            this.AddWar.Name = "AddWar";
-            this.AddWar.Size = new System.Drawing.Size(80, 25);
-            this.AddWar.TabIndex = 23;
-            this.AddWar.Text = "Add new";
-            this.AddWar.UseVisualStyleBackColor = true;
-            this.AddWar.Click += new System.EventHandler(this.AddWar_Click);
+            AddWar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            AddWar.Location = new Point(6, 300);
+            AddWar.Name = "AddWar";
+            AddWar.Size = new Size(80, 25);
+            AddWar.TabIndex = 23;
+            AddWar.Text = "Add new";
+            AddWar.UseVisualStyleBackColor = true;
+            AddWar.Click += AddWar_Click;
             // 
             // WarStartYear
             // 
-            this.WarStartYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.WarStartYear.Location = new System.Drawing.Point(300, 336);
-            this.WarStartYear.Maximum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            0});
-            this.WarStartYear.Minimum = new decimal(new int[] {
-            20000,
-            0,
-            0,
-            -2147483648});
-            this.WarStartYear.Name = "WarStartYear";
-            this.WarStartYear.Size = new System.Drawing.Size(85, 25);
-            this.WarStartYear.TabIndex = 22;
-            this.WarStartYear.ValueChanged += new System.EventHandler(this.WarDetailsModified);
+            WarStartYear.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            WarStartYear.Location = new Point(300, 336);
+            WarStartYear.Maximum = new decimal(new int[] { 20000, 0, 0, 0 });
+            WarStartYear.Minimum = new decimal(new int[] { 20000, 0, 0, int.MinValue });
+            WarStartYear.Name = "WarStartYear";
+            WarStartYear.Size = new Size(85, 25);
+            WarStartYear.TabIndex = 22;
+            WarStartYear.ValueChanged += WarDetailsModified;
             // 
             // WarStartDay
             // 
-            this.WarStartDay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.WarStartDay.Location = new System.Drawing.Point(254, 336);
-            this.WarStartDay.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.WarStartDay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.WarStartDay.Name = "WarStartDay";
-            this.WarStartDay.Size = new System.Drawing.Size(40, 25);
-            this.WarStartDay.TabIndex = 21;
-            this.WarStartDay.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.WarStartDay.ValueChanged += new System.EventHandler(this.WarDetailsModified);
+            WarStartDay.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            WarStartDay.Location = new Point(254, 336);
+            WarStartDay.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
+            WarStartDay.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            WarStartDay.Name = "WarStartDay";
+            WarStartDay.Size = new Size(40, 25);
+            WarStartDay.TabIndex = 21;
+            WarStartDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            WarStartDay.ValueChanged += WarDetailsModified;
             // 
             // WarStartMonth
             // 
-            this.WarStartMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.WarStartMonth.FormattingEnabled = true;
-            this.WarStartMonth.Items.AddRange(new object[] {
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
-            this.WarStartMonth.Location = new System.Drawing.Point(128, 336);
-            this.WarStartMonth.Name = "WarStartMonth";
-            this.WarStartMonth.Size = new System.Drawing.Size(120, 25);
-            this.WarStartMonth.TabIndex = 20;
-            this.WarStartMonth.SelectedIndexChanged += new System.EventHandler(this.WarDetailsModified);
+            WarStartMonth.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            WarStartMonth.FormattingEnabled = true;
+            WarStartMonth.Items.AddRange(new object[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" });
+            WarStartMonth.Location = new Point(128, 336);
+            WarStartMonth.Name = "WarStartMonth";
+            WarStartMonth.Size = new Size(120, 25);
+            WarStartMonth.TabIndex = 20;
+            WarStartMonth.SelectedIndexChanged += WarDetailsModified;
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 341);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 51);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Start date:\r\n\r\nTarget end date:";
+            label11.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label11.AutoSize = true;
+            label11.Location = new Point(8, 341);
+            label11.Name = "label11";
+            label11.Size = new Size(104, 51);
+            label11.TabIndex = 4;
+            label11.Text = "Start date:\r\n\r\nTarget end date:";
             // 
             // WarNationSelect
             // 
-            this.WarNationSelect.AllowUserToAddRows = false;
-            this.WarNationSelect.AllowUserToDeleteRows = false;
-            this.WarNationSelect.AllowUserToResizeRows = false;
-            this.WarNationSelect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WarNationSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.WarNationSelect.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.WarNationID,
-            this.Nation,
-            this.Involvement});
-            this.WarNationSelect.Location = new System.Drawing.Point(520, 3);
-            this.WarNationSelect.MultiSelect = false;
-            this.WarNationSelect.Name = "WarNationSelect";
-            this.WarNationSelect.RowHeadersVisible = false;
-            this.WarNationSelect.Size = new System.Drawing.Size(353, 401);
-            this.WarNationSelect.TabIndex = 3;
-            this.WarNationSelect.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.WarParticipantsModified);
+            WarNationSelect.AllowUserToAddRows = false;
+            WarNationSelect.AllowUserToDeleteRows = false;
+            WarNationSelect.AllowUserToResizeRows = false;
+            WarNationSelect.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            WarNationSelect.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            WarNationSelect.Columns.AddRange(new DataGridViewColumn[] { WarNationID, Nation, Involvement });
+            WarNationSelect.Location = new Point(520, 3);
+            WarNationSelect.MultiSelect = false;
+            WarNationSelect.Name = "WarNationSelect";
+            WarNationSelect.RowHeadersVisible = false;
+            WarNationSelect.Size = new Size(353, 401);
+            WarNationSelect.TabIndex = 3;
+            WarNationSelect.CellEndEdit += WarParticipantsModified;
             // 
             // WarNationID
             // 
-            this.WarNationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.WarNationID.FillWeight = 20F;
-            this.WarNationID.HeaderText = "ID";
-            this.WarNationID.MinimumWidth = 20;
-            this.WarNationID.Name = "WarNationID";
-            this.WarNationID.ReadOnly = true;
+            WarNationID.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            WarNationID.FillWeight = 20F;
+            WarNationID.HeaderText = "ID";
+            WarNationID.MinimumWidth = 20;
+            WarNationID.Name = "WarNationID";
+            WarNationID.ReadOnly = true;
             // 
             // Nation
             // 
-            this.Nation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Nation.HeaderText = "Nation";
-            this.Nation.MinimumWidth = 100;
-            this.Nation.Name = "Nation";
-            this.Nation.ReadOnly = true;
+            Nation.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Nation.HeaderText = "Nation";
+            Nation.MinimumWidth = 100;
+            Nation.Name = "Nation";
+            Nation.ReadOnly = true;
             // 
             // Involvement
             // 
-            this.Involvement.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Involvement.FillWeight = 50F;
-            this.Involvement.HeaderText = "Select stance";
-            this.Involvement.Items.AddRange(new object[] {
-            "Not involved",
-            "Attacker",
-            "Former attacker",
-            "Defender",
-            "Former defender"});
-            this.Involvement.MinimumWidth = 50;
-            this.Involvement.Name = "Involvement";
-            this.Involvement.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Involvement.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            Involvement.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Involvement.FillWeight = 50F;
+            Involvement.HeaderText = "Select stance";
+            Involvement.Items.AddRange(new object[] { "Not involved", "Attacker", "Former attacker", "Defender", "Former defender" });
+            Involvement.MinimumWidth = 50;
+            Involvement.Name = "Involvement";
+            Involvement.Resizable = DataGridViewTriState.True;
+            Involvement.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // WarsTable
             // 
-            this.WarsTable.AllowUserToAddRows = false;
-            this.WarsTable.AllowUserToDeleteRows = false;
-            this.WarsTable.AllowUserToResizeRows = false;
-            this.WarsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WarsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.WarsTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Attackers,
-            this.Defenders});
-            this.WarsTable.Location = new System.Drawing.Point(3, 3);
-            this.WarsTable.Name = "WarsTable";
-            this.WarsTable.RowHeadersWidth = 20;
-            this.WarsTable.Size = new System.Drawing.Size(511, 291);
-            this.WarsTable.TabIndex = 2;
-            this.WarsTable.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.WarsTable_RowEnter);
+            WarsTable.AllowUserToAddRows = false;
+            WarsTable.AllowUserToDeleteRows = false;
+            WarsTable.AllowUserToResizeRows = false;
+            WarsTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            WarsTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            WarsTable.Columns.AddRange(new DataGridViewColumn[] { Attackers, Defenders });
+            WarsTable.Location = new Point(3, 3);
+            WarsTable.Name = "WarsTable";
+            WarsTable.RowHeadersWidth = 20;
+            WarsTable.Size = new Size(511, 291);
+            WarsTable.TabIndex = 2;
+            WarsTable.RowEnter += WarsTable_RowEnter;
             // 
             // Attackers
             // 
-            this.Attackers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Attackers.HeaderText = "Attackers";
-            this.Attackers.MinimumWidth = 200;
-            this.Attackers.Name = "Attackers";
-            this.Attackers.ReadOnly = true;
-            this.Attackers.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            Attackers.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Attackers.HeaderText = "Attackers";
+            Attackers.MinimumWidth = 200;
+            Attackers.Name = "Attackers";
+            Attackers.ReadOnly = true;
+            Attackers.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // Defenders
             // 
-            this.Defenders.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Defenders.HeaderText = "Defenders";
-            this.Defenders.MinimumWidth = 200;
-            this.Defenders.Name = "Defenders";
-            this.Defenders.ReadOnly = true;
-            this.Defenders.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Defenders.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            Defenders.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Defenders.HeaderText = "Defenders";
+            Defenders.MinimumWidth = 200;
+            Defenders.Name = "Defenders";
+            Defenders.ReadOnly = true;
+            Defenders.Resizable = DataGridViewTriState.True;
+            Defenders.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // InfoTab
             // 
-            this.InfoTab.Controls.Add(this.groupBox2);
-            this.InfoTab.Controls.Add(this.groupBox1);
-            this.InfoTab.Location = new System.Drawing.Point(4, 29);
-            this.InfoTab.Name = "InfoTab";
-            this.InfoTab.Size = new System.Drawing.Size(876, 407);
-            this.InfoTab.TabIndex = 5;
-            this.InfoTab.Text = "Help & Info";
-            this.InfoTab.UseVisualStyleBackColor = true;
+            InfoTab.Controls.Add(groupBox2);
+            InfoTab.Controls.Add(groupBox1);
+            InfoTab.Location = new Point(4, 29);
+            InfoTab.Name = "InfoTab";
+            InfoTab.Size = new Size(876, 407);
+            InfoTab.TabIndex = 5;
+            InfoTab.Text = "Help & Info";
+            InfoTab.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.label17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Location = new System.Drawing.Point(3, 279);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(870, 125);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "About";
+            groupBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(label19);
+            groupBox2.Controls.Add(label18);
+            groupBox2.Controls.Add(label17);
+            groupBox2.Controls.Add(label16);
+            groupBox2.Location = new Point(3, 279);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(870, 125);
+            groupBox2.TabIndex = 1;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "About";
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(270, 45);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(445, 34);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "JokuPelle for creating a wonderful space in and around this game\r\nThe AoC communi" +
-    "ty for supporting me and my silly projects over the years\r\n";
+            label19.AutoSize = true;
+            label19.Location = new Point(270, 45);
+            label19.Name = "label19";
+            label19.Size = new Size(445, 34);
+            label19.TabIndex = 3;
+            label19.Text = "JokuPelle for creating a wonderful space in and around this game\r\nThe AoC community for supporting me and my silly projects over the years\r\n";
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(270, 20);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(109, 17);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Special thanks to:";
+            label18.AutoSize = true;
+            label18.Location = new Point(270, 20);
+            label18.Name = "label18";
+            label18.Size = new Size(109, 17);
+            label18.TabIndex = 2;
+            label18.Text = "Special thanks to:";
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label17.Location = new System.Drawing.Point(100, 25);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(37, 17);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "0.2.4";
+            label17.AutoSize = true;
+            label17.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            label17.Location = new Point(100, 25);
+            label17.Name = "label17";
+            label17.Size = new Size(37, 17);
+            label17.TabIndex = 1;
+            label17.Text = "0.2.5";
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(10, 25);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(205, 51);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "App verison: \r\n\r\nLead developer:   Corrupted Matt\r\n";
+            label16.AutoSize = true;
+            label16.Location = new Point(10, 25);
+            label16.Name = "label16";
+            label16.Size = new Size(205, 51);
+            label16.TabIndex = 0;
+            label16.Text = "App verison: \r\n\r\nLead developer:   Corrupted Matt\r\n";
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.FlagEditorLink);
-            this.groupBox1.Controls.Add(this.ConverterLink);
-            this.groupBox1.Controls.Add(this.DiscordLink);
-            this.groupBox1.Controls.Add(this.ReadmeLink);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(870, 270);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Help and Resources";
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(label22);
+            groupBox1.Controls.Add(FlagEditorLink);
+            groupBox1.Controls.Add(ConverterLink);
+            groupBox1.Controls.Add(DiscordLink);
+            groupBox1.Controls.Add(ReadmeLink);
+            groupBox1.Controls.Add(label20);
+            groupBox1.Location = new Point(3, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(870, 270);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Help and Resources";
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label22.Location = new System.Drawing.Point(6, 205);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(246, 26);
-            this.label22.TabIndex = 25;
-            this.label22.Text = "note: generated scenarios need to be opened \r\nand saved in game to ensure compati" +
-    "bility";
+            label22.AutoSize = true;
+            label22.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label22.ForeColor = SystemColors.ControlDarkDark;
+            label22.Location = new Point(6, 205);
+            label22.Name = "label22";
+            label22.Size = new Size(246, 26);
+            label22.TabIndex = 25;
+            label22.Text = "note: generated scenarios need to be opened \r\nand saved in game to ensure compatibility";
             // 
             // FlagEditorLink
             // 
-            this.FlagEditorLink.AutoSize = true;
-            this.FlagEditorLink.Location = new System.Drawing.Point(210, 183);
-            this.FlagEditorLink.Name = "FlagEditorLink";
-            this.FlagEditorLink.Size = new System.Drawing.Size(48, 17);
-            this.FlagEditorLink.TabIndex = 4;
-            this.FlagEditorLink.TabStop = true;
-            this.FlagEditorLink.Text = "GitHub";
-            this.FlagEditorLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.FlagEditorLink_LinkClicked);
+            FlagEditorLink.AutoSize = true;
+            FlagEditorLink.Location = new Point(210, 183);
+            FlagEditorLink.Name = "FlagEditorLink";
+            FlagEditorLink.Size = new Size(48, 17);
+            FlagEditorLink.TabIndex = 4;
+            FlagEditorLink.TabStop = true;
+            FlagEditorLink.Text = "GitHub";
+            FlagEditorLink.LinkClicked += FlagEditorLink_LinkClicked;
             // 
             // ConverterLink
             // 
-            this.ConverterLink.AutoSize = true;
-            this.ConverterLink.Location = new System.Drawing.Point(210, 149);
-            this.ConverterLink.Name = "ConverterLink";
-            this.ConverterLink.Size = new System.Drawing.Size(48, 17);
-            this.ConverterLink.TabIndex = 3;
-            this.ConverterLink.TabStop = true;
-            this.ConverterLink.Text = "GitHub";
-            this.ConverterLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ConverterLink_LinkClicked);
+            ConverterLink.AutoSize = true;
+            ConverterLink.Location = new Point(210, 149);
+            ConverterLink.Name = "ConverterLink";
+            ConverterLink.Size = new Size(48, 17);
+            ConverterLink.TabIndex = 3;
+            ConverterLink.TabStop = true;
+            ConverterLink.Text = "GitHub";
+            ConverterLink.LinkClicked += ConverterLink_LinkClicked;
             // 
             // DiscordLink
             // 
-            this.DiscordLink.AutoSize = true;
-            this.DiscordLink.Location = new System.Drawing.Point(435, 80);
-            this.DiscordLink.Name = "DiscordLink";
-            this.DiscordLink.Size = new System.Drawing.Size(53, 17);
-            this.DiscordLink.TabIndex = 2;
-            this.DiscordLink.TabStop = true;
-            this.DiscordLink.Text = "Discord";
-            this.DiscordLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.DiscordLink_LinkClicked);
+            DiscordLink.AutoSize = true;
+            DiscordLink.Location = new Point(435, 80);
+            DiscordLink.Name = "DiscordLink";
+            DiscordLink.Size = new Size(53, 17);
+            DiscordLink.TabIndex = 2;
+            DiscordLink.TabStop = true;
+            DiscordLink.Text = "Discord";
+            DiscordLink.LinkClicked += DiscordLink_LinkClicked;
             // 
             // ReadmeLink
             // 
-            this.ReadmeLink.AutoSize = true;
-            this.ReadmeLink.Location = new System.Drawing.Point(240, 30);
-            this.ReadmeLink.Name = "ReadmeLink";
-            this.ReadmeLink.Size = new System.Drawing.Size(48, 17);
-            this.ReadmeLink.TabIndex = 1;
-            this.ReadmeLink.TabStop = true;
-            this.ReadmeLink.Text = "GitHub";
-            this.ReadmeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ReadmeLink_LinkClicked);
+            ReadmeLink.AutoSize = true;
+            ReadmeLink.Location = new Point(240, 30);
+            ReadmeLink.Name = "ReadmeLink";
+            ReadmeLink.Size = new Size(48, 17);
+            ReadmeLink.TabIndex = 1;
+            ReadmeLink.TabStop = true;
+            ReadmeLink.Text = "GitHub";
+            ReadmeLink.LinkClicked += ReadmeLink_LinkClicked;
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 30);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(421, 170);
-            this.label20.TabIndex = 0;
-            this.label20.Text = resources.GetString("label20.Text");
+            label20.AutoSize = true;
+            label20.Location = new Point(6, 30);
+            label20.Name = "label20";
+            label20.Size = new Size(421, 170);
+            label20.TabIndex = 0;
+            label20.Text = resources.GetString("label20.Text");
             // 
             // DestinationInput
             // 
-            this.DestinationInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DestinationInput.Location = new System.Drawing.Point(12, 469);
-            this.DestinationInput.Name = "DestinationInput";
-            this.DestinationInput.Size = new System.Drawing.Size(401, 25);
-            this.DestinationInput.TabIndex = 1;
+            DestinationInput.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            DestinationInput.Location = new Point(12, 469);
+            DestinationInput.Name = "DestinationInput";
+            DestinationInput.Size = new Size(401, 25);
+            DestinationInput.TabIndex = 1;
             // 
             // NameSelection
             // 
-            this.NameSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameSelection.Location = new System.Drawing.Point(524, 469);
-            this.NameSelection.Name = "NameSelection";
-            this.NameSelection.Size = new System.Drawing.Size(348, 25);
-            this.NameSelection.TabIndex = 2;
+            NameSelection.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            NameSelection.Location = new Point(524, 469);
+            NameSelection.Name = "NameSelection";
+            NameSelection.Size = new Size(348, 25);
+            NameSelection.TabIndex = 2;
             // 
             // DestinationBrowse
             // 
-            this.DestinationBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DestinationBrowse.Location = new System.Drawing.Point(419, 466);
-            this.DestinationBrowse.Name = "DestinationBrowse";
-            this.DestinationBrowse.Size = new System.Drawing.Size(88, 30);
-            this.DestinationBrowse.TabIndex = 5;
-            this.DestinationBrowse.Text = "Browse";
-            this.DestinationBrowse.UseVisualStyleBackColor = true;
-            this.DestinationBrowse.Click += new System.EventHandler(this.DestinationBrowse_Click);
+            DestinationBrowse.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            DestinationBrowse.Location = new Point(419, 466);
+            DestinationBrowse.Name = "DestinationBrowse";
+            DestinationBrowse.Size = new Size(88, 30);
+            DestinationBrowse.TabIndex = 5;
+            DestinationBrowse.Text = "Browse";
+            DestinationBrowse.UseVisualStyleBackColor = true;
+            DestinationBrowse.Click += DestinationBrowse_Click;
             // 
             // RunGameButton
             // 
-            this.RunGameButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.RunGameButton.Location = new System.Drawing.Point(667, 500);
-            this.RunGameButton.Name = "RunGameButton";
-            this.RunGameButton.Size = new System.Drawing.Size(100, 50);
-            this.RunGameButton.TabIndex = 6;
-            this.RunGameButton.Text = "Run AoC \r\nvia Steam";
-            this.RunGameButton.UseVisualStyleBackColor = true;
-            this.RunGameButton.Click += new System.EventHandler(this.RunGameButton_Click);
+            RunGameButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            RunGameButton.Location = new Point(667, 500);
+            RunGameButton.Name = "RunGameButton";
+            RunGameButton.Size = new Size(100, 50);
+            RunGameButton.TabIndex = 6;
+            RunGameButton.Text = "Run AoC \r\nvia Steam";
+            RunGameButton.UseVisualStyleBackColor = true;
+            RunGameButton.Click += RunGameButton_Click;
             // 
             // GenerateButton
             // 
-            this.GenerateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.GenerateButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GenerateButton.Location = new System.Drawing.Point(773, 500);
-            this.GenerateButton.Name = "GenerateButton";
-            this.GenerateButton.Size = new System.Drawing.Size(100, 50);
-            this.GenerateButton.TabIndex = 7;
-            this.GenerateButton.Text = "Export \nscenario";
-            this.GenerateButton.UseVisualStyleBackColor = true;
-            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
+            GenerateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            GenerateButton.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            GenerateButton.Location = new Point(773, 500);
+            GenerateButton.Name = "GenerateButton";
+            GenerateButton.Size = new Size(100, 50);
+            GenerateButton.TabIndex = 7;
+            GenerateButton.Text = "Export \nscenario";
+            GenerateButton.UseVisualStyleBackColor = true;
+            GenerateButton.Click += GenerateButton_Click;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 449);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 68);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Select output destination\r\n\r\n\r\nExport as:";
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Location = new Point(9, 449);
+            label1.Name = "label1";
+            label1.Size = new Size(152, 68);
+            label1.TabIndex = 8;
+            label1.Text = "Select output destination\r\n\r\n\r\nExport as:";
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(521, 449);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "New scenario name:";
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(521, 449);
+            label2.Name = "label2";
+            label2.Size = new Size(126, 17);
+            label2.TabIndex = 9;
+            label2.Text = "New scenario name:";
             // 
             // ColorPicker
             // 
-            this.ColorPicker.AnyColor = true;
-            this.ColorPicker.FullOpen = true;
+            ColorPicker.AnyColor = true;
+            ColorPicker.FullOpen = true;
             // 
             // ExportAsScenario
             // 
-            this.ExportAsScenario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ExportAsScenario.AutoSize = true;
-            this.ExportAsScenario.Checked = true;
-            this.ExportAsScenario.Location = new System.Drawing.Point(85, 500);
-            this.ExportAsScenario.Name = "ExportAsScenario";
-            this.ExportAsScenario.Size = new System.Drawing.Size(76, 21);
-            this.ExportAsScenario.TabIndex = 10;
-            this.ExportAsScenario.TabStop = true;
-            this.ExportAsScenario.Text = "Scenario";
-            this.ExportAsScenario.UseVisualStyleBackColor = true;
-            this.ExportAsScenario.CheckedChanged += new System.EventHandler(this.ExportTypeChanged);
+            ExportAsScenario.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ExportAsScenario.AutoSize = true;
+            ExportAsScenario.Checked = true;
+            ExportAsScenario.Location = new Point(85, 500);
+            ExportAsScenario.Name = "ExportAsScenario";
+            ExportAsScenario.Size = new Size(76, 21);
+            ExportAsScenario.TabIndex = 10;
+            ExportAsScenario.TabStop = true;
+            ExportAsScenario.Text = "Scenario";
+            ExportAsScenario.UseVisualStyleBackColor = true;
+            ExportAsScenario.CheckedChanged += ExportTypeChanged;
             // 
             // ExportAsSave
             // 
-            this.ExportAsSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ExportAsSave.AutoSize = true;
-            this.ExportAsSave.Location = new System.Drawing.Point(172, 500);
-            this.ExportAsSave.Name = "ExportAsSave";
-            this.ExportAsSave.Size = new System.Drawing.Size(53, 21);
-            this.ExportAsSave.TabIndex = 11;
-            this.ExportAsSave.Text = "Save";
-            this.ExportAsSave.UseVisualStyleBackColor = true;
-            this.ExportAsSave.CheckedChanged += new System.EventHandler(this.ExportTypeChanged);
+            ExportAsSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ExportAsSave.AutoSize = true;
+            ExportAsSave.Location = new Point(172, 500);
+            ExportAsSave.Name = "ExportAsSave";
+            ExportAsSave.Size = new Size(53, 21);
+            ExportAsSave.TabIndex = 11;
+            ExportAsSave.Text = "Save";
+            ExportAsSave.UseVisualStyleBackColor = true;
+            ExportAsSave.CheckedChanged += ExportTypeChanged;
             // 
             // label26
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label26.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label26.Location = new System.Drawing.Point(10, 524);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(201, 26);
-            this.label26.TabIndex = 37;
-            this.label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
+            label26.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label26.AutoSize = true;
+            label26.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            label26.ForeColor = SystemColors.ControlDarkDark;
+            label26.Location = new Point(10, 524);
+            label26.Name = "label26";
+            label26.Size = new Size(201, 26);
+            label26.TabIndex = 37;
+            label26.Text = "Shift + click to set destination \r\nto the appropriate game folder folder";
             // 
             // App
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.ExportAsSave);
-            this.Controls.Add(this.ExportAsScenario);
-            this.Controls.Add(this.DestinationInput);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.GenerateButton);
-            this.Controls.Add(this.RunGameButton);
-            this.Controls.Add(this.DestinationBrowse);
-            this.Controls.Add(this.NameSelection);
-            this.Controls.Add(this.TabSelect);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
-            this.Name = "App";
-            this.Text = "Advanced Scenario Editor";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.TabSelect.ResumeLayout(false);
-            this.LoadTab.ResumeLayout(false);
-            this.LoadTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.StartingDay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HomePreview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CurrentYear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CurrentDay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.StartingYear)).EndInit();
-            this.NationsTab.ResumeLayout(false);
-            this.NationsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SetBonus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetFlagID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FlagPreview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetEyear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetSyear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetCE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SetGold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NationPreview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NationsTable)).EndInit();
-            this.CitiesTab.ResumeLayout(false);
-            this.CitiesTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CityRevoltChance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CityPreview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CitiesTable)).EndInit();
-            this.AlliancesTab.ResumeLayout(false);
-            this.AlliancesTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AlliancePreview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Unity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AllianceNationSelect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AlliancesTable)).EndInit();
-            this.PuppetsTab.ResumeLayout(false);
-            this.PuppetsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetLoyalty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetAutonomy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetIntegration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetsOverview)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PuppetsTable)).EndInit();
-            this.WarsTab.ResumeLayout(false);
-            this.WarsTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.WarEndYear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarEndDay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarStartYear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarStartDay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarNationSelect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WarsTable)).EndInit();
-            this.InfoTab.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(884, 561);
+            Controls.Add(label26);
+            Controls.Add(ExportAsSave);
+            Controls.Add(ExportAsScenario);
+            Controls.Add(DestinationInput);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(GenerateButton);
+            Controls.Add(RunGameButton);
+            Controls.Add(DestinationBrowse);
+            Controls.Add(NameSelection);
+            Controls.Add(TabSelect);
+            Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 3, 4, 3);
+            MinimumSize = new Size(900, 600);
+            Name = "App";
+            Text = "Advanced Scenario Editor";
+            Load += Form1_Load;
+            TabSelect.ResumeLayout(false);
+            LoadTab.ResumeLayout(false);
+            LoadTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)StartingDay).EndInit();
+            ((System.ComponentModel.ISupportInitialize)HomePreview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CurrentYear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CurrentDay).EndInit();
+            ((System.ComponentModel.ISupportInitialize)StartingYear).EndInit();
+            NationsTab.ResumeLayout(false);
+            NationsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)SetBonus).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SetFlagID).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FlagPreview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SetEyear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SetSyear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SetCE).EndInit();
+            ((System.ComponentModel.ISupportInitialize)SetGold).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NationPreview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NationsTable).EndInit();
+            CitiesTab.ResumeLayout(false);
+            CitiesTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)CityRevoltChance).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CityPreview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CitiesTable).EndInit();
+            AlliancesTab.ResumeLayout(false);
+            AlliancesTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)AlliancePreview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Unity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AllianceNationSelect).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AlliancesTable).EndInit();
+            PuppetsTab.ResumeLayout(false);
+            PuppetsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PuppetLoyalty).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetAutonomy).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetIntegration).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetsOverview).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PuppetsTable).EndInit();
+            WarsTab.ResumeLayout(false);
+            WarsTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)WarEndYear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WarEndDay).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WarStartYear).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WarStartDay).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WarNationSelect).EndInit();
+            ((System.ComponentModel.ISupportInitialize)WarsTable).EndInit();
+            InfoTab.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
