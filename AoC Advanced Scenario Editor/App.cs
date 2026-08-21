@@ -311,10 +311,10 @@ namespace AoC_Advanced_Scenario_Editor
         {
             if (!LoadingFinished)
                 return;
-            DateTime current = new((int)CurrentYear.Value, CurrentMonth.SelectedIndex + 1, (int)CurrentDay.Value);
+            NodaTime.LocalDate current = new((int)CurrentYear.Value, CurrentMonth.SelectedIndex + 1, (int)CurrentDay.Value);
             origin["startingYear"] = StartingYear.Value;
             origin["startingMonth"] = StartingMonth.SelectedIndex;
-            origin["currentGameTime"] = GetAocTime(current.AddDays((int)StartingDay.Value));
+            origin["currentGameTime"] = GetAocTime(current.PlusDays((int)StartingDay.Value));
             return;
         }
 
@@ -501,8 +501,8 @@ namespace AoC_Advanced_Scenario_Editor
             nation["storedBns"] = (int)SetGold.Value;
             nation["customBns"] = (int)SetBonus.Value;
             nation["combatEfficiency"] = 2 * (6 - SetCE.Value);
-            nation["startYear"] = GetAocTime(new DateTime((int)SetSyear.Value,1,1));
-            nation["endYear"] = GetAocTime(new DateTime((int)SetEyear.Value, 1, 1));
+            nation["startYear"] = GetAocTime(new NodaTime.LocalDate((int)SetSyear.Value, 1, 1));
+            nation["endYear"] = GetAocTime(new NodaTime.LocalDate((int)SetEyear.Value, 1, 1));
             nation["aiDisabled"] = DisableAI.Checked;
             nation["ceLock"] = ceLock.Checked;
             nation["flagId"] = (int)SetFlagID.Value;
@@ -1275,8 +1275,8 @@ namespace AoC_Advanced_Scenario_Editor
             LoadingFinished = false;
             var nations = origin["nations"].AsArray();
             JsonNode w = origin["wars"][e.RowIndex];
-            DateTime start = GetDate((float)w["startTime"]);
-            DateTime end = GetDate((float)w["startTime"] + (float)w["targetLength"]);
+            NodaTime.LocalDate start = GetDate((float)w["startTime"]);
+            NodaTime.LocalDate end = GetDate((float)w["startTime"] + (float)w["targetLength"]);
             WarStartYear.Value = start.Year;
             WarStartMonth.SelectedIndex = start.Month - 1;
             WarStartDay.Value = start.Day;
@@ -1365,8 +1365,8 @@ namespace AoC_Advanced_Scenario_Editor
 
             JsonNode war = origin["wars"].AsArray()[WarsTable.CurrentRow.Index];
 
-            DateTime start = new((int)WarStartYear.Value, WarStartMonth.SelectedIndex + 1, (int)WarStartDay.Value);
-            DateTime end = new((int)WarEndYear.Value, WarEndMonth.SelectedIndex + 1, (int)WarEndDay.Value);
+            NodaTime.LocalDate start = new((int)WarStartYear.Value, WarStartMonth.SelectedIndex + 1, (int)WarStartDay.Value);
+            NodaTime.LocalDate end = new((int)WarEndYear.Value, WarEndMonth.SelectedIndex + 1, (int)WarEndDay.Value);
 
             if (sender == ToDeath)
             {
@@ -1508,8 +1508,8 @@ namespace AoC_Advanced_Scenario_Editor
         {
             UpdateStats(Scenario);
 
-            DateTime Starting = new((int)Scenario["startingYear"], (int)Scenario["startingMonth"] + 1, 1);
-            DateTime Current = GetDate((float)Scenario["currentGameTime"]);
+            NodaTime.LocalDate Starting = new((int)Scenario["startingYear"], (int)Scenario["startingMonth"] + 1, 1);
+            NodaTime.LocalDate Current = GetDate((float)Scenario["currentGameTime"]);
             StartingYear.Value = Starting.Year; StartingMonth.SelectedIndex = Starting.Month - 1; StartingDay.Value = Starting.Day;
             CurrentYear.Value = Current.Year; CurrentMonth.SelectedIndex = Current.Month - 1; CurrentDay.Value = Current.Day;
             SetFlagID.Maximum = origin["nations"].AsArray().Count;
@@ -1523,16 +1523,16 @@ namespace AoC_Advanced_Scenario_Editor
            
         }
 
-        private DateTime GetDate(float aocTime)
+        private NodaTime.LocalDate GetDate(float aocTime)
         {
-            if (MonthScale.Checked) return new DateTime(int.Parse(origin["startingYear"].ToString()), int.Parse(origin["startingMonth"].ToString()) + 1, 1).AddMonths((int)((float)aocTime * 2));
-            else return new DateTime(int.Parse(origin["startingYear"].ToString()), int.Parse(origin["startingMonth"].ToString()) + 1, 1).AddDays(aocTime * 7);
+            if (MonthScale.Checked) return new NodaTime.LocalDate(int.Parse(origin["startingYear"].ToString()), int.Parse(origin["startingMonth"].ToString()) + 1, 1).PlusMonths((int)((float)aocTime * 2));
+            else return new NodaTime.LocalDate(int.Parse(origin["startingYear"].ToString()), int.Parse(origin["startingMonth"].ToString()) + 1, 1).PlusDays((int)(aocTime * 7));
         }
 
-        private float GetAocTime(DateTime date)
+        private float GetAocTime(NodaTime.LocalDate date)
         {
-            if (MonthScale.Checked) return (float)(date - GetDate(0)).TotalDays / 60;
-            else return (float)(date - GetDate(0)).TotalDays / 7;
+            if (MonthScale.Checked) return (float)(date - GetDate(0)).Months / 2;
+            else return (float)(date - GetDate(0)).Days / 7;
         }
 
         public void DrawGlobalMaps(JsonNode Scenario)

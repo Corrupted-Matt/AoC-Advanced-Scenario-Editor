@@ -1683,7 +1683,7 @@ namespace AoC_Advanced_Scenario_Editor
             label17.Name = "label17";
             label17.Size = new Size(37, 17);
             label17.TabIndex = 1;
-            label17.Text = "0.2.5";
+            label17.Text = "0.2.6";
             // 
             // label16
             // 
