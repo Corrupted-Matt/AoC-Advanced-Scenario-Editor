@@ -12,6 +12,7 @@ namespace AoC_Advanced_Scenario_Editor
 {
     public partial class FlagSelect : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int FlagID { get; set; }
 
         public FlagSelect(Bitmap Flags)
