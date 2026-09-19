@@ -204,7 +204,7 @@ namespace AoC_Advanced_Scenario_Editor
             }
 
             LoadingFinished = false;
-            TabSelect.Enabled = false;
+            ActiveForm.Enabled = false;
             LoadScenario.Text = "Loading...";
 
 
@@ -223,7 +223,7 @@ namespace AoC_Advanced_Scenario_Editor
             
 
             LoadingFinished = true;
-            TabSelect.Enabled = true;
+            ActiveForm.Enabled = true;
             ExportImage.Enabled = true;
             LoadScenario.Text = "Reload scenario";
             LoadScenario.ForeColor = System.Drawing.Color.Black;            
@@ -582,6 +582,7 @@ namespace AoC_Advanced_Scenario_Editor
                 };
                 origin["cities"].AsArray().Add(NewCity);
                 CitiesTable.Rows[e.RowIndex].SetValues(0, 0, "");
+                UpdateStats(origin);
             }
 
             JsonNode city = origin["cities"].AsArray()[e.RowIndex];
@@ -743,6 +744,7 @@ namespace AoC_Advanced_Scenario_Editor
             origin["cities"].AsArray().RemoveAt(e.RowIndex);
             //UpdateCities(origin);
             DrawGlobalMaps(origin);
+            UpdateStats(origin);
         }
 
         private void SetCoreToSelf_Click(object sender, EventArgs e)
@@ -847,12 +849,14 @@ namespace AoC_Advanced_Scenario_Editor
 
             if (ScenarioSelectDialog.ShowDialog() == DialogResult.OK)
             {
+                ImportCities.Text = "Importing...";
+                ActiveForm.Enabled = false;
+
                 JsonNode CityDonor = JsonNode.Parse(File.ReadAllText(ScenarioSelectDialog.FileName));
                 
                 foreach(var c in CityDonor["cities"].AsArray())
                 {
-                    if (!(origin["cities"].AsArray().FirstOrDefault(x => x["x"].GetValue<int>() == (int)c["x"]) != default &&
-                        origin["cities"].AsArray().FirstOrDefault(y => y["y"].GetValue<int>() == (int)c["y"]) != default))
+                    if (!(origin["cities"].AsArray().FirstOrDefault(co => co["x"].GetValue<int>() == (int)c["x"] && co["y"].GetValue<int>() == (int)c["y"]) != default))
                     {
                         c["r"] = 0;
                         origin["cities"].AsArray().Add(c.DeepClone());
@@ -860,8 +864,12 @@ namespace AoC_Advanced_Scenario_Editor
                     }
                 }
 
+                UpdateStats(origin);
                 DrawGlobalMaps(origin);
                 CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
+
+                ImportCities.Text = "Import cities";
+                ActiveForm.Enabled = true;
             }
 
         }
@@ -942,6 +950,7 @@ namespace AoC_Advanced_Scenario_Editor
                 AllianceSelect.Items.Add("");
                 AlliancesTable.Rows[e.RowIndex].SetValues("","", "#000000");
                 AlliancesTable.Rows[e.RowIndex].Cells[2].Style.BackColor = Color.Black;
+                UpdateStats(origin);
             }
 
             JsonNode alliance = origin["alliances"].AsArray()[e.RowIndex];
@@ -1063,6 +1072,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             origin["alliances"].AsArray().RemoveAt(e.RowIndex);
             DrawGlobalMaps(origin);
+            UpdateStats(origin);
         }
 
         #endregion
@@ -1407,6 +1417,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             origin["wars"].AsArray().Add(NewWar);
             WarsTable.Rows.Add("", "");
+            UpdateStats(origin);
         }
 
         private void RemoveWar_Click(object sender, EventArgs e)
@@ -1419,6 +1430,7 @@ namespace AoC_Advanced_Scenario_Editor
                     origin["wars"].AsArray().RemoveAt(i);
             }
             UpdateWars(origin);
+            UpdateStats(origin);
         }
 
         private void MergeWars_Click(object sender, EventArgs e)
@@ -1460,6 +1472,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             origin["wars"].AsArray().Add(NewWar);
             UpdateWars(origin);
+            UpdateStats(origin);
         }
 
         #endregion

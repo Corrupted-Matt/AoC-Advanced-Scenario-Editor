@@ -154,8 +154,17 @@ namespace AoC_Advanced_Scenario_Editor
             WarStartMonth = new Krypton.Toolkit.KryptonComboBox();
             kryptonLabel24 = new Krypton.Toolkit.KryptonLabel();
             InfoTab = new Krypton.Navigator.KryptonPage();
-            AboutGroupBox = new Krypton.Toolkit.KryptonGroupBox();
-            HelpGroupBox = new Krypton.Toolkit.KryptonGroupBox();
+            kryptonLabel31 = new Krypton.Toolkit.KryptonLabel();
+            KryptonLink = new Krypton.Toolkit.KryptonLinkLabel();
+            kryptonLabel30 = new Krypton.Toolkit.KryptonLabel();
+            ConverterLink = new Krypton.Toolkit.KryptonLinkLabel();
+            FlagEditorLink = new Krypton.Toolkit.KryptonLinkLabel();
+            kryptonLabel29 = new Krypton.Toolkit.KryptonLabel();
+            DiscordLink = new Krypton.Toolkit.KryptonLinkLabel();
+            kryptonLabel26 = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel27 = new Krypton.Toolkit.KryptonLabel();
+            ReadmeLink = new Krypton.Toolkit.KryptonLinkLabel();
+            kryptonLabel28 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel12 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel13 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
@@ -167,6 +176,7 @@ namespace AoC_Advanced_Scenario_Editor
             NameSelection = new Krypton.Toolkit.KryptonTextBox();
             ExportAsScenario = new Krypton.Toolkit.KryptonRadioButton();
             ExportAsSave = new Krypton.Toolkit.KryptonRadioButton();
+            ColorPicker = new Krypton.Toolkit.KryptonColorDialog();
             ((System.ComponentModel.ISupportInitialize)TabSelect).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ThemeSwitch).BeginInit();
             ThemeSwitch.SuspendLayout();
@@ -206,10 +216,6 @@ namespace AoC_Advanced_Scenario_Editor
             ((System.ComponentModel.ISupportInitialize)WarStartMonth).BeginInit();
             ((System.ComponentModel.ISupportInitialize)InfoTab).BeginInit();
             InfoTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)AboutGroupBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)AboutGroupBox.Panel).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)HelpGroupBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)HelpGroupBox.Panel).BeginInit();
             SuspendLayout();
             // 
             // Theme
@@ -239,10 +245,10 @@ namespace AoC_Advanced_Scenario_Editor
             TabSelect.Owner = null;
             TabSelect.PageBackStyle = Krypton.Toolkit.PaletteBackStyle.PanelClient;
             TabSelect.Pages.AddRange(new Krypton.Navigator.KryptonPage[] { ThemeSwitch, LoadTab, NationsTab, CitiesTab, AlliancesTab, PuppetsTab, WarsTab, InfoTab });
-            TabSelect.SelectedIndex = 7;
+            TabSelect.SelectedIndex = 1;
             TabSelect.Size = new Size(884, 440);
             TabSelect.StateSelected.CheckButton.Back.Color1 = Color.FromArgb(192, 64, 0);
-            TabSelect.StateSelected.CheckButton.Back.Color2 = Color.DimGray;
+            TabSelect.StateSelected.CheckButton.Back.Color2 = Color.FromArgb(224, 224, 224);
             TabSelect.TabIndex = 0;
             TabSelect.Text = "kryptonNavigator1";
             TabSelect.Selected += ThemeChange;
@@ -317,6 +323,7 @@ namespace AoC_Advanced_Scenario_Editor
             CurrentDay.Size = new Size(47, 22);
             CurrentDay.TabIndex = 35;
             CurrentDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            CurrentDay.ValueChanged += DateChanged;
             // 
             // StartingDay
             // 
@@ -329,6 +336,7 @@ namespace AoC_Advanced_Scenario_Editor
             StartingDay.Size = new Size(47, 22);
             StartingDay.TabIndex = 36;
             StartingDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            StartingDay.ValueChanged += DateChanged;
             // 
             // CurrentYear
             // 
@@ -341,6 +349,7 @@ namespace AoC_Advanced_Scenario_Editor
             CurrentYear.Size = new Size(80, 22);
             CurrentYear.TabIndex = 33;
             CurrentYear.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            CurrentYear.ValueChanged += DateChanged;
             // 
             // StartingYear
             // 
@@ -353,6 +362,7 @@ namespace AoC_Advanced_Scenario_Editor
             StartingYear.Size = new Size(80, 22);
             StartingYear.TabIndex = 34;
             StartingYear.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            StartingYear.ValueChanged += DateChanged;
             // 
             // ShowCities
             // 
@@ -363,6 +373,7 @@ namespace AoC_Advanced_Scenario_Editor
             ShowCities.Size = new Size(53, 20);
             ShowCities.TabIndex = 26;
             ShowCities.Values.Text = "Cities";
+            ShowCities.CheckedChanged += ShowCities_CheckedChanged;
             // 
             // CurrentMonth
             // 
@@ -373,6 +384,7 @@ namespace AoC_Advanced_Scenario_Editor
             CurrentMonth.Size = new Size(120, 22);
             CurrentMonth.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             CurrentMonth.TabIndex = 28;
+            CurrentMonth.SelectedIndexChanged += DateChanged;
             // 
             // DayScale
             // 
@@ -392,6 +404,7 @@ namespace AoC_Advanced_Scenario_Editor
             MainMapSelect.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             MainMapSelect.TabIndex = 27;
             MainMapSelect.Text = "Terrain";
+            MainMapSelect.SelectedIndexChanged += UpdateMainMap;
             // 
             // MonthScale
             // 
@@ -401,6 +414,7 @@ namespace AoC_Advanced_Scenario_Editor
             MonthScale.Size = new Size(64, 20);
             MonthScale.TabIndex = 26;
             MonthScale.Values.Text = "Months";
+            MonthScale.CheckedChanged += ReloadRequired;
             // 
             // StartingMonth
             // 
@@ -411,13 +425,16 @@ namespace AoC_Advanced_Scenario_Editor
             StartingMonth.Size = new Size(120, 22);
             StartingMonth.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             StartingMonth.TabIndex = 25;
+            StartingMonth.SelectedIndexChanged += DateChanged;
             // 
             // HomePreview
             // 
             HomePreview.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            HomePreview.BackgroundImageLayout = ImageLayout.Zoom;
             HomePreview.Location = new Point(354, 79);
             HomePreview.Name = "HomePreview";
             HomePreview.Size = new Size(525, 329);
+            HomePreview.SizeMode = PictureBoxSizeMode.Zoom;
             HomePreview.TabIndex = 23;
             HomePreview.TabStop = false;
             // 
@@ -439,6 +456,7 @@ namespace AoC_Advanced_Scenario_Editor
             ScenarioInput.Name = "ScenarioInput";
             ScenarioInput.Size = new Size(400, 23);
             ScenarioInput.TabIndex = 19;
+            ScenarioInput.TextChanged += ReloadRequired;
             // 
             // kryptonLabel11
             // 
@@ -459,6 +477,7 @@ namespace AoC_Advanced_Scenario_Editor
             ExportImage.TabIndex = 15;
             ExportImage.Values.DropDownArrowColor = Color.Empty;
             ExportImage.Values.Text = "Export image";
+            ExportImage.Click += ExportImage_Click;
             // 
             // ScenarioBrowse
             // 
@@ -468,6 +487,7 @@ namespace AoC_Advanced_Scenario_Editor
             ScenarioBrowse.TabIndex = 16;
             ScenarioBrowse.Values.DropDownArrowColor = Color.Empty;
             ScenarioBrowse.Values.Text = "Browse";
+            ScenarioBrowse.Click += ScenarioBrowse_Click;
             // 
             // kryptonLabel1
             // 
@@ -495,6 +515,7 @@ namespace AoC_Advanced_Scenario_Editor
             LoadScenario.TabIndex = 12;
             LoadScenario.Values.DropDownArrowColor = Color.Empty;
             LoadScenario.Values.Text = "Load";
+            LoadScenario.Click += LoadScenario_Click;
             // 
             // ScenarioStatsLabel
             // 
@@ -613,6 +634,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetFlagID.Size = new Size(87, 22);
             SetFlagID.TabIndex = 42;
             SetFlagID.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            SetFlagID.ValueChanged += NationDetailsModified;
             // 
             // kryptonLabel15
             // 
@@ -632,6 +654,7 @@ namespace AoC_Advanced_Scenario_Editor
             ceLock.Size = new Size(66, 20);
             ceLock.TabIndex = 32;
             ceLock.Values.Text = "CE Lock";
+            ceLock.CheckedChanged += NationDetailsModified;
             // 
             // CapitalSelect
             // 
@@ -641,6 +664,7 @@ namespace AoC_Advanced_Scenario_Editor
             CapitalSelect.Size = new Size(221, 22);
             CapitalSelect.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             CapitalSelect.TabIndex = 31;
+            CapitalSelect.SelectedIndexChanged += NationDetailsModified;
             // 
             // DisableAI
             // 
@@ -650,6 +674,7 @@ namespace AoC_Advanced_Scenario_Editor
             DisableAI.Size = new Size(55, 20);
             DisableAI.TabIndex = 31;
             DisableAI.Values.Text = "No AI";
+            DisableAI.CheckedChanged += NationDetailsModified;
             // 
             // SetEyear
             // 
@@ -662,6 +687,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetEyear.Size = new Size(100, 22);
             SetEyear.TabIndex = 31;
             SetEyear.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            SetEyear.ValueChanged += NationDetailsModified;
             // 
             // SetSyear
             // 
@@ -674,6 +700,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetSyear.Size = new Size(100, 22);
             SetSyear.TabIndex = 32;
             SetSyear.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            SetSyear.ValueChanged += NationDetailsModified;
             // 
             // SetGold
             // 
@@ -686,6 +713,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetGold.Size = new Size(100, 22);
             SetGold.TabIndex = 34;
             SetGold.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            SetGold.ValueChanged += NationDetailsModified;
             // 
             // SetCE
             // 
@@ -700,6 +728,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetCE.Size = new Size(100, 22);
             SetCE.TabIndex = 35;
             SetCE.Value = new decimal(new int[] { 5, 0, 0, 65536 });
+            SetCE.ValueChanged += NationDetailsModified;
             // 
             // SetBonus
             // 
@@ -712,6 +741,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetBonus.Size = new Size(100, 22);
             SetBonus.TabIndex = 33;
             SetBonus.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            SetBonus.ValueChanged += NationDetailsModified;
             // 
             // SetBonusToAll
             // 
@@ -722,6 +752,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetBonusToAll.TabIndex = 36;
             SetBonusToAll.Values.DropDownArrowColor = Color.Empty;
             SetBonusToAll.Values.Text = "Apply to all";
+            SetBonusToAll.Click += SetToAll_Click;
             // 
             // SetCEToAll
             // 
@@ -732,6 +763,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetCEToAll.TabIndex = 37;
             SetCEToAll.Values.DropDownArrowColor = Color.Empty;
             SetCEToAll.Values.Text = "Apply to all";
+            SetCEToAll.Click += SetToAll_Click;
             // 
             // SetGoldToAll
             // 
@@ -742,6 +774,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetGoldToAll.TabIndex = 32;
             SetGoldToAll.Values.DropDownArrowColor = Color.Empty;
             SetGoldToAll.Values.Text = "Apply to all";
+            SetGoldToAll.Click += SetToAll_Click;
             // 
             // FlagPreview
             // 
@@ -751,6 +784,7 @@ namespace AoC_Advanced_Scenario_Editor
             FlagPreview.Size = new Size(144, 96);
             FlagPreview.TabIndex = 40;
             FlagPreview.TabStop = false;
+            FlagPreview.Click += FlagPreview_Click;
             // 
             // kryptonLabel9
             // 
@@ -795,6 +829,8 @@ namespace AoC_Advanced_Scenario_Editor
             NationPreview.SizeMode = PictureBoxSizeMode.Zoom;
             NationPreview.TabIndex = 31;
             NationPreview.TabStop = false;
+            NationPreview.MouseClick += NationPreview_MouseClick;
+            NationPreview.MouseWheel += MapZoomChanged;
             // 
             // NationsTable
             // 
@@ -811,6 +847,10 @@ namespace AoC_Advanced_Scenario_Editor
             NationsTable.RowHeadersVisible = false;
             NationsTable.Size = new Size(375, 376);
             NationsTable.TabIndex = 0;
+            NationsTable.CellContentClick += ChangeNationColor;
+            NationsTable.CellEndEdit += NationNameModified;
+            NationsTable.DataError += DataError;
+            NationsTable.RowEnter += NationsTable_RowEnter;
             // 
             // NationID
             // 
@@ -838,7 +878,6 @@ namespace AoC_Advanced_Scenario_Editor
             NationColor.HeaderText = "Color";
             NationColor.MinimumWidth = 80;
             NationColor.Name = "NationColor";
-            NationColor.ReadOnly = true;
             NationColor.Resizable = DataGridViewTriState.False;
             NationColor.Width = 80;
             // 
@@ -851,6 +890,7 @@ namespace AoC_Advanced_Scenario_Editor
             PasteNationNames.TabIndex = 31;
             PasteNationNames.Values.DropDownArrowColor = Color.Empty;
             PasteNationNames.Values.Text = "Paste names from clipboard";
+            PasteNationNames.Click += PasteNationNames_Click;
             // 
             // CitiesTab
             // 
@@ -897,6 +937,7 @@ namespace AoC_Advanced_Scenario_Editor
             RemoveCore.TabIndex = 48;
             RemoveCore.Values.DropDownArrowColor = Color.Empty;
             RemoveCore.Values.Text = "Remove core";
+            RemoveCore.Click += RemoveCore_Click;
             // 
             // CityRevoltChance
             // 
@@ -909,6 +950,7 @@ namespace AoC_Advanced_Scenario_Editor
             CityRevoltChance.Size = new Size(70, 22);
             CityRevoltChance.TabIndex = 47;
             CityRevoltChance.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            CityRevoltChance.ValueChanged += CityDetailsModified;
             // 
             // ShowGrid
             // 
@@ -919,6 +961,7 @@ namespace AoC_Advanced_Scenario_Editor
             ShowGrid.Size = new Size(47, 20);
             ShowGrid.TabIndex = 44;
             ShowGrid.Values.Text = "Grid";
+            ShowGrid.CheckedChanged += ShowGrid_CheckedChanged;
             // 
             // CityRightfulOwner
             // 
@@ -928,6 +971,7 @@ namespace AoC_Advanced_Scenario_Editor
             CityRightfulOwner.Size = new Size(206, 22);
             CityRightfulOwner.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             CityRightfulOwner.TabIndex = 43;
+            CityRightfulOwner.SelectedIndexChanged += CityDetailsModified;
             // 
             // SetCoreToSelf
             // 
@@ -938,6 +982,7 @@ namespace AoC_Advanced_Scenario_Editor
             SetCoreToSelf.TabIndex = 45;
             SetCoreToSelf.Values.DropDownArrowColor = Color.Empty;
             SetCoreToSelf.Values.Text = "Set as core";
+            SetCoreToSelf.Click += SetCoreToSelf_Click;
             // 
             // kryptonLabel17
             // 
@@ -970,6 +1015,7 @@ namespace AoC_Advanced_Scenario_Editor
             ImportCities.TabIndex = 34;
             ImportCities.Values.DropDownArrowColor = Color.Empty;
             ImportCities.Values.Text = "Import cities";
+            ImportCities.Click += ImportCities_Click;
             // 
             // PasteCityNames
             // 
@@ -980,6 +1026,7 @@ namespace AoC_Advanced_Scenario_Editor
             PasteCityNames.TabIndex = 33;
             PasteCityNames.Values.DropDownArrowColor = Color.Empty;
             PasteCityNames.Values.Text = "Paste names from clipboard";
+            PasteCityNames.Click += PasteCityNames_Click;
             // 
             // CitiesTable
             // 
@@ -994,6 +1041,11 @@ namespace AoC_Advanced_Scenario_Editor
             CitiesTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             CitiesTable.Size = new Size(375, 376);
             CitiesTable.TabIndex = 31;
+            CitiesTable.CellEndEdit += CityNameOrPosModified;
+            CitiesTable.ColumnHeaderMouseClick += CitiesTable_Sorted;
+            CitiesTable.DataError += DataError;
+            CitiesTable.RowEnter += CitiesTable_RowEnter;
+            CitiesTable.RowsRemoved += CitiesTable_RowsRemoved;
             // 
             // cityX
             // 
@@ -1037,6 +1089,8 @@ namespace AoC_Advanced_Scenario_Editor
             CityPreview.SizeMode = PictureBoxSizeMode.Zoom;
             CityPreview.TabIndex = 32;
             CityPreview.TabStop = false;
+            CityPreview.MouseClick += CityPreview_MouseClick;
+            CityPreview.MouseWheel += MapZoomChanged;
             // 
             // AlliancesTab
             // 
@@ -1066,6 +1120,7 @@ namespace AoC_Advanced_Scenario_Editor
             AlliancePreview.SizeMode = PictureBoxSizeMode.Zoom;
             AlliancePreview.TabIndex = 33;
             AlliancePreview.TabStop = false;
+            AlliancePreview.MouseClick += AlliancePreview_MouseClick;
             // 
             // Unity
             // 
@@ -1079,6 +1134,7 @@ namespace AoC_Advanced_Scenario_Editor
             Unity.Size = new Size(60, 22);
             Unity.TabIndex = 49;
             Unity.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            Unity.ValueChanged += AllianceDetailsModified;
             // 
             // IsUnion
             // 
@@ -1088,6 +1144,7 @@ namespace AoC_Advanced_Scenario_Editor
             IsUnion.Size = new Size(67, 20);
             IsUnion.TabIndex = 48;
             IsUnion.Values.Text = "Is union";
+            IsUnion.CheckedChanged += AllianceDetailsModified;
             // 
             // kryptonLabel20
             // 
@@ -1111,6 +1168,11 @@ namespace AoC_Advanced_Scenario_Editor
             AlliancesTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             AlliancesTable.Size = new Size(495, 175);
             AlliancesTable.TabIndex = 34;
+            AlliancesTable.CellContentClick += ChangeAllianceColor;
+            AlliancesTable.CellEndEdit += AllianceModified;
+            AlliancesTable.DataError += DataError;
+            AlliancesTable.RowEnter += AlliancesTable_RowEnter;
+            AlliancesTable.RowsRemoved += AlliancesTable_RowsRemoved;
             // 
             // AllianceName
             // 
@@ -1155,6 +1217,8 @@ namespace AoC_Advanced_Scenario_Editor
             AllianceNationSelect.RowHeadersVisible = false;
             AllianceNationSelect.Size = new Size(375, 407);
             AllianceNationSelect.TabIndex = 31;
+            AllianceNationSelect.CellEndEdit += AllianceModified;
+            AllianceNationSelect.DataError += DataError;
             // 
             // AllianceNationID
             // 
@@ -1245,6 +1309,7 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetLoyaltyDesc.Size = new Size(100, 22);
             PuppetLoyaltyDesc.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             PuppetLoyaltyDesc.TabIndex = 31;
+            PuppetLoyaltyDesc.SelectedIndexChanged += PuppetDetailsModified;
             // 
             // PuppetAutonomyDesc
             // 
@@ -1255,6 +1320,7 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetAutonomyDesc.Size = new Size(100, 22);
             PuppetAutonomyDesc.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             PuppetAutonomyDesc.TabIndex = 32;
+            PuppetAutonomyDesc.SelectedIndexChanged += PuppetDetailsModified;
             // 
             // PuppetIntegration
             // 
@@ -1267,6 +1333,7 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetIntegration.Size = new Size(60, 22);
             PuppetIntegration.TabIndex = 50;
             PuppetIntegration.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            PuppetIntegration.ValueChanged += PuppetDetailsModified;
             // 
             // PuppetLoyalty
             // 
@@ -1279,6 +1346,7 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetLoyalty.Size = new Size(60, 22);
             PuppetLoyalty.TabIndex = 49;
             PuppetLoyalty.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            PuppetLoyalty.ValueChanged += PuppetDetailsModified;
             // 
             // PuppetAutonomy
             // 
@@ -1291,6 +1359,7 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetAutonomy.Size = new Size(60, 22);
             PuppetAutonomy.TabIndex = 48;
             PuppetAutonomy.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            PuppetAutonomy.ValueChanged += PuppetDetailsModified;
             // 
             // kryptonLabel23
             // 
@@ -1319,6 +1388,8 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetsOverview.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             PuppetsOverview.Size = new Size(495, 300);
             PuppetsOverview.TabIndex = 36;
+            PuppetsOverview.DataError += DataError;
+            PuppetsOverview.RowEnter += PuppetsTable_RowEnter;
             // 
             // PuppetMasterID
             // 
@@ -1371,6 +1442,9 @@ namespace AoC_Advanced_Scenario_Editor
             PuppetsTable.RowHeadersVisible = false;
             PuppetsTable.Size = new Size(375, 407);
             PuppetsTable.TabIndex = 35;
+            PuppetsTable.CellEndEdit += PuppetMasterModified;
+            PuppetsTable.DataError += DataError;
+            PuppetsTable.RowEnter += PuppetsTable_RowEnter;
             // 
             // PuppetNationID
             // 
@@ -1445,7 +1519,7 @@ namespace AoC_Advanced_Scenario_Editor
             // 
             WarNationSelect.AllowUserToAddRows = false;
             WarNationSelect.AllowUserToDeleteRows = false;
-            WarNationSelect.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            WarNationSelect.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             WarNationSelect.BorderStyle = BorderStyle.None;
             WarNationSelect.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             WarNationSelect.Columns.AddRange(new DataGridViewColumn[] { WarNationID, Nation, Involvement });
@@ -1457,6 +1531,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarNationSelect.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             WarNationSelect.Size = new Size(391, 407);
             WarNationSelect.TabIndex = 47;
+            WarNationSelect.CellEndEdit += WarParticipantsModified;
             // 
             // WarNationID
             // 
@@ -1509,6 +1584,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarsTable.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             WarsTable.Size = new Size(479, 300);
             WarsTable.TabIndex = 31;
+            WarsTable.RowEnter += WarsTable_RowEnter;
             // 
             // Attackers
             // 
@@ -1540,6 +1616,7 @@ namespace AoC_Advanced_Scenario_Editor
             MergeWars.TabIndex = 46;
             MergeWars.Values.DropDownArrowColor = Color.Empty;
             MergeWars.Values.Text = "Merge Selected";
+            MergeWars.Click += MergeWars_Click;
             // 
             // RemoveWar
             // 
@@ -1550,6 +1627,7 @@ namespace AoC_Advanced_Scenario_Editor
             RemoveWar.TabIndex = 45;
             RemoveWar.Values.DropDownArrowColor = Color.Empty;
             RemoveWar.Values.Text = "Remove Selected";
+            RemoveWar.Click += RemoveWar_Click;
             // 
             // AddWar
             // 
@@ -1560,6 +1638,7 @@ namespace AoC_Advanced_Scenario_Editor
             AddWar.TabIndex = 44;
             AddWar.Values.DropDownArrowColor = Color.Empty;
             AddWar.Values.Text = "Add new";
+            AddWar.Click += AddWar_Click;
             // 
             // ToDeath
             // 
@@ -1570,6 +1649,7 @@ namespace AoC_Advanced_Scenario_Editor
             ToDeath.TabIndex = 31;
             ToDeath.Values.DropDownArrowColor = Color.Empty;
             ToDeath.Values.Text = "To death";
+            ToDeath.Click += WarDetailsModified;
             // 
             // WarEndDay
             // 
@@ -1582,6 +1662,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarEndDay.Size = new Size(47, 22);
             WarEndDay.TabIndex = 42;
             WarEndDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            WarEndDay.ValueChanged += WarDetailsModified;
             // 
             // WarStartDay
             // 
@@ -1594,6 +1675,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarStartDay.Size = new Size(47, 22);
             WarStartDay.TabIndex = 43;
             WarStartDay.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            WarStartDay.ValueChanged += WarDetailsModified;
             // 
             // WarEndYear
             // 
@@ -1606,6 +1688,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarEndYear.Size = new Size(80, 22);
             WarEndYear.TabIndex = 40;
             WarEndYear.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            WarEndYear.ValueChanged += WarDetailsModified;
             // 
             // WarStartYear
             // 
@@ -1618,6 +1701,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarStartYear.Size = new Size(80, 22);
             WarStartYear.TabIndex = 41;
             WarStartYear.Value = new decimal(new int[] { 0, 0, 0, 0 });
+            WarStartYear.ValueChanged += WarDetailsModified;
             // 
             // WarEndMonth
             // 
@@ -1628,6 +1712,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarEndMonth.Size = new Size(120, 22);
             WarEndMonth.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             WarEndMonth.TabIndex = 39;
+            WarEndMonth.SelectedIndexChanged += WarDetailsModified;
             // 
             // WarStartMonth
             // 
@@ -1638,6 +1723,7 @@ namespace AoC_Advanced_Scenario_Editor
             WarStartMonth.Size = new Size(120, 22);
             WarStartMonth.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             WarStartMonth.TabIndex = 38;
+            WarStartMonth.SelectedIndexChanged += WarDetailsModified;
             // 
             // kryptonLabel24
             // 
@@ -1652,8 +1738,17 @@ namespace AoC_Advanced_Scenario_Editor
             // InfoTab
             // 
             InfoTab.AutoHiddenSlideSize = new Size(200, 200);
-            InfoTab.Controls.Add(AboutGroupBox);
-            InfoTab.Controls.Add(HelpGroupBox);
+            InfoTab.Controls.Add(kryptonLabel31);
+            InfoTab.Controls.Add(KryptonLink);
+            InfoTab.Controls.Add(kryptonLabel30);
+            InfoTab.Controls.Add(ConverterLink);
+            InfoTab.Controls.Add(FlagEditorLink);
+            InfoTab.Controls.Add(kryptonLabel29);
+            InfoTab.Controls.Add(DiscordLink);
+            InfoTab.Controls.Add(kryptonLabel26);
+            InfoTab.Controls.Add(kryptonLabel27);
+            InfoTab.Controls.Add(ReadmeLink);
+            InfoTab.Controls.Add(kryptonLabel28);
             InfoTab.Flags = 65534;
             InfoTab.LastVisibleSet = true;
             InfoTab.MinimumSize = new Size(150, 50);
@@ -1663,21 +1758,102 @@ namespace AoC_Advanced_Scenario_Editor
             InfoTab.ToolTipTitle = "Page ToolTip";
             InfoTab.UniqueName = "847c70162d194074a559299725d06422";
             // 
-            // AboutGroupBox
+            // kryptonLabel31
             // 
-            AboutGroupBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            AboutGroupBox.Location = new Point(3, 258);
-            AboutGroupBox.Size = new Size(876, 152);
-            AboutGroupBox.TabIndex = 32;
-            AboutGroupBox.Values.Heading = "About";
+            kryptonLabel31.Location = new Point(333, 326);
+            kryptonLabel31.Name = "kryptonLabel31";
+            kryptonLabel31.Size = new Size(418, 36);
+            kryptonLabel31.TabIndex = 35;
+            kryptonLabel31.Values.Text = "JokuPelle for creating a wonderful space in and around this game\r\nThe AoC community for supporting me and my silly projects over the years";
             // 
-            // HelpGroupBox
+            // KryptonLink
             // 
-            HelpGroupBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            HelpGroupBox.Location = new Point(3, 3);
-            HelpGroupBox.Size = new Size(876, 250);
-            HelpGroupBox.TabIndex = 31;
-            HelpGroupBox.Values.Heading = "Help and Resources";
+            KryptonLink.Location = new Point(152, 366);
+            KryptonLink.Name = "KryptonLink";
+            KryptonLink.Size = new Size(84, 20);
+            KryptonLink.TabIndex = 33;
+            KryptonLink.Values.Text = "Krypton Suite";
+            KryptonLink.LinkClicked += KryptonLink_LinkClicked;
+            // 
+            // kryptonLabel30
+            // 
+            kryptonLabel30.LabelStyle = Krypton.Toolkit.LabelStyle.BoldPanel;
+            kryptonLabel30.Location = new Point(152, 306);
+            kryptonLabel30.Name = "kryptonLabel30";
+            kryptonLabel30.Size = new Size(39, 20);
+            kryptonLabel30.TabIndex = 35;
+            kryptonLabel30.Values.Text = "1.0.0";
+            // 
+            // ConverterLink
+            // 
+            ConverterLink.Location = new Point(200, 141);
+            ConverterLink.Name = "ConverterLink";
+            ConverterLink.Size = new Size(49, 20);
+            ConverterLink.TabIndex = 36;
+            ConverterLink.Values.Text = "GitHub";
+            ConverterLink.LinkClicked += ConverterLink_LinkClicked;
+            // 
+            // FlagEditorLink
+            // 
+            FlagEditorLink.Location = new Point(200, 171);
+            FlagEditorLink.Name = "FlagEditorLink";
+            FlagEditorLink.Size = new Size(49, 20);
+            FlagEditorLink.TabIndex = 35;
+            FlagEditorLink.Values.Text = "GitHub";
+            FlagEditorLink.LinkClicked += FlagEditorLink_LinkClicked;
+            // 
+            // kryptonLabel29
+            // 
+            kryptonLabel29.AutoSize = false;
+            kryptonLabel29.Location = new Point(8, 306);
+            kryptonLabel29.Name = "kryptonLabel29";
+            kryptonLabel29.Size = new Size(464, 84);
+            kryptonLabel29.TabIndex = 34;
+            kryptonLabel29.Values.Text = "App verison:                                                                                      Special thanks to:\r\n\r\nLead developer:                    Corrupted Matt\r\n\r\nUsing components from: ";
+            // 
+            // DiscordLink
+            // 
+            DiscordLink.Location = new Point(395, 81);
+            DiscordLink.Name = "DiscordLink";
+            DiscordLink.Size = new Size(52, 20);
+            DiscordLink.TabIndex = 32;
+            DiscordLink.Values.Text = "Discord";
+            DiscordLink.LinkClicked += DiscordLink_LinkClicked;
+            // 
+            // kryptonLabel26
+            // 
+            kryptonLabel26.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
+            kryptonLabel26.Location = new Point(4, 4);
+            kryptonLabel26.Name = "kryptonLabel26";
+            kryptonLabel26.Size = new Size(179, 29);
+            kryptonLabel26.TabIndex = 31;
+            kryptonLabel26.Values.Text = "Help and resources";
+            // 
+            // kryptonLabel27
+            // 
+            kryptonLabel27.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
+            kryptonLabel27.Location = new Point(4, 274);
+            kryptonLabel27.Name = "kryptonLabel27";
+            kryptonLabel27.Size = new Size(67, 29);
+            kryptonLabel27.TabIndex = 32;
+            kryptonLabel27.Values.Text = "About";
+            // 
+            // ReadmeLink
+            // 
+            ReadmeLink.Location = new Point(230, 36);
+            ReadmeLink.Name = "ReadmeLink";
+            ReadmeLink.Size = new Size(49, 20);
+            ReadmeLink.TabIndex = 31;
+            ReadmeLink.Values.Text = "GitHub";
+            ReadmeLink.LinkClicked += ReadmeLink_LinkClicked;
+            // 
+            // kryptonLabel28
+            // 
+            kryptonLabel28.Location = new Point(8, 36);
+            kryptonLabel28.Name = "kryptonLabel28";
+            kryptonLabel28.Size = new Size(394, 164);
+            kryptonLabel28.TabIndex = 33;
+            kryptonLabel28.Values.Text = resources.GetString("kryptonLabel28.Values.Text");
             // 
             // kryptonLabel12
             // 
@@ -1730,6 +1906,7 @@ namespace AoC_Advanced_Scenario_Editor
             RunGameButton.TabIndex = 13;
             RunGameButton.Values.DropDownArrowColor = Color.Empty;
             RunGameButton.Values.Text = "Run AoC\r\nvia Steam";
+            RunGameButton.Click += RunGameButton_Click;
             // 
             // GenerateButton
             // 
@@ -1741,6 +1918,7 @@ namespace AoC_Advanced_Scenario_Editor
             GenerateButton.TabIndex = 14;
             GenerateButton.Values.DropDownArrowColor = Color.Empty;
             GenerateButton.Values.Text = "Export";
+            GenerateButton.Click += GenerateButton_Click;
             // 
             // DestinationBrowse
             // 
@@ -1751,6 +1929,7 @@ namespace AoC_Advanced_Scenario_Editor
             DestinationBrowse.TabIndex = 17;
             DestinationBrowse.Values.DropDownArrowColor = Color.Empty;
             DestinationBrowse.Values.Text = "Browse";
+            DestinationBrowse.Click += DestinationBrowse_Click;
             // 
             // DestinationInput
             // 
@@ -1778,6 +1957,7 @@ namespace AoC_Advanced_Scenario_Editor
             ExportAsScenario.Size = new Size(69, 20);
             ExportAsScenario.TabIndex = 28;
             ExportAsScenario.Values.Text = "Scenario";
+            ExportAsScenario.CheckedChanged += ExportTypeChanged;
             // 
             // ExportAsSave
             // 
@@ -1788,6 +1968,15 @@ namespace AoC_Advanced_Scenario_Editor
             ExportAsSave.Size = new Size(48, 20);
             ExportAsSave.TabIndex = 29;
             ExportAsSave.Values.Text = "Save";
+            ExportAsSave.CheckedChanged += ExportTypeChanged;
+            // 
+            // ColorPicker
+            // 
+            ColorPicker.AnyColor = true;
+            ColorPicker.Color = Color.Black;
+            ColorPicker.FullOpen = true;
+            ColorPicker.Icon = (Icon)resources.GetObject("ColorPicker.Icon");
+            ColorPicker.Title = null;
             // 
             // V5UI
             // 
@@ -1810,6 +1999,7 @@ namespace AoC_Advanced_Scenario_Editor
             Name = "V5UI";
             Text = "Advanced Save and Scenario Editor";
             TransparencyKey = Color.Fuchsia;
+            Load += V5UI_Load;
             ((System.ComponentModel.ISupportInitialize)TabSelect).EndInit();
             ((System.ComponentModel.ISupportInitialize)ThemeSwitch).EndInit();
             ThemeSwitch.ResumeLayout(false);
@@ -1852,10 +2042,7 @@ namespace AoC_Advanced_Scenario_Editor
             ((System.ComponentModel.ISupportInitialize)WarStartMonth).EndInit();
             ((System.ComponentModel.ISupportInitialize)InfoTab).EndInit();
             InfoTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)AboutGroupBox.Panel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)AboutGroupBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)HelpGroupBox.Panel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)HelpGroupBox).EndInit();
+            InfoTab.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1938,9 +2125,6 @@ namespace AoC_Advanced_Scenario_Editor
         private Krypton.Toolkit.KryptonLabel kryptonLabel19;
         private Krypton.Toolkit.KryptonPictureBox AlliancePreview;
         private Krypton.Toolkit.KryptonDataGridView AllianceNationSelect;
-        private Krypton.Toolkit.KryptonDataGridViewTextBoxColumn NationID;
-        private Krypton.Toolkit.KryptonDataGridViewTextBoxColumn NationName;
-        private Krypton.Toolkit.KryptonDataGridViewButtonColumn NationColor;
         private Krypton.Toolkit.KryptonDataGridViewNumericUpDownColumn cityX;
         private Krypton.Toolkit.KryptonDataGridViewNumericUpDownColumn cityY;
         private Krypton.Toolkit.KryptonDataGridViewTextBoxColumn CityName;
@@ -1994,7 +2178,20 @@ namespace AoC_Advanced_Scenario_Editor
         private Krypton.Toolkit.KryptonDataGridViewTextBoxColumn Nation;
         private Krypton.Toolkit.KryptonDataGridViewComboBoxColumn Involvement;
         private Krypton.Toolkit.KryptonLabel kryptonLabel25;
-        private Krypton.Toolkit.KryptonGroupBox AboutGroupBox;
-        private Krypton.Toolkit.KryptonGroupBox HelpGroupBox;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel26;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel27;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel28;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel29;
+        private Krypton.Toolkit.KryptonLinkLabel ReadmeLink;
+        private Krypton.Toolkit.KryptonLinkLabel DiscordLink;
+        private Krypton.Toolkit.KryptonLinkLabel KryptonLink;
+        private Krypton.Toolkit.KryptonLinkLabel ConverterLink;
+        private Krypton.Toolkit.KryptonLinkLabel FlagEditorLink;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel30;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel31;
+        private Krypton.Toolkit.KryptonColorDialog ColorPicker;
+        private Krypton.Toolkit.KryptonDataGridViewTextBoxColumn NationID;
+        private Krypton.Toolkit.KryptonDataGridViewTextBoxColumn NationName;
+        private Krypton.Toolkit.KryptonDataGridViewButtonColumn NationColor;
     }
 }
