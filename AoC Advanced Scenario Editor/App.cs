@@ -204,7 +204,7 @@ namespace AoC_Advanced_Scenario_Editor
             }
 
             LoadingFinished = false;
-            ActiveForm.Enabled = false;
+            Enabled = false;
             LoadScenario.Text = "Loading...";
 
 
@@ -223,7 +223,7 @@ namespace AoC_Advanced_Scenario_Editor
             
 
             LoadingFinished = true;
-            ActiveForm.Enabled = true;
+            Enabled = true;
             ExportImage.Enabled = true;
             LoadScenario.Text = "Reload scenario";
             LoadScenario.ForeColor = System.Drawing.Color.Black;            
@@ -850,7 +850,7 @@ namespace AoC_Advanced_Scenario_Editor
             if (ScenarioSelectDialog.ShowDialog() == DialogResult.OK)
             {
                 ImportCities.Text = "Importing...";
-                ActiveForm.Enabled = false;
+                Enabled = false;
 
                 JsonNode CityDonor = JsonNode.Parse(File.ReadAllText(ScenarioSelectDialog.FileName));
                 
@@ -869,7 +869,7 @@ namespace AoC_Advanced_Scenario_Editor
                 CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
 
                 ImportCities.Text = "Import cities";
-                ActiveForm.Enabled = true;
+                Enabled = true;
             }
 
         }

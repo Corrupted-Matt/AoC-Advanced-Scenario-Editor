@@ -94,21 +94,21 @@ namespace AoC_Advanced_Scenario_Editor
                     if (t is TextBox && t.Text == "") t.Focus();
                 }
                 SystemSounds.Hand.Play();
-                MessageBox.Show("Please provide a name and output destination");
+                KryptonMessageBox.Show("Please provide a name and output destination");
                 return;
             }
 
             if (origin == null)
             {
                 SystemSounds.Hand.Play();
-                MessageBox.Show("Please load a scenario first");
+                KryptonMessageBox.Show("Please load a scenario first");
                 return;
             }
 
             if (Directory.Exists(destination + $"\\{name}"))
             {
                 SystemSounds.Hand.Play();
-                if (MessageBox.Show("A save/scenario with this name already exists, do you wish to overwrite it?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                if (KryptonMessageBox.Show("A save/scenario with this name already exists, do you wish to overwrite it?", "Warning", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning, KryptonMessageBoxDefaultButton.Button2) == DialogResult.No)
                     return;
                 else
                     Directory.Delete(destination + $"\\{name}", true);
@@ -134,7 +134,7 @@ namespace AoC_Advanced_Scenario_Editor
             });
 
             SystemSounds.Beep.Play();
-            MessageBox.Show("Your scenario has been exported successfully");
+            KryptonMessageBox.Show("Your scenario has been exported successfully");
             GenerateButton.Enabled = true;
             GenerateButton.Text = "Export\nscenario";
         }
@@ -167,16 +167,19 @@ namespace AoC_Advanced_Scenario_Editor
             else if (e.Delta < 0 && ZoomLevel > 1) ZoomLevel /= 2;
             else return;
 
-            if (TabSelect.SelectedIndex == 1)
+            if (TabSelect.SelectedIndex == 2)
             {
                 JsonNode n = origin["nations"][(int)NationsTable.CurrentRow.Cells[0].Value - 1];
                 int x = (int)n["pos"]["x"];
                 int y = (int)n["pos"]["y"];
+
                 NationPreview.Image = DrawZoomedMap(origin, x, y);
             }
 
-            if (TabSelect.SelectedIndex == 2)
+            if (TabSelect.SelectedIndex == 3)
+            {
                 CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
+            }
         }
 
         private void RunGameButton_Click(object sender, EventArgs e)
@@ -193,7 +196,7 @@ namespace AoC_Advanced_Scenario_Editor
             {
                 RunGameButton.Enabled = false;
                 SystemSounds.Hand.Play();
-                MessageBox.Show("No Steam installation detected");
+                KryptonMessageBox.Show("No Steam installation detected");
             }
         }
 
@@ -206,7 +209,7 @@ namespace AoC_Advanced_Scenario_Editor
             if (LoadingFinished)
             {
                 SystemSounds.Hand.Play();
-                if (MessageBox.Show("Reloading will discard all of your changes, are you sure you want to reload?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                if (KryptonMessageBox.Show("Reloading will discard all of your changes, are you sure you want to reload?", "Warning", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning, KryptonMessageBoxDefaultButton.Button2) == DialogResult.No)
                     return;
             }
 
@@ -214,7 +217,7 @@ namespace AoC_Advanced_Scenario_Editor
             if (!File.Exists(ScenarioInput.Text))
             {
                 SystemSounds.Hand.Play();
-                MessageBox.Show("Required field is empty or invalid");
+                KryptonMessageBox.Show("Required field is empty or invalid");
                 ScenarioInput.Focus();
                 return;
             }
@@ -234,14 +237,14 @@ namespace AoC_Advanced_Scenario_Editor
             catch (NullReferenceException)
             {
                 SystemSounds.Hand.Play();
-                MessageBox.Show("Save/scenario component missing.\nThis usually happens when opening a file made in older versions of the game, try saving in the newest version");
+                KryptonMessageBox.Show("Save/scenario component missing.\nThis usually happens when opening a file made in older versions of the game, try saving in the newest version");
             }
 
 
             LoadingFinished = true;
             ActiveForm.Enabled = true;
             ExportImage.Enabled = true;
-            LoadScenario.Text = "Reload scenario";
+            LoadScenario.Text = "Reload";
             LoadScenario.ForeColor = System.Drawing.Color.Black;
         }
 
@@ -281,10 +284,9 @@ namespace AoC_Advanced_Scenario_Editor
             if (!LoadingFinished)
                 return;
 
-            if (LoadScenario.Text == "Reload scenario")
+            if (LoadScenario.Text == "Reload")
             {
                 LoadScenario.Text = "Reload required";
-                LoadScenario.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
@@ -550,7 +552,7 @@ namespace AoC_Advanced_Scenario_Editor
         private void PasteNationNames_Click(object sender, EventArgs e)
         {
             SystemSounds.Hand.Play();
-            if (MessageBox.Show("This will overwrite all nation names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (KryptonMessageBox.Show("This will overwrite all nation names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning, KryptonMessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
             int i = 0;
@@ -578,7 +580,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             foreach (var c in Scenario["cities"].AsArray())
             {
-                CitiesTable.Rows.Add((int)c["x"], (int)c["y"], c["n"]);
+                CitiesTable.Rows.Add((int)c["x"], (int)c["y"], c["n"], CityRightfulOwner.Items[(int)c["r"]]);
             }
             LoadingFinished = true;
         }
@@ -608,11 +610,7 @@ namespace AoC_Advanced_Scenario_Editor
             JsonNode city = origin["cities"].AsArray()[e.RowIndex];
 
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
-            CityRightfulOwner.SelectedIndex = (int)city["r"];
             CityRevoltChance.Value = (int)city["rp"];
-
-            if (CityRightfulOwner.SelectedIndex == 0) CityRightfulOwner.BackColor = Color.LightYellow;
-            else CityRightfulOwner.BackColor = Color.White;
 
             LoadingFinished = true;
         }
@@ -625,7 +623,6 @@ namespace AoC_Advanced_Scenario_Editor
 
             JsonArray Cities = origin["cities"].AsArray();
             var SortedCities = new JsonArray();
-            int s = e.RowIndex;
 
             switch (CitiesTable.SortedColumn.Index)
             {
@@ -661,6 +658,18 @@ namespace AoC_Advanced_Scenario_Editor
                         }
                     else
                         foreach (var city in Cities.OrderByDescending(city => (string)city["n"]))
+                        {
+                            SortedCities.Add(city.DeepClone());
+                        }
+                    break;
+                case 3:
+                    if (CitiesTable.SortOrder == SortOrder.Ascending)
+                        foreach (var city in Cities.OrderBy(city => (string)CityRightfulOwner.Items[(int)city["r"]]))
+                        {
+                            SortedCities.Add(city.DeepClone());
+                        }
+                    else
+                        foreach (var city in Cities.OrderByDescending(city => (string)CityRightfulOwner.Items[(int)city["r"]]))
                         {
                             SortedCities.Add(city.DeepClone());
                         }
@@ -733,6 +742,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             city["x"] = int.Parse(CitiesTable.CurrentRow.Cells[0].Value.ToString());
             city["y"] = int.Parse(CitiesTable.CurrentRow.Cells[1].Value.ToString());
+            city["r"] = CityRightfulOwner.Items.IndexOf(CitiesTable.CurrentRow.Cells[2].Value);
 
             DrawGlobalMaps(origin);
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
@@ -750,8 +760,6 @@ namespace AoC_Advanced_Scenario_Editor
                 city["rp"] = (int)CityRevoltChance.Value;
                 return;
             }
-
-            city["r"] = CityRightfulOwner.SelectedIndex;
 
             DrawGlobalMaps(origin);
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
@@ -774,7 +782,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             JsonNode city = origin["cities"].AsArray()[CitiesTable.CurrentRow.Index];
             int n = OwnerRaw[(int)origin["width"] * (int)city["y"] + (int)city["x"]];
-            CityRightfulOwner.SelectedIndex = n;
+            CitiesTable.CurrentRow.Cells[2].Value = CityRightfulOwner.Items[n];
 
             switch (ModifierKeys)
             {
@@ -809,7 +817,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             JsonNode city = origin["cities"].AsArray()[CitiesTable.CurrentRow.Index];
             int n = OwnerRaw[(int)origin["width"] * (int)city["y"] + (int)city["x"]];
-            CityRightfulOwner.SelectedIndex = 0;
+            CitiesTable.CurrentRow.Cells[2].Value = CityRightfulOwner.Items[0];
 
             switch (ModifierKeys)
             {
@@ -840,7 +848,7 @@ namespace AoC_Advanced_Scenario_Editor
         private void PasteCityNames_Click(object sender, EventArgs e)
         {
             SystemSounds.Hand.Play();
-            if (MessageBox.Show("This will overwrite all city names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (KryptonMessageBox.Show("This will overwrite all city names, as they're currently ordered, with ones from your clipboard, proceed?", "Warning", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning, KryptonMessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
             int i = 0;
@@ -857,7 +865,7 @@ namespace AoC_Advanced_Scenario_Editor
         private void ImportCities_Click(object sender, EventArgs e)
         {
             SystemSounds.Hand.Play();
-            if (MessageBox.Show("This will add all cities from chosen scenario that don't overwrite cities in the current scenario, omitting their rightful owners, proceed?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            if (KryptonMessageBox.Show("This will add all cities from chosen scenario that don't overwrite cities in the current scenario, omitting their rightful owners, proceed?", "Warning", KryptonMessageBoxButtons.YesNo, KryptonMessageBoxIcon.Warning, KryptonMessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
             OpenFileDialog ScenarioSelectDialog = new()
@@ -1093,6 +1101,30 @@ namespace AoC_Advanced_Scenario_Editor
             origin["alliances"].AsArray().RemoveAt(e.RowIndex);
             DrawGlobalMaps(origin);
             UpdateStats(origin);
+        }
+
+        private void AlliancesTable_Sorted(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (!LoadingFinished || e.ColumnIndex != 0)
+                return;
+
+            JsonArray Alliances = origin["alliances"].AsArray();
+            var SortedAlliances = new JsonArray();
+
+            if(AlliancesTable.SortOrder == SortOrder.Ascending)
+            {
+                foreach (var a in Alliances.OrderBy(a => (string)a["name"]))
+                {
+                    SortedAlliances.Add(a.DeepClone());
+                }
+            }
+            else
+            {
+                foreach (var a in Alliances.OrderByDescending(a => (string)a["name"]))
+                {
+                    SortedAlliances.Add(a.DeepClone());
+                }
+            }
         }
 
         #endregion
@@ -1787,7 +1819,7 @@ namespace AoC_Advanced_Scenario_Editor
             Bitmap minimapUpscaled = new(minimap.Width * ZoomLevel, minimap.Height * ZoomLevel);
             Bitmap grid = new(minimap.Width * ZoomLevel, minimap.Height * ZoomLevel);
 
-            if (ShowGrid.Checked && TabSelect.SelectedIndex == 2)
+            if (ShowGrid.Checked && TabSelect.SelectedIndex == 3)
                 using (Graphics g = Graphics.FromImage(grid))
                 {
                     if (ZoomLevel >= 8)
