@@ -16,7 +16,7 @@ namespace AoC_Advanced_Scenario_Editor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new App());
+            Application.Run(new V5UI());
         }
     }
 }

@@ -69,13 +69,15 @@ namespace AoC_Advanced_Scenario_Editor
             if (TabSelect.Pages[0].Text == "☼")
             {
                 Theme.GlobalPaletteMode = PaletteMode.Microsoft365White;
-                TabSelect.StateSelected.CheckButton.Back.Color1 = Color.FromArgb(255, 192, 128);
+                TabSelect.StateSelected.CheckButton.Back.Color1 = Color.FromArgb(255, 164, 100);
+                TabSelect.StateSelected.CheckButton.Back.Color2 = Color.FromArgb(255, 164, 100);
                 TabSelect.Pages[0].Text = "●";
             }
             else
             {
                 Theme.GlobalPaletteMode = PaletteMode.Microsoft365BlackDarkModeAlternate;
                 TabSelect.StateSelected.CheckButton.Back.Color1 = Color.FromArgb(192, 64, 0);
+                TabSelect.StateSelected.CheckButton.Back.Color2 = Color.FromArgb(192, 64, 0);
                 TabSelect.Pages[0].Text = "☼";
             }
 
@@ -223,7 +225,7 @@ namespace AoC_Advanced_Scenario_Editor
             }
 
             LoadingFinished = false;
-            ActiveForm.Enabled = false;
+            Enabled = false;
             LoadScenario.Text = "Loading...";
 
 
@@ -242,7 +244,7 @@ namespace AoC_Advanced_Scenario_Editor
 
 
             LoadingFinished = true;
-            ActiveForm.Enabled = true;
+            Enabled = true;
             ExportImage.Enabled = true;
             LoadScenario.Text = "Reload";
             LoadScenario.ForeColor = System.Drawing.Color.Black;
@@ -742,7 +744,13 @@ namespace AoC_Advanced_Scenario_Editor
 
             city["x"] = int.Parse(CitiesTable.CurrentRow.Cells[0].Value.ToString());
             city["y"] = int.Parse(CitiesTable.CurrentRow.Cells[1].Value.ToString());
-            city["r"] = CityRightfulOwner.Items.IndexOf(CitiesTable.CurrentRow.Cells[2].Value);
+            if(CityRightfulOwner.Items.IndexOf(CitiesTable.CurrentRow.Cells[3].Value) != -1)
+                city["r"] = CityRightfulOwner.Items.IndexOf(CitiesTable.CurrentRow.Cells[3].Value);
+            else
+            {
+                city["r"] = 0;
+                CitiesTable.CurrentRow.Cells[3].Value = CityRightfulOwner.Items[0];
+            }
 
             DrawGlobalMaps(origin);
             CityPreview.Image = DrawZoomedMap(origin, (int)city["x"], (int)city["y"]);
@@ -878,7 +886,7 @@ namespace AoC_Advanced_Scenario_Editor
             if (ScenarioSelectDialog.ShowDialog() == DialogResult.OK)
             {
                 ImportCities.Text = "Importing...";
-                ActiveForm.Enabled = false;
+                Enabled = false;
 
                 JsonNode CityDonor = JsonNode.Parse(File.ReadAllText(ScenarioSelectDialog.FileName));
 
@@ -897,7 +905,7 @@ namespace AoC_Advanced_Scenario_Editor
                 CityPreview.Image = DrawZoomedMap(origin, (int)CitiesTable.CurrentRow.Cells[0].Value, (int)CitiesTable.CurrentRow.Cells[1].Value);
 
                 ImportCities.Text = "Import cities";
-                ActiveForm.Enabled = true;
+                Enabled = true;
             }
 
         }
@@ -1080,7 +1088,7 @@ namespace AoC_Advanced_Scenario_Editor
                 return;
 
             JsonNode alliance = origin["alliances"].AsArray()[e.RowIndex];
-
+            
             ColorPicker.Color = Color.FromArgb((int)((float)alliance["color"]["r"] * 255), (int)((float)alliance["color"]["g"] * 255), (int)((float)alliance["color"]["b"] * 255));
             if (ColorPicker.ShowDialog() == DialogResult.OK)
             {
@@ -1164,6 +1172,9 @@ namespace AoC_Advanced_Scenario_Editor
             LoadingFinished = false;
             PuppetInfoSource = sender as DataGridView;
             JsonNode nation = origin["nations"].AsArray()[(int)PuppetInfoSource.Rows[e.RowIndex].Cells[0].Value - 1];
+
+            if (PuppetInfoSource == PuppetsTable) PuppetsOverview.ClearSelection();
+            else PuppetsTable.ClearSelection();
 
             if (nation == null)
             {
@@ -1346,13 +1357,11 @@ namespace AoC_Advanced_Scenario_Editor
             WarEndMonth.SelectedIndex = end.Month - 1;
             WarEndDay.Value = end.Day;
 
-            foreach (var n in origin["nations"].AsArray())
-            {
-                WarNationSelect.Rows[(int)n["id"] - 1].Cells[2].Value = Involvement.Items[0];
-            }
-
             foreach (DataGridViewRow r in WarNationSelect.Rows)
             {
+                
+                r.Cells[2].Value = Involvement.Items[0];
+
                 if (w["attackers"].AsArray().FirstOrDefault(n => n.GetValue<int>() == (int)r.Cells[0].Value) != default)
                     r.Cells[2].Value = Involvement.Items[2];
                 if (w["defenders"].AsArray().FirstOrDefault(n => n.GetValue<int>() == (int)r.Cells[0].Value) != default)
@@ -1361,7 +1370,11 @@ namespace AoC_Advanced_Scenario_Editor
                     r.Cells[2].Value = Involvement.Items[1];
                 if (w["defendersLeft"].AsArray().FirstOrDefault(n => n.GetValue<int>() == (int)r.Cells[0].Value) != default)
                     r.Cells[2].Value = Involvement.Items[3];
+
+                WarNationSelect.UpdateCellValue(2, r.Index);
             }
+
+            WarNationSelect.Sort(WarNationSelect.Columns[2], System.ComponentModel.ListSortDirection.Ascending);
             LoadingFinished = true;
         }
 
