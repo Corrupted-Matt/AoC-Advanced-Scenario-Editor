@@ -790,7 +790,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             JsonNode city = origin["cities"].AsArray()[CitiesTable.CurrentRow.Index];
             int n = OwnerRaw[(int)origin["width"] * (int)city["y"] + (int)city["x"]];
-            CitiesTable.CurrentRow.Cells[2].Value = CityRightfulOwner.Items[n];
+            CitiesTable.CurrentRow.Cells[3].Value = CityRightfulOwner.Items[n];
 
             switch (ModifierKeys)
             {
@@ -825,7 +825,7 @@ namespace AoC_Advanced_Scenario_Editor
 
             JsonNode city = origin["cities"].AsArray()[CitiesTable.CurrentRow.Index];
             int n = OwnerRaw[(int)origin["width"] * (int)city["y"] + (int)city["x"]];
-            CitiesTable.CurrentRow.Cells[2].Value = CityRightfulOwner.Items[0];
+            CitiesTable.CurrentRow.Cells[3].Value = CityRightfulOwner.Items[0];
 
             switch (ModifierKeys)
             {
